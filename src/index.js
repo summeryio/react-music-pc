@@ -32,6 +32,8 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+        console.log(111);
+        
         axios.get(`${URL_HEADER}/login/status`, {withCredentials: true}).then((res) => {
             
             if (res.status === HTTP_SUCCESS_CODE) {
