@@ -501,31 +501,6 @@ button, input {
 	border-width: 0 1px;
 	background-color: #fff;
 }
-.home-bd {
-	background: url(../img/wrap_1.png) repeat-y 100% 100%;
-}
-.topList-bd {
-	background: url(../img/wrap_3.png) repeat-y 100% 100%;
-}
-.main-content {
-}
-.g-bd__l .main-content {
-	margin-left: 251px;
-}
-.g-bd__r .main-content {
-	margin-right: 251px;
-}
-.main-siderBar {
-	position: absolute;
-	top: 0;
-	width: 251px;
-}
-.g-bd__l .main-siderBar {
-	left: 0;
-}
-.g-bd__r .main-siderBar {
-	right: 0;
-}
 
 // 底部
 #footer {
@@ -657,7 +632,13 @@ button, input {
 	}
 }
 #home_page {
+	.home-bd {
+		background: url(../img/wrap_1.png) repeat-y 100% 100%;
+	}
+	
 	.main-content {
+		margin-right: 251px;
+		
 		& > .inner {
 			padding: 20px 20px 40px;
 		}
@@ -1079,6 +1060,9 @@ button, input {
 		}
 	}
 	.main-siderBar {
+		position: absolute;
+		top: 0;
+		right: 0;
 		width: 250px;
 		
 		.user {
@@ -1289,9 +1273,177 @@ button, input {
 
 // =============排行榜=============
 #topList_page {
+	.topList-bd {
+		background: url(../img/wrap_3.png) repeat-y 100% 100%;
+	}
+	
 	.main-content {
-		margin-left: 241px;
-	}	
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 740px;
+
+		.inner {
+			padding: 39px 30px 0 39px;
+		}
+	}
+	.summary {
+		height: 200px;
+		
+		.pic {
+			position: relative;
+			float: left;
+			padding: 3px;
+			border: 1px solid #ccccca;
+			
+			img {
+				width: 150px;
+				height: 150px;
+			}
+			.mask {
+				position: absolute;
+				left: 3px;
+				top: 3px;
+				width: 150px;
+				height: 150px;
+				background-position: -230px -380px;
+			}
+		}
+		.info {
+			float: left;
+			margin-left: 28px;
+			
+			h3 {
+				margin-top: 16px;
+				font-size: 20px;
+				line-height: 24px;
+			}
+			.time {
+				line-height: 40px;
+				color: #666;
+
+				i {
+					display: inline-block;
+					position: relative;
+					top: 2px;
+					width: 13px;
+					height: 13px;
+					margin: 2px 5px 0 0;
+					background-position: -18px -682px;
+				}
+				span {
+					color: #999;
+				}
+			}
+		}
+		.operation {
+			margin-top: 19px;
+			
+			.u-btn2 {
+				float: left;
+			}
+			a {}
+			.add-play {
+				color: #fff;
+				background-position: right -428px;
+
+				&:hover {
+					background-position: right -510px;
+
+					i {
+						background-position: 0 -469px;
+					}
+					.play {
+						background-position: -14px -719px;
+					}
+				}
+				&:active {
+					background-position: right -592px;
+
+					i {
+						background-position: 0 -551px;
+					}
+					.play {
+						background-position: -14px -805px;
+					}
+				}
+				i {
+					padding: 0 7px 0 8px;
+					background-position: 0 -387px;
+				}
+				.play {
+					float: left;
+					width: 16px;
+					height: 30px;
+					background-position: -14px -633px;
+				}
+			}
+			.add {
+				width: 32px;
+				height: 30px;
+				margin-left: -3px;
+				margin-right: 5px;
+				padding-right: 0;
+				background-position: 0 -1588px;
+				
+				&:hover {
+					background-position: -40px -1588px;
+				}
+				&:active {
+					background-position: -80px -1588px;
+				}
+			}
+			.u-btni {
+				margin-right: 6px;
+
+				&:hover {
+					background-position: right -1106px;
+				}
+			}
+			.u-btni {
+				min-width: 23px;
+				background-position: right -1020px;
+			}
+			.u-btni i {
+				min-width: 23px;
+				padding-left: 28px;
+				padding-right: 2px;
+			}
+			.collect {
+				
+				i {
+					background-position: 0 -977px;
+				}
+				&:hover i {
+					background-position: 0 -1063px;
+				}
+			}
+			.share {
+				i {
+					background-position: 0 -1225px;
+				}
+				&:hover i {
+					background-position: 0 -1268px;
+				}
+			}
+			.download {
+				i {
+					background-position: 0 -2761px;
+				}
+				&:hover i {
+					background-position: 0 -2805px;
+				}
+			}
+			.comment {
+				i {
+					background-position: 0 -1465px;
+				}
+				&:hover i {
+					background-position: 0 -1508px;
+				}
+			}
+		}
+	}
 	.main-siderBar {
 		width: 240px;
 		padding-top: 28px;
@@ -1302,39 +1454,36 @@ button, input {
 			font-weight: bold;
 			font-size: 14px;
 		}
-		ul {
-			li {
+		li {
+			height: 40px;
+			padding: 10px 0 10px 20px;
+			cursor: pointer;
+			
+			&:hover {
+				background-color: #f4f2f2;
+			}
+			&.active, &.active:hover {
+				background-color: #e6e6e6;
+			}
+		}
+		.pic {
+			float: left;
+			padding-right: 8px;
+
+			img {
+				width: 40px;
 				height: 40px;
-				padding: 10px 0 10px 20px;
-				cursor: pointer;
-				
-				&:hover {
-					background-color: #f4f2f2;
-				}
-				&.active, &.active:hover {
-					background-color: #e6e6e6;
-				}
 			}
-			.pic {
-				float: left;
-				padding-right: 8px;
-
-				img {
-					width: 40px;
-					height: 40px;
-				}
-			}
-			.info {
-				float: left;
-
-				.name {
-					line-height: 20px;
-				}
-				.tip {
-					padding-top: 8px;
-					color: #999;
-				}
-			}
+		}
+		.info {
+			float: left;
+		}
+		.name {
+			line-height: 20px;
+		}
+		.tip {
+			padding-top: 8px;
+			color: #999;
 		}
 	}
 }

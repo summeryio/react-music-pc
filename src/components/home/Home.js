@@ -63,7 +63,7 @@ class Home extends Component {
                 }}
             >
                 <Banner datas={bannerData} />
-                <main id="main" className="g-bd g-bd__r home-bd">
+                <main id="main" className="g-bd home-bd">
                     <div className="main-content">
                         <div className="inner">
                             <PlayList {...{playListTag, playListData}} />
