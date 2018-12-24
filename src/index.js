@@ -35,7 +35,6 @@ export default class App extends Component {
         axios.get(`${URL_HEADER}/login/status`, {withCredentials: true}).then((res) => {
             
             if (res.status === HTTP_SUCCESS_CODE) {
-                console.log(res);
                 this.setState({
                     user: {
                         code: res.status,

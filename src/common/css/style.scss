@@ -1169,8 +1169,7 @@ button, input {
 							}
 						}
 						i {
-							// padding: 0 15px 0 20px;
-							width: 95px;
+							width: 85px;
 							background-position: 0 -387px;
 						}
 					}
@@ -1286,3 +1285,57 @@ button, input {
 	}
 }
 // =============首页=============
+
+
+// =============排行榜=============
+#topList_page {
+	.main-content {
+		margin-left: 241px;
+	}	
+	.main-siderBar {
+		width: 240px;
+		padding-top: 28px;
+
+		h4 {
+			text-indent: 15px;
+			line-height: 44px;
+			font-weight: bold;
+			font-size: 14px;
+		}
+		ul {
+			li {
+				height: 40px;
+				padding: 10px 0 10px 20px;
+				cursor: pointer;
+				
+				&:hover {
+					background-color: #f4f2f2;
+				}
+				&.active, &.active:hover {
+					background-color: #e6e6e6;
+				}
+			}
+			.pic {
+				float: left;
+				padding-right: 8px;
+
+				img {
+					width: 40px;
+					height: 40px;
+				}
+			}
+			.info {
+				float: left;
+
+				.name {
+					line-height: 20px;
+				}
+				.tip {
+					padding-top: 8px;
+					color: #999;
+				}
+			}
+		}
+	}
+}
+// =============排行榜=============

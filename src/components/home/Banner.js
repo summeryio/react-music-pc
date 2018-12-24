@@ -8,7 +8,7 @@ export default class Banner extends Component {
         super(props)
 
         this.state = {
-            sliderIndex: 1,
+            sliderIndex: 3,
             nowImageUrl: '',
             sliderNum: 0,
             themeColor: ''
