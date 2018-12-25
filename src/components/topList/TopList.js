@@ -5,7 +5,8 @@ import * as actions from './TopListRedux'
 
 import PublicModule from 'common/component/PublicModule'
 import SiderBarList from './SiderBarList'
-import Summary from './Summary'
+import SongSummary from './SongSummary'
+import SongList from './SongList'
 
 class TopList extends Component {
     constructor(props) {
@@ -35,7 +36,8 @@ class TopList extends Component {
                     </div>
                     <div className="main-content">
                         <div className="inner">
-                            <Summary />
+                            <SongSummary />
+                            <SongList />
                         </div>
                     </div>
                 </main>

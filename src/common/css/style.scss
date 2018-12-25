@@ -44,6 +44,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	table-layout: fixed;
 }
 a {
     text-decoration: none;
@@ -63,8 +64,7 @@ html, body {
 body {
 	overflow-x: hidden;
 	min-width: 982px;
-	// font-family: Open Sans,Microsoft Yahei,sans-serif;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Microsoft YaHei', "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
 	font-size: 12px;
 	background-color: #f5f5f5;
 
@@ -525,6 +525,76 @@ button, input {
 		background-position: -325px -47px;
 	}
 }
+
+// 歌曲列表table
+#m_table {
+	width: 100%;
+	border: 1px solid #d9d9d9;
+
+	th, th .key, .play {
+		background-image: url(../img/icon-table.png);
+		background-repeat: no-repeat;
+	}
+
+	th {
+		height: 38px;
+		color: #666;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		background-repeat: repeat-x; 
+
+		&.first {
+			width: 77px;
+		}
+		&.t2 {
+			width: 91px;
+		}
+		&.t3 {
+			width: 93px;
+		}
+		
+		.key {
+			padding: 8px 10px;
+			height: 18px;
+			line-height: 18px;
+			background-position: 0 -56px;
+		}
+	}
+	
+	tbody {
+		tr.even {
+			background-color: #f7f7f7;
+		}
+		td {
+			padding: 6px 10px;
+			line-height: 18px;
+			text-align: left;
+		}
+		.title {
+			float: left;
+			width: 100%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+
+			.pic {
+				float: left;
+				margin-right: 14px;
+				
+				img {
+					width: 50px;
+					height: 50px;
+				}
+			}
+			.play {
+				float: left;
+				width: 17px;
+				height: 17px;
+				background-position: -20px -128px;
+			}
+		}
+	}
+}
 // =============公共模块=============
 
 
@@ -772,9 +842,7 @@ button, input {
 			.day {
 				line-height: 102px;
 				font-size: 94px;
-				font-weight: bold;
 				text-align: center;
-				font-family: Arial, Helvetica, sans-serif;
 			}
 			.date-mask {
 				position: absolute;
@@ -1287,7 +1355,7 @@ button, input {
 			padding: 39px 30px 0 39px;
 		}
 	}
-	.summary {
+	.song-summary {
 		height: 200px;
 		
 		.pic {
@@ -1410,7 +1478,6 @@ button, input {
 				padding-right: 2px;
 			}
 			.collect {
-				
 				i {
 					background-position: 0 -977px;
 				}
@@ -1441,6 +1508,30 @@ button, input {
 				&:hover i {
 					background-position: 0 -1508px;
 				}
+			}
+		}
+	}
+	.song-list {
+		.top {
+			height: 31px;
+			line-height: 24px;
+			border-bottom: 2px solid #c20c0c;
+			
+			h3 {
+				float: left;
+				font-size: 20px;
+			}
+			.sont-num {
+				float: left;
+				padding-left: 20px;
+				line-height: 31px;
+				color: #666;
+			}
+			.play-num {
+				float: right;
+			}
+			span {
+				color: #c20c0c;
 			}
 		}
 	}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Summary extends Component {
+export default class SongSummary extends Component {
     render() {
         return (
-            <div className="summary">
+            <div className="song-summary">
                 <div className="pic">
                     <img src="http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=150y150" alt=""/>
                     <span className="mask icon-coverall"></span>
