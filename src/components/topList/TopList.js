@@ -21,6 +21,7 @@ class TopList extends Component {
 
     render() {
         let {tagList} = this.props.topList
+        console.log(tagList);
         
         return (
             <PublicModule 
