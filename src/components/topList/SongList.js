@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 
 export default class SongList extends Component {
     render() {
+        let {dataList} = this.props
+        console.log(dataList);
+        
         return (
             <div className="song-list">
                 <div className="top">
                     <h3>歌曲列表</h3>
-                    <p className="sont-num">99首歌</p>
-                    <p className="play-num">播放：<span>1541570304</span>次</p>
+                    <p className="sont-num">{dataList.trackCount}首歌</p>
+                    <p className="play-num">播放：<span>{dataList.playCount}</span>次</p>
                 </div>
                 <div className="cont">
                     <table id="m_table">
@@ -20,97 +23,46 @@ export default class SongList extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="even">
-                                <td>
-                                    <span className="no">1</span>
-                                    <i className="icon-six status"></i>
-                                </td>
-                                <td className="title">
-                                    <div>
-                                        <a href="#" className="pic"><img src="http://p2.music.126.net/ItdXJn0S2HknmSLKPOHYyw==/109951163739049215.jpg?param=50y50&quality=100" alt=""/></a>
-                                        <i className="play play-active"></i>
-                                        <a href="#" className="name">When It's Christmas</a>
-                                    </div>
-                                </td>
-                                <td className="time">
-                                    <span>03:36</span>
-                                    <div className="oper">
-                                        <a href="javascript: void(0);" className="add"></a>
-                                        <a href="javascript: void(0);" className="collect"></a>
-                                        <a href="javascript: void(0);" className="share"></a>
-                                        <a href="javascript: void(0);" className="download"></a>
-                                    </div>
-                                </td>
-                                <td><a href="#">张艺兴</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span className="no">1</span>
-                                    <i className="icon-six status"></i>
-                                </td>
-                                <td>
-                                    <div className="title">
-                                        <a href="#" className="pic"><img src="http://p2.music.126.net/ItdXJn0S2HknmSLKPOHYyw==/109951163739049215.jpg?param=50y50&quality=100" alt=""/></a>
-                                        <i className="play play-active"></i>
-                                        <a href="#" className="name">When It's Christmas</a>
-                                    </div>
-                                </td>
-                                <td className="time">
-                                    <span>03:36</span>
-                                    <div className="oper">
-                                        <a href="javascript: void(0);" className="add"></a>
-                                        <a href="javascript: void(0);" className="collect"></a>
-                                        <a href="javascript: void(0);" className="share"></a>
-                                        <a href="javascript: void(0);" className="download"></a>
-                                    </div>
-                                </td>
-                                <td><a href="#">张艺兴</a></td>
-                            </tr>
-                            <tr className="even">
-                                <td>
-                                    <span className="no">1</span>
-                                    <i className="icon-six status"></i>
-                                </td>
-                                <td>
-                                    <div className="title">
-                                        <a href="#" className="pic"><img src="http://p2.music.126.net/ItdXJn0S2HknmSLKPOHYyw==/109951163739049215.jpg?param=50y50&quality=100" alt=""/></a>
-                                        <i className="play play-active"></i>
-                                        <a href="#" className="name">When It's Christmas</a>
-                                    </div>
-                                </td>
-                                <td className="time">
-                                    <span>03:36</span>
-                                    <div className="oper">
-                                        <a href="javascript: void(0);" className="add"></a>
-                                        <a href="javascript: void(0);" className="collect"></a>
-                                        <a href="javascript: void(0);" className="share"></a>
-                                        <a href="javascript: void(0);" className="download"></a>
-                                    </div>
-                                </td>
-                                <td><a href="#">张艺兴</a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span className="no">1</span>
-                                    <i className="icon-six status"></i>
-                                </td>
-                                <td>
-                                    <div className="name">
-                                        <i className="play play-active"></i>
-                                        <a href="#" className="name">When It's Christmas</a>
-                                    </div>
-                                </td>
-                                <td className="time">
-                                    <span>03:36</span>
-                                    <div className="oper">
-                                        <a href="javascript: void(0);" className="add"></a>
-                                        <a href="javascript: void(0);" className="collect"></a>
-                                        <a href="javascript: void(0);" className="share"></a>
-                                        <a href="javascript: void(0);" className="download"></a>
-                                    </div>
-                                </td>
-                                <td><a href="#">张艺兴</a></td>
-                            </tr>
+                            {
+                                Object.keys(dataList).length ? dataList.tracks.map((song, i) => {
+                                    let top = i < 3 ? 'no-top' : ''
+                                    let even = i % 2 === 0 ? 'even' : ''
+                                    
+                                    return (
+                                        <tr className={`${top} ${even}`} key={song.id}>
+                                            <td>
+                                                <span className="no">{i + 1}</span>
+                                                <i className="icon-six status-down">32</i>
+                                            </td>
+                                            <td className="title">
+                                                    {
+                                                        i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl} alt=""/></a>) : null
+                                                    }
+                                                    <div className="ttc">
+                                                        <i className="play"></i>
+                                                        <span className="t-hide text">
+                                                            <a href="#" className="t-udl name">{song.name}</a>
+                                                            {
+                                                                song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
+                                                            }
+                                                            {/* <i className="icon-table mv"></i> */}
+                                                        </span>
+                                                    </div>
+                                            </td>
+                                            <td className="time">
+                                                <span>03:36</span>
+                                                <div className="oper">
+                                                    <a href="javascript: void(0);" className="icon-six add"></a>
+                                                    <a href="javascript: void(0);" className="collect"></a>
+                                                    <a href="javascript: void(0);" className="share"></a>
+                                                    <a href="javascript: void(0);" className="download"></a>
+                                                </div>
+                                            </td>
+                                            <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
+                                        </tr>
+                                    )
+                                }) : null
+                            }
                         </tbody>
                     </table>
                 </div>

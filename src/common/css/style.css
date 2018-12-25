@@ -50,6 +50,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  table-layout: fixed;
 }
 
 a {
@@ -74,7 +75,7 @@ html, body {
 body {
   overflow-x: hidden;
   min-width: 982px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft YaHei', "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
   font-size: 12px;
   background-color: #f5f5f5;
   -webkit-text-size-adjust: none;
@@ -588,36 +589,6 @@ button, input {
   background-color: #fff;
 }
 
-.home-bd {
-  background: url(../img/wrap_1.png) repeat-y 100% 100%;
-}
-
-.topList-bd {
-  background: url(../img/wrap_3.png) repeat-y 100% 100%;
-}
-
-.g-bd__l .main-content {
-  margin-left: 251px;
-}
-
-.g-bd__r .main-content {
-  margin-right: 251px;
-}
-
-.main-siderBar {
-  position: absolute;
-  top: 0;
-  width: 251px;
-}
-
-.g-bd__l .main-siderBar {
-  left: 0;
-}
-
-.g-bd__r .main-siderBar {
-  right: 0;
-}
-
 #footer {
   position: relative;
   height: 148px;
@@ -638,6 +609,117 @@ button, input {
 
 #m_back a:hover {
   background-position: -325px -47px;
+}
+
+#m_table {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+}
+
+#m_table th, #m_table th .key, #m_table .play {
+  background-image: url(../img/icon-table.png);
+  background-repeat: no-repeat;
+}
+
+#m_table th {
+  height: 38px;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-repeat: repeat-x;
+}
+
+#m_table th.first {
+  width: 77px;
+}
+
+#m_table th.t2 {
+  width: 91px;
+}
+
+#m_table th.t3 {
+  width: 93px;
+}
+
+#m_table th .key {
+  padding: 8px 10px;
+  height: 18px;
+  line-height: 18px;
+  background-position: 0 -56px;
+}
+
+#m_table tbody tr.even {
+  background-color: #f7f7f7;
+}
+
+#m_table tbody td {
+  padding: 6px 10px;
+  line-height: 18px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#m_table tbody .no {
+  float: left;
+  width: 26px;
+  color: #666;
+  text-align: center;
+}
+
+#m_table tbody .status {
+  float: right;
+  width: 16px;
+  height: 17px;
+  background-position: -67px -283px;
+}
+
+#m_table tbody .status-up {
+  width: 6px;
+  height: 18px;
+  padding-left: 10px;
+  background-position: -74px -300px;
+  font-size: 10px;
+  color: #d33a31;
+}
+
+#m_table tbody .status-down {
+  width: 6px;
+  height: 18px;
+  padding-left: 10px;
+  background-position: -74px -320px;
+  font-size: 10px;
+  color: #4ab8ea;
+}
+
+#m_table tbody .title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#m_table tbody .title div {
+  float: left;
+  width: 100%;
+  line-height: 50px;
+}
+
+#m_table tbody .title .pic {
+  float: left;
+  margin-right: 14px;
+}
+
+#m_table tbody .title .pic img {
+  width: 50px;
+  height: 50px;
+}
+
+#m_table tbody .title .play {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  background-position: -20px -128px;
+  vertical-align: middle;
 }
 
 #home_banner {
@@ -748,6 +830,14 @@ button, input {
 #home_banner .download .shadow-r {
   right: -20px;
   background-position: -20px 0;
+}
+
+#home_page .home-bd {
+  background: url(../img/wrap_1.png) repeat-y 100% 100%;
+}
+
+#home_page .main-content {
+  margin-right: 251px;
 }
 
 #home_page .main-content > .inner {
@@ -898,9 +988,7 @@ button, input {
 #home_page .main-content .recomment .day {
   line-height: 102px;
   font-size: 94px;
-  font-weight: bold;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #home_page .main-content .recomment .date-mask {
@@ -1218,6 +1306,9 @@ button, input {
 }
 
 #home_page .main-siderBar {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 250px;
 }
 
@@ -1441,8 +1532,217 @@ button, input {
   color: #666;
 }
 
+#topList_page .topList-bd {
+  background: url(../img/wrap_3.png) repeat-y 100% 100%;
+}
+
 #topList_page .main-content {
-  margin-left: 241px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 740px;
+}
+
+#topList_page .main-content .inner {
+  padding: 39px 30px 0 39px;
+}
+
+#topList_page .song-summary {
+  height: 200px;
+}
+
+#topList_page .song-summary .pic {
+  position: relative;
+  float: left;
+  padding: 3px;
+  border: 1px solid #ccccca;
+}
+
+#topList_page .song-summary .pic img {
+  width: 150px;
+  height: 150px;
+}
+
+#topList_page .song-summary .pic .mask {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 150px;
+  height: 150px;
+  background-position: -230px -380px;
+}
+
+#topList_page .song-summary .info {
+  float: left;
+  margin-left: 28px;
+}
+
+#topList_page .song-summary .info h3 {
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+#topList_page .song-summary .info .time {
+  line-height: 40px;
+  color: #666;
+}
+
+#topList_page .song-summary .info .time i {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 13px;
+  height: 13px;
+  margin: 2px 5px 0 0;
+  background-position: -18px -682px;
+}
+
+#topList_page .song-summary .info .time span {
+  color: #999;
+}
+
+#topList_page .song-summary .operation {
+  margin-top: 19px;
+}
+
+#topList_page .song-summary .operation .u-btn2 {
+  float: left;
+}
+
+#topList_page .song-summary .operation .add-play {
+  color: #fff;
+  background-position: right -428px;
+}
+
+#topList_page .song-summary .operation .add-play:hover {
+  background-position: right -510px;
+}
+
+#topList_page .song-summary .operation .add-play:hover i {
+  background-position: 0 -469px;
+}
+
+#topList_page .song-summary .operation .add-play:hover .play {
+  background-position: -14px -719px;
+}
+
+#topList_page .song-summary .operation .add-play:active {
+  background-position: right -592px;
+}
+
+#topList_page .song-summary .operation .add-play:active i {
+  background-position: 0 -551px;
+}
+
+#topList_page .song-summary .operation .add-play:active .play {
+  background-position: -14px -805px;
+}
+
+#topList_page .song-summary .operation .add-play i {
+  padding: 0 7px 0 8px;
+  background-position: 0 -387px;
+}
+
+#topList_page .song-summary .operation .add-play .play {
+  float: left;
+  width: 16px;
+  height: 30px;
+  background-position: -14px -633px;
+}
+
+#topList_page .song-summary .operation .add {
+  width: 32px;
+  height: 30px;
+  margin-left: -3px;
+  margin-right: 5px;
+  padding-right: 0;
+  background-position: 0 -1588px;
+}
+
+#topList_page .song-summary .operation .add:hover {
+  background-position: -40px -1588px;
+}
+
+#topList_page .song-summary .operation .add:active {
+  background-position: -80px -1588px;
+}
+
+#topList_page .song-summary .operation .u-btni {
+  margin-right: 6px;
+}
+
+#topList_page .song-summary .operation .u-btni:hover {
+  background-position: right -1106px;
+}
+
+#topList_page .song-summary .operation .u-btni {
+  min-width: 23px;
+  background-position: right -1020px;
+}
+
+#topList_page .song-summary .operation .u-btni i {
+  min-width: 23px;
+  padding-left: 28px;
+  padding-right: 2px;
+}
+
+#topList_page .song-summary .operation .collect i {
+  background-position: 0 -977px;
+}
+
+#topList_page .song-summary .operation .collect:hover i {
+  background-position: 0 -1063px;
+}
+
+#topList_page .song-summary .operation .share i {
+  background-position: 0 -1225px;
+}
+
+#topList_page .song-summary .operation .share:hover i {
+  background-position: 0 -1268px;
+}
+
+#topList_page .song-summary .operation .download i {
+  background-position: 0 -2761px;
+}
+
+#topList_page .song-summary .operation .download:hover i {
+  background-position: 0 -2805px;
+}
+
+#topList_page .song-summary .operation .comment i {
+  background-position: 0 -1465px;
+}
+
+#topList_page .song-summary .operation .comment:hover i {
+  background-position: 0 -1508px;
+}
+
+#topList_page .song-list .top {
+  height: 31px;
+  line-height: 24px;
+  border-bottom: 2px solid #c20c0c;
+}
+
+#topList_page .song-list .top h3 {
+  float: left;
+  font-size: 20px;
+}
+
+#topList_page .song-list .top .sont-num {
+  float: left;
+  padding-left: 20px;
+  line-height: 31px;
+  color: #666;
+}
+
+#topList_page .song-list .top .play-num {
+  float: right;
+}
+
+#topList_page .song-list .top span {
+  color: #c20c0c;
 }
 
 #topList_page .main-siderBar {
@@ -1457,39 +1757,39 @@ button, input {
   font-size: 14px;
 }
 
-#topList_page .main-siderBar ul li {
+#topList_page .main-siderBar li {
   height: 40px;
   padding: 10px 0 10px 20px;
   cursor: pointer;
 }
 
-#topList_page .main-siderBar ul li:hover {
+#topList_page .main-siderBar li:hover {
   background-color: #f4f2f2;
 }
 
-#topList_page .main-siderBar ul li.active, #topList_page .main-siderBar ul li.active:hover {
+#topList_page .main-siderBar li.active, #topList_page .main-siderBar li.active:hover {
   background-color: #e6e6e6;
 }
 
-#topList_page .main-siderBar ul .pic {
+#topList_page .main-siderBar .pic {
   float: left;
   padding-right: 8px;
 }
 
-#topList_page .main-siderBar ul .pic img {
+#topList_page .main-siderBar .pic img {
   width: 40px;
   height: 40px;
 }
 
-#topList_page .main-siderBar ul .info {
+#topList_page .main-siderBar .info {
   float: left;
 }
 
-#topList_page .main-siderBar ul .info .name {
+#topList_page .main-siderBar .name {
   line-height: 20px;
 }
 
-#topList_page .main-siderBar ul .info .tip {
+#topList_page .main-siderBar .tip {
   padding-top: 8px;
   color: #999;
 }

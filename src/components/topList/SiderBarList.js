@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 
 export default class SiderBarList extends Component {
     render() {
-        let {tagList} = this.props
+        let {
+            changeTag,
+            tagList,
+            tagID
+        } = this.props
 
         return (
             <div>
@@ -12,7 +16,11 @@ export default class SiderBarList extends Component {
                     {
                         tagList.length > 0 ? tagList.slice(0, 4).map((tag, i) => {
                             return (
-                                <li key={tag.id} className={i === 0 ? 'active' : ''}>
+                                <li 
+                                    key={tag.id}
+                                    className={tagID === tag.id ? 'active' : ''}
+                                    onClick={ev => changeTag(tag.id, tag.updateFrequency)}
+                                >
                                     <div className="pic"><img src={tag.coverImgUrl} /></div>
                                     <div className="info">
                                         <p className="name">{tag.name}</p>
@@ -28,7 +36,11 @@ export default class SiderBarList extends Component {
                     {
                         tagList.length > 0 ? tagList.slice(4).map(tag => {
                             return (
-                                <li key={tag.id}>
+                                <li 
+                                    key={tag.id}
+                                    className={tagID === tag.id ? 'active' : ''}
+                                    onClick={ev => changeTag(tag.id, tag.updateFrequency)}
+                                >
                                     <div className="pic"><img src={tag.coverImgUrl} /></div>
                                     <div className="info">
                                         <p className="name">{tag.name}</p>

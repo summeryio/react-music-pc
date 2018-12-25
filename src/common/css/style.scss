@@ -531,7 +531,7 @@ button, input {
 	width: 100%;
 	border: 1px solid #d9d9d9;
 
-	th, th .key, .play {
+	th, th .key, .play, .oper a, .mv {
 		background-image: url(../img/icon-table.png);
 		background-repeat: no-repeat;
 	}
@@ -570,13 +570,39 @@ button, input {
 			padding: 6px 10px;
 			line-height: 18px;
 			text-align: left;
+			vertical-align: middle;
+		}
+		.no {
+			float: left;
+			width: 26px;
+			color: #666;
+			text-align: center;
+		}
+		.status {
+			float: right;
+			width: 16px;
+			height: 17px;
+			background-position: -67px -283px;
+		}
+		.status-up {
+			width: 6px;
+			height: 18px;
+			padding-left: 10px;
+			background-position: -74px -300px;
+			font-size: 10px;
+			color: #d33a31;
+		}
+		.status-down {
+			width: 6px;
+			height: 18px;
+			padding-left: 10px;
+			background-position: -74px -320px;
+			font-size: 10px;
+			color: #4ab8ea;
 		}
 		.title {
-			float: left;
 			width: 100%;
-			padding-top: 10px;
-			padding-bottom: 10px;
-
+			
 			.pic {
 				float: left;
 				margin-right: 14px;
@@ -590,8 +616,109 @@ button, input {
 				float: left;
 				width: 17px;
 				height: 17px;
-				background-position: -20px -128px;
+				margin-right: 8px;
+				background-position: 0 -103px;
+				vertical-align: middle;
+				cursor: pointer;
+
+				&:hover {
+					background-position: 0 -128px;
+				}
+				&.play-active {
+					background-position: -20px -128px;
+				}
 			}
+			.ttc {
+				height: 18px;
+				margin-right: 20px;
+
+				.text {
+					float: left;
+					max-width: 92%;
+					position: relative;
+					padding-right: 25px;
+					margin-right: -25px;
+				}
+				.tip {
+					color: #aeaeae;
+				}
+				.mv {
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 23px;
+					height: 17px;
+					margin: 1px 0 0 0;
+					background-position: 0 -151px;
+				}
+			}
+		}
+		.no-top {
+			.title {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.ttc {
+				margin-top: 18px;
+			}
+			.text {
+				max-width: 75%;
+			}
+			
+		}
+		.oper {
+			display: none;
+			margin-right: -10px;
+			
+			a {
+				float: left;
+				width: 18px;
+				height: 16px;
+				margin: 2px 0 0 4px;
+			}
+			.add {
+				width: 13px;
+				height: 13px;
+				margin: 2px 0 0 0;
+				background-image: url(../img/icon-six.png);
+				background-position: 0 -700px;
+
+				&:hover {
+					background-position: -22px -700px;
+				}
+			}
+			.collect {
+				background-position: 0 -174px;
+
+				&:hover {
+					background-position: -20px -174px;
+				}
+			}
+			.share {
+				background-position: 0 -195px;
+
+				&:hover {
+					background-position: -20px -195px;
+				}
+			}
+			.download {
+				background-position: -81px -174px;
+
+				&:hover {
+					background-position: -104px -174px;
+				}
+			}
+		}
+		tr:hover {
+			.time span {
+				display: none;
+			}
+			.oper {
+				display: block;
+			}
+		}
+		.singer {
+			width: 100%;
 		}
 	}
 }
