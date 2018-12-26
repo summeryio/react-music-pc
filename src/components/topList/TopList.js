@@ -40,7 +40,7 @@ class TopList extends Component {
                     barActive: '/discover/topList'
                 }}
             >
-                <main id="main" className="g-bd topList-bd">
+                <main id="main" className="g-bd topList-bd clearfix">
                     <div className="main-siderBar">
                         <SiderBarList {...{changeTag, tagList, tagID, dataList}}/>
                     </div>

@@ -32,7 +32,7 @@ export default class SongList extends Component {
                                         <tr className={`${top} ${even}`} key={song.id}>
                                             <td>
                                                 <span className="no">{i + 1}</span>
-                                                <i className="icon-six status-down">32</i>
+                                                {/* <i className="icon-six status-down">32</i> */}
                                             </td>
                                             <td className="title">
                                                     {
