@@ -816,6 +816,7 @@ button, input {
 		font-weight: bold;
 	}
 	dd {
+		overflow: hidden;
 		padding: 15px 0;
 		border-top: 1px dotted #ccc;
 	}
@@ -845,8 +846,10 @@ button, input {
 		position: relative;
 		margin-top: 10px;
 		padding: 8px 18px;
+		line-height: 20px;
 		border: 1px solid #dedede;
 		background-color: #f4f4f4;
+		color: #666;
 
 		a {
 			color: #0c73c2;
@@ -854,7 +857,9 @@ button, input {
 		.arrow {
 			position: absolute;
 			left: 20px;
-			top: -7px;
+			top: -8px;
+			font-size: 12px;
+			line-height: 14px;
 			
 			i {
 				position: absolute;
@@ -1871,15 +1876,17 @@ button, input {
 			font-size: 14px;
 		}
 		li {
-			height: 40px;
-			padding: 10px 0 10px 20px;
-			cursor: pointer;
-			
 			&:hover {
 				background-color: #f4f2f2;
 			}
 			&.active, &.active:hover {
 				background-color: #e6e6e6;
+			}
+
+			a {
+				display: block;
+				height: 40px;
+				padding: 10px 0 10px 20px;
 			}
 		}
 		.pic {

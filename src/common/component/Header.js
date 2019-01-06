@@ -206,7 +206,7 @@ class Header extends Component {
 								><Link to="/discover">推荐</Link></li>
 								<li
 									className={barActive && barActive === '/discover/topList' ? 'bar-active' : ''}
-								><Link to="/discover/topList">排行榜</Link></li>
+								><Link to={`/discover/topList/${19723756}`}>排行榜</Link></li>
 								<li><Link to="/">歌单</Link></li>
 								<li><Link to="/">主播电台</Link></li>
 								<li><Link to="/">歌手</Link></li>

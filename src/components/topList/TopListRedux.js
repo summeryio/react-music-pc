@@ -3,7 +3,6 @@ import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
 
 let initialState = {
     tagList: [],
-    tagID: null,
     playList: [],
     playListLoaded: false,
     updateFrequency: ''
@@ -14,7 +13,7 @@ const CHANGE_TAG = 'music/TopListRedux/CHANGE_TAG'
 const GET_TOP_LIST_DATA = 'music/TopListRedux/GET_TOP_LIST_DATA'
 
 
-export const getTopListTag = () => (dispatch, getState) => {
+export const getTopListTag = (id) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/toplist`).then((res) => {
         // console.log(res);
 
@@ -22,11 +21,10 @@ export const getTopListTag = () => (dispatch, getState) => {
             dispatch({
                 type: GET_TOP_LIST_TAG,
                 tagList: res.data.list,
-                tagID: res.data.list[0].id,
                 updateFrequency: res.data.list[0].updateFrequency
             })
 
-            dispatch(getTopListData())
+            dispatch(getTopListData(id))
         }
     }).catch(error => {
         console.log(error);
@@ -36,17 +34,16 @@ export const getTopListTag = () => (dispatch, getState) => {
 export const changeTag = (id, updateFrequency) => (dispatch, getState) => {
     dispatch({
         type: CHANGE_TAG,
-        tagID: id,
         updateFrequency,
         playListLoaded: false
     })
-    dispatch(getTopListData())
+    dispatch(getTopListData(id))
 }
 
-export const getTopListData = () => (dispatch, getState) => {
-    let {tagID, updateFrequency} = getState().topList
-    
-    axios.get(`${URL_HEADER}/playlist/detail?id=${tagID}`).then((res) => {
+export const getTopListData = (id) => (dispatch, getState) => {
+    // let {updateFrequency} = getState().topList
+
+    axios.get(`${URL_HEADER}/playlist/detail?id=${id}`).then((res) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
@@ -66,7 +63,6 @@ export default function topList(state = initialState, action) {
     let {
         type,
         tagList,
-        tagID,
         playList,
         playListLoaded,
         updateFrequency
@@ -74,10 +70,10 @@ export default function topList(state = initialState, action) {
 
     switch (type) {
         case GET_TOP_LIST_TAG:
-            return {...state, tagList, tagID, updateFrequency}
+            return {...state, tagList, updateFrequency}
             break
         case CHANGE_TAG:
-            return {...state, tagID, updateFrequency, playListLoaded}
+            return {...state, updateFrequency, playListLoaded}
             break
         case GET_TOP_LIST_DATA:
             return {...state, playList, playListLoaded}

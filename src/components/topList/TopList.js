@@ -14,24 +14,17 @@ class TopList extends Component {
         super(props)
     }
 
-    /* componentWillReceiveProps(nextProps) {
-        let {tagList} = nextProps.topList
-        if (tagList.length) {
-            this.setState({
-                id: tagList[0].id
-            })
-        }
-    } */
-
     componentDidMount() {
         let {getTopListTag} = this.props.topListAction
+        let {id} = this.props.match.params
 
-        getTopListTag()
+        getTopListTag(id)
     }
 
     render() {
         let {changeTag} = this.props.topListAction
-        let {tagList, tagID, playList, playListLoaded, updateFrequency} = this.props.topList
+        let {tagList, playList, playListLoaded, updateFrequency} = this.props.topList
+        let {id} = this.props.match.params
 
         return (
             <PublicModule 
@@ -43,13 +36,13 @@ class TopList extends Component {
             >
                 <main id="main" className="g-bd topList-bd clearfix">
                     <div className="main-siderBar">
-                        <SiderBarList {...{changeTag, tagList, tagID, playList}}/>
+                        <SiderBarList {...{changeTag, tagList, id, playList}}/>
                     </div>
                     <div className="main-content">
                         <div className="inner">
                             <SongSummary {...{playList, updateFrequency}}/>
                             <SongList {...{playList, playListLoaded}}/>
-                            <Comment />
+                            <Comment id={id}/>
                         </div>
                     </div>
                 </main>

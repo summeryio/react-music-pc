@@ -1,7 +1,137 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as actions from './PublicRedux'
+import {formatCommentDate} from '../js/util'
 
-export default class Comment extends Component {
+import Loading from 'common/component/Loading'
+
+class Comment extends Component {
+    componentWillReceiveProps(nextProps) {
+        let {id} = this.props
+        let {getComment} = this.props.commentAction
+
+        if (id !== nextProps.id) {
+            getComment(nextProps.id)
+        }
+    }
+    
+    componentDidMount() {
+        let {id} = this.props
+        let {getComment} = this.props.commentAction
+
+        getComment(id)
+    }
+    
     render () {
+        let {commentData} = this.props.publicState
+        
+        let hotComment = (Object.keys(commentData).length > 0 && commentData.hotComments.length > 0) ? commentData.hotComments.map(comment => {
+            let time = formatCommentDate(comment.time)
+            
+            return (
+                <dd key={comment.commentId}>
+                    <div className="fl">
+                        <Link to={`/user${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                    </div>
+                    <div className="right">
+                        <p className="comment">
+                            <Link to={`/user${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
+                            {
+                                comment.user.vipType > 0
+                                ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
+                                : null
+                            }
+                            
+                            ：<span dangerouslySetInnerHTML={{__html: comment.content}}></span>
+                        </p>
+                        {
+                            comment.beReplied.length > 0
+                            ? (
+                                <div className="replay">
+                                    <span className="arrow"><i className="bd">◆</i><i className="bg">◆</i></span>
+                                    {
+                                        comment.beReplied[0].status === 0
+                                        ? (
+                                            <p>
+                                                <Link to={`/user${comment.beReplied[0].user.nickname}`} className="t-udl">{comment.user.nickname}</Link>
+                                                ：<em dangerouslySetInnerHTML={{__html: comment.beReplied[0].content}}></em>
+                                            </p>
+                                        ) : <em>该评论已删除</em>
+                                    }
+                                    
+                                </div>
+                            ) : null
+                        }
+                        <div className="oper">
+                            <p className="fl time">{time}</p>
+                            <p className="fr">
+                                <a href="javascript: void(0);" className="t-udl">
+                                    <i className="icon-eight icon-like"></i>
+                                    {comment.likedCount > 0 ? `(${comment.likedCount})` : null}
+                                </a>
+                                <i className="line">|</i>
+                                <a href="javascript: void(0);" className="t-udl replay-btn">回复</a>
+                            </p>
+                        </div>
+                    </div>
+                </dd>
+            )
+        }) : null
+        let comments = Object.keys(commentData).length > 0 ? commentData.comments.map(comment => {
+            let time = formatCommentDate(comment.time)
+            
+            return (
+                <dd key={comment.commentId}>
+                    <div className="fl">
+                        <Link to={`/user${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                    </div>
+                    <div className="right">
+                        <p className="comment">
+                            <Link to={`/user${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
+                            {
+                                comment.user.vipType > 0
+                                ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
+                                : null
+                            }
+                            
+                            ：<span dangerouslySetInnerHTML={{__html: comment.content}}></span>
+                        </p>
+                        {
+                            comment.beReplied.length > 0
+                            ? (
+                                <div className="replay">
+                                    <span className="arrow"><i className="bd">◆</i><i className="bg">◆</i></span>
+                                    {
+                                        comment.beReplied[0].status === 0
+                                        ? (
+                                            <p>
+                                                <Link to={`/user${comment.beReplied[0].user.nickname}`} className="t-udl">{comment.user.nickname}</Link>
+                                                ：<em dangerouslySetInnerHTML={{__html: comment.beReplied[0].content}}></em>
+                                            </p>
+                                        ) : <em>该评论已删除</em>
+                                    }
+                                    
+                                </div>
+                            ) : null
+                        }
+                        <div className="oper">
+                            <p className="fl time">{time}</p>
+                            <p className="fr">
+                                <a href="javascript: void(0);" className="t-udl">
+                                    <i className="icon-eight icon-like"></i>
+                                    {comment.likedCount > 0 ? `(${comment.likedCount})` : null}
+                                </a>
+                                <i className="line">|</i>
+                                <a href="javascript: void(0);" className="t-udl replay-btn">回复</a>
+                            </p>
+                        </div>
+                    </div>
+                </dd>
+            )
+        }) : null
+        
         return (
             <div id="comment">
                 <div className="comment-oper">
@@ -27,36 +157,40 @@ export default class Comment extends Component {
                     </div>
                 </div>
                 <div className="comment-list">
+                    {
+                        hotComment
+                        ? (
+                            <dl>
+                                <dt>精彩评论</dt>
+                                {hotComment}
+                            </dl>
+                        ) : null
+                    }
+                    <br/>
+                    <br/>
                     <dl>
-                        <dt>精彩评论</dt>
-                        <dd>
-                            <div className="fl">
-                                <a href="#"><img className="avatar" src="https://p1.music.126.net/_SN6oeoCHt1KGkwpwRjcWA==/109951163197869459.jpg?param=50y50" alt=""/></a>
-                            </div>
-                            <div className="right">
-                                <p className="comment">
-                                    <a href="#" className="t-udl">糊涂了前半生</a>
-                                    <img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>
-                                    ：能不能，能不能，我就问你能不能把年度总结推送出来：能不能，能不能，我就问你能不能把年度总结推送出来：能不能，能不能，我就问你能不能把年度总结推送出来：能不能，能不能，我就问你能不能把年度总结推送出来<img src="http://s1.music.126.net/style/web2/emt/emoji_363.png" />
-                                </p>
-                                <div className="replay">
-                                    <span className="arrow"><i className="bd">◆</i><i className="bg">◆</i></span>
-                                    <a href="#" className="t-udl">糊涂了前半生</a>
-                                    ：居然看到了羽肿！！纯音赛高
-                                </div>
-                                <div className="oper">
-                                    <p className="fl time">1月3日 11:55</p>
-                                    <p className="fr">
-                                        <a href="javascript: void(0);" className="t-udl"><i className="icon-eight icon-like"></i>(12)</a>
-                                        <i className="line">|</i>
-                                        <a href="javascript: void(0);" className="t-udl replay-btn">回复</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </dd>
+                        <dt>最新评论</dt>
+                        {comments}
                     </dl>
                 </div>
             </div>
         )
     }
 }
+
+export default connect(
+    state => {
+        let {
+            publicState
+        } = state
+
+        return {
+            publicState
+        }
+    },
+    dispatch => {
+        return {
+            commentAction: bindActionCreators({...actions}, dispatch)
+        }
+    }
+)(Comment)

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-
+import {Link} from 'react-router-dom'
 
 export default class SiderBarList extends Component {
     render() {
         let {
             changeTag,
             tagList,
-            tagID
+            id
         } = this.props
+        let tagID = parseInt(id)
 
         return (
             <div>
@@ -25,11 +26,13 @@ export default class SiderBarList extends Component {
                                         changeTag(tag.id, tag.updateFrequency)
                                     }}
                                 >
-                                    <div className="pic"><img src={tag.coverImgUrl} /></div>
-                                    <div className="info">
-                                        <p className="name">{tag.name}</p>
-                                        <p className="tip">{tag.updateFrequency}</p>
-                                    </div>
+                                    <Link to={`/discover/topList/${tag.id}`}>
+                                        <div className="pic"><img src={tag.coverImgUrl} /></div>
+                                        <div className="info">
+                                            <p className="name">{tag.name}</p>
+                                            <p className="tip">{tag.updateFrequency}</p>
+                                        </div>
+                                    </Link>
                                 </li>
                             )
                         }) : null
@@ -49,11 +52,13 @@ export default class SiderBarList extends Component {
                                         changeTag(tag.id, tag.updateFrequency)
                                     }}
                                 >
-                                    <div className="pic"><img src={tag.coverImgUrl} /></div>
-                                    <div className="info">
-                                        <p className="name">{tag.name}</p>
-                                        <p className="tip">{tag.updateFrequency}</p>
-                                    </div>
+                                    <Link to={`/discover/topList/${tag.id}`}>
+                                        <div className="pic"><img src={tag.coverImgUrl} /></div>
+                                        <div className="info">
+                                            <p className="name">{tag.name}</p>
+                                            <p className="tip">{tag.updateFrequency}</p>
+                                        </div>
+                                    </Link>
                                 </li>
                             )
                         }) : null

@@ -18,7 +18,7 @@ export default class RouterIndex extends Component {
                 <Route path="/my" component={My}/>
                 <Route path="/friend" component={Friend} />
                 <Route path="/discover" exact component={Home} />
-                <Route path="/discover/topList" component={TopList} />
+                <Route path="/discover/topList/:id" component={TopList} />
             </Switch>
         </Router>
     )

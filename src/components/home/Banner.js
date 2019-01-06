@@ -67,6 +67,12 @@ export default class Banner extends Component {
             this.init(sliderIndex)
         }
     }
+
+    componentWillUnmount() {
+        this.setState = (state, callback)=>{
+            return
+        }
+    }
     
     render() {
         let {datas} = this.props
