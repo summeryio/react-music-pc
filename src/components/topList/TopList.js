@@ -7,6 +7,7 @@ import PublicModule from 'common/component/PublicModule'
 import SiderBarList from './SiderBarList'
 import SongSummary from './SongSummary'
 import SongList from './SongList'
+import Comment from 'common/component/Comment'
 
 class TopList extends Component {
     constructor(props) {
@@ -48,6 +49,7 @@ class TopList extends Component {
                         <div className="inner">
                             <SongSummary {...{playList, updateFrequency}}/>
                             <SongList {...{playList, playListLoaded}}/>
+                            <Comment />
                         </div>
                     </div>
                 </main>

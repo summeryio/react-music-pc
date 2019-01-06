@@ -179,6 +179,11 @@ button, input {
   background-repeat: no-repeat;
 }
 
+.icon-button2 {
+  background-image: url(../img/icon-button2.png);
+  background-repeat: no-repeat;
+}
+
 .u-btn2 {
   padding-right: 5px;
 }
@@ -822,6 +827,170 @@ button, input {
 
 #m_table tbody .singer {
   width: 100%;
+}
+
+#comment {
+  margin-top: 40px;
+}
+
+.comment-oper > .top {
+  height: 31px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #c20c0c;
+}
+
+.comment-oper > .top h3 {
+  float: left;
+  font-size: 20px;
+}
+
+.comment-oper > .top .sont-num {
+  float: left;
+  padding-left: 20px;
+  line-height: 31px;
+  color: #666;
+}
+
+.comment-oper .user-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-oper .right {
+  margin-left: 62px;
+}
+
+.comment-oper .text {
+  padding-right: 14px;
+}
+
+.comment-oper .text textarea {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 6px;
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  resize: none;
+  outline: none;
+}
+
+.comment-oper .operation {
+  overflow: hidden;
+  margin: 10px 0 24px;
+}
+
+.comment-oper .operation .icon-six {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.comment-oper .operation .icon-emoji {
+  background-position: -40px -490px;
+}
+
+.comment-oper .operation .icon-find {
+  background-position: -60px -490px;
+}
+
+.comment-oper .operation .num {
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 25px;
+  color: #999;
+}
+
+.comment-oper .operation .btn {
+  display: inline-block;
+  width: 46px;
+  height: 25px;
+  background-position: -84px -64px;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+}
+
+.comment-list dt {
+  position: relative;
+  top: 1px;
+  height: 24px;
+  line-height: 24px;
+  border-bottom: 1px solid #cfcfcf;
+  font-weight: bold;
+}
+
+.comment-list dd {
+  padding: 15px 0;
+  border-top: 1px dotted #ccc;
+}
+
+.comment-list .avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-list .right {
+  margin-left: 60px;
+}
+
+.comment-list .comment {
+  line-height: 20px;
+}
+
+.comment-list .comment a {
+  color: #0c73c2;
+}
+
+.comment-list .comment img {
+  vertical-align: middle;
+}
+
+.comment-list .comment .icon-vip {
+  width: 26px;
+  height: 12px;
+  margin: 0 6px;
+}
+
+.comment-list .replay {
+  position: relative;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border: 1px solid #dedede;
+  background-color: #f4f4f4;
+}
+
+.comment-list .replay a {
+  color: #0c73c2;
+}
+
+.comment-list .replay .arrow {
+  position: absolute;
+  left: 20px;
+  top: -7px;
+}
+
+.comment-list .replay .arrow i {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.comment-list .replay .arrow i.bd {
+  color: #dedede;
+}
+
+.comment-list .replay .arrow i.bg {
+  top: 1px;
+  color: #f4f4f4;
+}
+
+.comment-list .oper {
+  margin-top: 14px;
+  line-height: 18px;
 }
 
 #loading {
