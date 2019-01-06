@@ -30,7 +30,7 @@ class TopList extends Component {
 
     render() {
         let {changeTag} = this.props.topListAction
-        let {tagList, tagID, dataList, updateFrequency} = this.props.topList
+        let {tagList, tagID, playList, playListLoaded, updateFrequency} = this.props.topList
 
         return (
             <PublicModule 
@@ -42,12 +42,12 @@ class TopList extends Component {
             >
                 <main id="main" className="g-bd topList-bd clearfix">
                     <div className="main-siderBar">
-                        <SiderBarList {...{changeTag, tagList, tagID, dataList}}/>
+                        <SiderBarList {...{changeTag, tagList, tagID, playList}}/>
                     </div>
                     <div className="main-content">
                         <div className="inner">
-                            <SongSummary {...{dataList, updateFrequency}}/>
-                            <SongList {...{dataList}}/>
+                            <SongSummary {...{playList, updateFrequency}}/>
+                            <SongList {...{playList, playListLoaded}}/>
                         </div>
                     </div>
                 </main>

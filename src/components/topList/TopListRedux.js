@@ -4,7 +4,8 @@ import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
 let initialState = {
     tagList: [],
     tagID: null,
-    dataList: [],
+    playList: [],
+    playListLoaded: false,
     updateFrequency: ''
 }
 
@@ -36,7 +37,8 @@ export const changeTag = (id, updateFrequency) => (dispatch, getState) => {
     dispatch({
         type: CHANGE_TAG,
         tagID: id,
-        updateFrequency
+        updateFrequency,
+        playListLoaded: false
     })
     dispatch(getTopListData())
 }
@@ -50,7 +52,8 @@ export const getTopListData = () => (dispatch, getState) => {
         if (res.status === HTTP_SUCCESS_CODE) {
             dispatch({
                 type: GET_TOP_LIST_DATA,
-                dataList: res.data.playlist
+                playList: res.data.playlist,
+                playListLoaded: true
             })
         }
     }).catch(error => {
@@ -64,7 +67,8 @@ export default function topList(state = initialState, action) {
         type,
         tagList,
         tagID,
-        dataList,
+        playList,
+        playListLoaded,
         updateFrequency
     } = action
 
@@ -73,10 +77,10 @@ export default function topList(state = initialState, action) {
             return {...state, tagList, tagID, updateFrequency}
             break
         case CHANGE_TAG:
-            return {...state, tagID, updateFrequency}
+            return {...state, tagID, updateFrequency, playListLoaded}
             break
         case GET_TOP_LIST_DATA:
-            return {...state, dataList}
+            return {...state, playList, playListLoaded}
             break
 
         default:

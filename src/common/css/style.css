@@ -616,7 +616,7 @@ button, input {
   border: 1px solid #d9d9d9;
 }
 
-#m_table th, #m_table th .key, #m_table .play {
+#m_table th, #m_table th .key, #m_table .play, #m_table .oper a, #m_table .mv {
   background-image: url(../img/icon-table.png);
   background-repeat: no-repeat;
 }
@@ -662,7 +662,7 @@ button, input {
 
 #m_table tbody .no {
   float: left;
-  width: 26px;
+  width: 100%;
   color: #666;
   text-align: center;
 }
@@ -693,14 +693,7 @@ button, input {
 }
 
 #m_table tbody .title {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-#m_table tbody .title div {
-  float: left;
   width: 100%;
-  line-height: 50px;
 }
 
 #m_table tbody .title .pic {
@@ -714,12 +707,141 @@ button, input {
 }
 
 #m_table tbody .title .play {
-  display: inline-block;
+  float: left;
   width: 17px;
   height: 17px;
   margin-right: 8px;
-  background-position: -20px -128px;
+  background-position: 0 -103px;
   vertical-align: middle;
+  cursor: pointer;
+}
+
+#m_table tbody .title .play:hover {
+  background-position: 0 -128px;
+}
+
+#m_table tbody .title .play.play-active {
+  background-position: -20px -128px;
+}
+
+#m_table tbody .title .ttc {
+  height: 18px;
+  margin-right: 20px;
+}
+
+#m_table tbody .title .ttc .text {
+  float: left;
+  max-width: 92%;
+  position: relative;
+  padding-right: 25px;
+  margin-right: -25px;
+}
+
+#m_table tbody .title .ttc .tip {
+  color: #aeaeae;
+}
+
+#m_table tbody .title .ttc .mv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 23px;
+  height: 17px;
+  margin: 1px 0 0 0;
+  background-position: 0 -151px;
+}
+
+#m_table tbody .no-top .title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#m_table tbody .no-top .ttc {
+  margin-top: 18px;
+}
+
+#m_table tbody .no-top .text {
+  max-width: 75% !important;
+}
+
+#m_table tbody .oper {
+  display: none;
+  margin-right: -10px;
+}
+
+#m_table tbody .oper a {
+  float: left;
+  width: 18px;
+  height: 16px;
+  margin: 2px 0 0 4px;
+}
+
+#m_table tbody .oper .add {
+  width: 13px;
+  height: 13px;
+  margin: 2px 0 0 0;
+  background-image: url(../img/icon-six.png);
+  background-position: 0 -700px;
+}
+
+#m_table tbody .oper .add:hover {
+  background-position: -22px -700px;
+}
+
+#m_table tbody .oper .collect {
+  background-position: 0 -174px;
+}
+
+#m_table tbody .oper .collect:hover {
+  background-position: -20px -174px;
+}
+
+#m_table tbody .oper .share {
+  background-position: 0 -195px;
+}
+
+#m_table tbody .oper .share:hover {
+  background-position: -20px -195px;
+}
+
+#m_table tbody .oper .download {
+  background-position: -81px -174px;
+}
+
+#m_table tbody .oper .download:hover {
+  background-position: -104px -174px;
+}
+
+#m_table tbody tr:hover .time span {
+  display: none;
+}
+
+#m_table tbody tr:hover .oper {
+  display: block;
+}
+
+#m_table tbody .singer {
+  width: 100%;
+}
+
+#loading {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  padding: 30px 0;
+  text-align: center;
+  color: #999;
+}
+
+#loading i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  background: url(../img/loading.gif) no-repeat;
+  background-size: cover;
+  background-position: left center;
+  vertical-align: top;
 }
 
 #home_banner {
@@ -1537,10 +1659,9 @@ button, input {
 }
 
 #topList_page .main-content {
-  position: absolute;
-  right: 0;
-  top: 0;
   width: 740px;
+  min-height: 100%;
+  margin-left: 240px;
 }
 
 #topList_page .main-content .inner {
@@ -1670,6 +1791,7 @@ button, input {
 
 #topList_page .song-summary .operation .u-btni {
   margin-right: 6px;
+  font-family: simsun;
 }
 
 #topList_page .song-summary .operation .u-btni:hover {
@@ -1746,6 +1868,7 @@ button, input {
 }
 
 #topList_page .main-siderBar {
+  float: left;
   width: 240px;
   padding-top: 28px;
 }

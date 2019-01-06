@@ -82,7 +82,7 @@
   ],
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   },
   "jest": {

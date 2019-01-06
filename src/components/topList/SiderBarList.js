@@ -19,7 +19,11 @@ export default class SiderBarList extends Component {
                                 <li 
                                     key={tag.id}
                                     className={tagID === tag.id ? 'active' : ''}
-                                    onClick={ev => changeTag(tag.id, tag.updateFrequency)}
+                                    onClick={ev => {
+                                        document.documentElement.scrollTop = 0
+                                        document.body.scrollTop = 0
+                                        changeTag(tag.id, tag.updateFrequency)
+                                    }}
                                 >
                                     <div className="pic"><img src={tag.coverImgUrl} /></div>
                                     <div className="info">
@@ -39,7 +43,11 @@ export default class SiderBarList extends Component {
                                 <li 
                                     key={tag.id}
                                     className={tagID === tag.id ? 'active' : ''}
-                                    onClick={ev => changeTag(tag.id, tag.updateFrequency)}
+                                    onClick={ev => {
+                                        document.documentElement.scrollTop = 0
+                                        document.body.scrollTop = 0
+                                        changeTag(tag.id, tag.updateFrequency)
+                                    }}
                                 >
                                     <div className="pic"><img src={tag.coverImgUrl} /></div>
                                     <div className="info">

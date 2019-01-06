@@ -1,70 +1,77 @@
 import React, { Component } from 'react'
+import Loading from 'common/component/Loading'
 
 export default class SongList extends Component {
     render() {
-        let {dataList} = this.props
-        console.log(dataList);
+        let {playList, playListLoaded} = this.props
         
         return (
             <div className="song-list">
                 <div className="top">
                     <h3>歌曲列表</h3>
-                    <p className="sont-num">{dataList.trackCount}首歌</p>
-                    <p className="play-num">播放：<span>{dataList.playCount}</span>次</p>
+                    <p className="sont-num">{playList.trackCount}首歌</p>
+                    <p className="play-num">播放：<span>{playList.playCount}</span>次</p>
                 </div>
                 <div className="cont">
-                    <table id="m_table">
-                        <thead>
-                            <tr>
-                                <th className="first t1"></th>
-                                <th><p className="key">标题</p></th>
-                                <th className="t2"><p className="key">时长</p></th>
-                                <th className="t3"><p className="key">歌手</p></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                Object.keys(dataList).length ? dataList.tracks.map((song, i) => {
-                                    let top = i < 3 ? 'no-top' : ''
-                                    let even = i % 2 === 0 ? 'even' : ''
-                                    
-                                    return (
-                                        <tr className={`${top} ${even}`} key={song.id}>
-                                            <td>
-                                                <span className="no">{i + 1}</span>
-                                                {/* <i className="icon-six status-down">32</i> */}
-                                            </td>
-                                            <td className="title">
-                                                    {
-                                                        i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl} alt=""/></a>) : null
-                                                    }
-                                                    <div className="ttc">
-                                                        <i className="play"></i>
-                                                        <span className="t-hide text">
-                                                            <a href="#" className="t-udl name">{song.name}</a>
+                    {
+                        playListLoaded
+                        ? (
+                            <table id="m_table">
+                                <thead>
+                                    <tr>
+                                        <th className="first t1"></th>
+                                        <th><p className="key">标题</p></th>
+                                        <th className="t2"><p className="key">时长</p></th>
+                                        <th className="t3"><p className="key">歌手</p></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        Object.keys(playList).length ? playList.tracks.map((song, i) => {
+                                            let top = i < 3 ? 'no-top' : ''
+                                            let even = i % 2 === 0 ? 'even' : ''
+                                            
+                                            return (
+                                                <tr className={`${top} ${even}`} key={song.id}>
+                                                    <td>
+                                                        <span className="no">{i + 1}</span>
+                                                        {/* <i className="icon-six status-down">32</i> */}
+                                                    </td>
+                                                    <td className="title">
                                                             {
-                                                                song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
+                                                                i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl} alt=""/></a>) : null
                                                             }
-                                                            {/* <i className="icon-table mv"></i> */}
-                                                        </span>
-                                                    </div>
-                                            </td>
-                                            <td className="time">
-                                                <span>03:36</span>
-                                                <div className="oper">
-                                                    <a href="javascript: void(0);" className="icon-six add"></a>
-                                                    <a href="javascript: void(0);" className="collect"></a>
-                                                    <a href="javascript: void(0);" className="share"></a>
-                                                    <a href="javascript: void(0);" className="download"></a>
-                                                </div>
-                                            </td>
-                                            <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
-                                        </tr>
-                                    )
-                                }) : null
-                            }
-                        </tbody>
-                    </table>
+                                                            <div className="ttc">
+                                                                <i className="play"></i>
+                                                                <span className="t-hide text">
+                                                                    <a href="#" className="t-udl name">{song.name}</a>
+                                                                    {
+                                                                        song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
+                                                                    }
+                                                                    {/* <i className="icon-table mv"></i> */}
+                                                                </span>
+                                                            </div>
+                                                    </td>
+                                                    <td className="time">
+                                                        <span>03:36</span>
+                                                        <div className="oper">
+                                                            <a href="javascript: void(0);" className="icon-six add"></a>
+                                                            <a href="javascript: void(0);" className="collect"></a>
+                                                            <a href="javascript: void(0);" className="share"></a>
+                                                            <a href="javascript: void(0);" className="download"></a>
+                                                        </div>
+                                                    </td>
+                                                    <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
+                                                </tr>
+                                            )
+                                        }) : null
+                                    }
+                                </tbody>
+                            </table>
+                        )
+                        : (<Loading />)
+                    }
+                    
                 </div>
             </div>
         )
