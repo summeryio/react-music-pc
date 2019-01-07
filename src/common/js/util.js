@@ -21,6 +21,10 @@ export function formatDate(timestamp) {
     return month + '月' + day + '日'
 }
 
+/**
+ * 格式化评论日期
+ * @param {时间戳} ts 
+ */
 export function formatCommentDate(ts) {
     let getDate = new Date(ts)
     let year = getDate.getFullYear()

@@ -42,7 +42,8 @@ class TopList extends Component {
                         <div className="inner">
                             <SongSummary {...{playList, updateFrequency}}/>
                             <SongList {...{playList, playListLoaded}}/>
-                            <Comment id={id}/>
+                            {playListLoaded ? <Comment id={id} urlType="playlist"/> : null}
+                            
                         </div>
                     </div>
                 </main>

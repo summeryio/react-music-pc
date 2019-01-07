@@ -8,6 +8,7 @@ let initialState = {
 
 const GET_SEARCH_SUGGEST = 'music/common/component/GET_SEARCH_SUGGEST'
 const GET_COMMENT = 'music/common/component/GET_COMMENT'
+const COMMENT_PAGING = 'music/common/component/COMMENT_PAGING'
 
 export const getSearchSuggest = (val) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/search/suggest?keywords=${val}`).then((res) => {
@@ -24,13 +25,29 @@ export const getSearchSuggest = (val) => (dispatch, getState) => {
     })
 }
 
-export const getComment = (id) => (dispatch, getState) => {
-    axios.get(`${URL_HEADER}/comment/playlist?id=${id}`).then((res) => {
+export const getComment = (id, urlType) => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}`).then((res) => {
         let {data} = res
 
         if (data.code === HTTP_SUCCESS_CODE) {
             dispatch({
                 type: GET_COMMENT,
+                commentData: data
+            })
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
+
+export const commentPaging = (id, nowPage, urlType) => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}&offset=${nowPage}`).then((res) => {
+        let {data} = res
+
+        if (data.code === HTTP_SUCCESS_CODE) {
+            console.log(data);
+            dispatch({
+                type: COMMENT_PAGING,
                 commentData: data
             })
         }
@@ -51,6 +68,9 @@ export default function publicState(state = initialState, action) {
             return {...state, searchSuggest}
             break
         case GET_COMMENT:
+            return {...state, commentData}
+            break
+        case COMMENT_PAGING:
             return {...state, commentData}
             break
         default:

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import * as actions from './PublicRedux'
 import {formatCommentDate} from '../js/util'
 
+import Paging from 'common/component/Paging'
 import Loading from 'common/component/Loading'
 
 class Comment extends Component {
@@ -18,26 +19,28 @@ class Comment extends Component {
     }
     
     componentDidMount() {
-        let {id} = this.props
+        let {id, urlType} = this.props
         let {getComment} = this.props.commentAction
 
-        getComment(id)
+        getComment(id, urlType)
     }
     
     render () {
         let {commentData} = this.props.publicState
+        let {commentPaging} = this.props.commentAction
+        let {id, urlType} = this.props
         
-        let hotComment = (Object.keys(commentData).length > 0 && commentData.hotComments.length > 0) ? commentData.hotComments.map(comment => {
+        let hotComment = (Object.keys(commentData).length > 0 && commentData.hotComments && commentData.hotComments.length > 0) ? commentData.hotComments.map(comment => {
             let time = formatCommentDate(comment.time)
             
             return (
                 <dd key={comment.commentId}>
                     <div className="fl">
-                        <Link to={`/user${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
                     </div>
                     <div className="right">
                         <p className="comment">
-                            <Link to={`/user${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
+                            <Link to={`/user/${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
                             {
                                 comment.user.vipType > 0
                                 ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
@@ -85,17 +88,16 @@ class Comment extends Component {
             return (
                 <dd key={comment.commentId}>
                     <div className="fl">
-                        <Link to={`/user${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
                     </div>
                     <div className="right">
                         <p className="comment">
-                            <Link to={`/user${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
+                            <Link to={`/user/${comment.user.userId}`} className="t-udl">{comment.user.nickname}</Link>
                             {
                                 comment.user.vipType > 0
                                 ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
                                 : null
                             }
-                            
                             ：<span dangerouslySetInnerHTML={{__html: comment.content}}></span>
                         </p>
                         {
@@ -107,7 +109,12 @@ class Comment extends Component {
                                         comment.beReplied[0].status === 0
                                         ? (
                                             <p>
-                                                <Link to={`/user${comment.beReplied[0].user.nickname}`} className="t-udl">{comment.user.nickname}</Link>
+                                                <Link to={`/user${comment.beReplied[0].user.userId}`} className="t-udl">{comment.beReplied[0].user.nickname}</Link>
+                                                {
+                                                    comment.beReplied[0].user.vipType > 0
+                                                    ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
+                                                    : null
+                                                }
                                                 ：<em dangerouslySetInnerHTML={{__html: comment.beReplied[0].content}}></em>
                                             </p>
                                         ) : <em>该评论已删除</em>
@@ -160,19 +167,25 @@ class Comment extends Component {
                     {
                         hotComment
                         ? (
-                            <dl>
+                            <dl className="hot-comment">
                                 <dt>精彩评论</dt>
                                 {hotComment}
                             </dl>
                         ) : null
                     }
-                    <br/>
-                    <br/>
                     <dl>
-                        <dt>最新评论</dt>
+                        <dt>最新评论({commentData.total})</dt>
                         {comments}
                     </dl>
                 </div>
+                <Paging
+                    {...{
+                        commentPaging,
+                        total: commentData.total,
+                        id,
+                        urlType
+                    }}
+                />
             </div>
         )
     }
