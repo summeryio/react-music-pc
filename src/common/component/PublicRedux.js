@@ -10,6 +10,7 @@ const GET_SEARCH_SUGGEST = 'music/common/component/GET_SEARCH_SUGGEST'
 const GET_COMMENT = 'music/common/component/GET_COMMENT'
 const COMMENT_PAGING = 'music/common/component/COMMENT_PAGING'
 
+// 头部搜索建议
 export const getSearchSuggest = (val) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/search/suggest?keywords=${val}`).then((res) => {
         let {data} = res
@@ -25,6 +26,7 @@ export const getSearchSuggest = (val) => (dispatch, getState) => {
     })
 }
 
+// 评论数据
 export const getComment = (id, urlType) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}`).then((res) => {
         let {data} = res
@@ -40,12 +42,12 @@ export const getComment = (id, urlType) => (dispatch, getState) => {
     })
 }
 
+// 评论分页
 export const commentPaging = (id, nowPage, urlType) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}&offset=${nowPage}`).then((res) => {
         let {data} = res
 
         if (data.code === HTTP_SUCCESS_CODE) {
-            console.log(data);
             dispatch({
                 type: COMMENT_PAGING,
                 commentData: data

@@ -10,7 +10,7 @@ let initialState = {
 
 const GET_TOP_LIST_TAG = 'music/TopListRedux/GET_TOP_LIST_TAG'
 const CHANGE_TAG = 'music/TopListRedux/CHANGE_TAG'
-const GET_TOP_LIST_DATA = 'music/TopListRedux/GET_TOP_LIST_DATA'
+const GET_PLAY_LIST_DATA = 'music/TopListRedux/GET_PLAY_LIST_DATA'
 
 
 export const getTopListTag = (id) => (dispatch, getState) => {
@@ -24,7 +24,7 @@ export const getTopListTag = (id) => (dispatch, getState) => {
                 updateFrequency: res.data.list[0].updateFrequency
             })
 
-            dispatch(getTopListData(id))
+            dispatch(getPlayListData(id))
         }
     }).catch(error => {
         console.log(error);
@@ -37,10 +37,10 @@ export const changeTag = (id, updateFrequency) => (dispatch, getState) => {
         updateFrequency,
         playListLoaded: false
     })
-    dispatch(getTopListData(id))
+    dispatch(getPlayListData(id))
 }
 
-export const getTopListData = (id) => (dispatch, getState) => {
+export const getPlayListData = (id) => (dispatch, getState) => {
     // let {updateFrequency} = getState().topList
 
     axios.get(`${URL_HEADER}/playlist/detail?id=${id}`).then((res) => {
@@ -48,7 +48,7 @@ export const getTopListData = (id) => (dispatch, getState) => {
 
         if (res.status === HTTP_SUCCESS_CODE) {
             dispatch({
-                type: GET_TOP_LIST_DATA,
+                type: GET_PLAY_LIST_DATA,
                 playList: res.data.playlist,
                 playListLoaded: true
             })
@@ -75,7 +75,7 @@ export default function topList(state = initialState, action) {
         case CHANGE_TAG:
             return {...state, updateFrequency, playListLoaded}
             break
-        case GET_TOP_LIST_DATA:
+        case GET_PLAY_LIST_DATA:
             return {...state, playList, playListLoaded}
             break
 

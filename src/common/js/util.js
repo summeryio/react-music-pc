@@ -13,12 +13,22 @@ export function splitArray(arr, len) {
     return result
 }
 
+// 格式化时间戳成 月-日
 export function formatDate(timestamp) {
     let ts = timestamp || new Date().getTime()
     let month = new Date(ts).getMonth() + 1 > 9 ? new Date(ts).getMonth() + 1 : '0' + (new Date(ts).getMonth() + 1)
     let day = new Date(ts).getDate() > 9 ? new Date(ts).getDate() : '0' + new Date(ts).getDate()
 
     return month + '月' + day + '日'
+}
+
+// 格式化时间戳成 时-分
+export function formatDateHM(timestamp) {
+    let ts = timestamp
+    let min = new Date(ts).getMinutes() > 9 ? new Date(ts).getMinutes() : '0' + (new Date(ts).getMinutes())
+    let sed = new Date(ts).getSeconds() > 9 ? new Date(ts).getSeconds() : '0' + new Date(ts).getSeconds()
+
+    return min + ':' + sed
 }
 
 /**

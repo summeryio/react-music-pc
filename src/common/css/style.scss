@@ -659,6 +659,9 @@ button, input {
 				}
 			}
 		}
+		.time span {
+			color: #666;
+		}
 		.no-top {
 			.title {
 				padding-top: 10px;
@@ -914,75 +917,6 @@ button, input {
 }
 
 // 分页
-/* #paging {
-	margin: 20px 0;
-	text-align: center;
-	
-	.btn, .dot, .page {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.btn {
-		height: 24px;
-		line-height: 24px;
-		margin: 0 1px 0 2px;
-		text-align: left;
-		border: 1px solid #cccccc;
-	}
-	.btn-prev {
-		width: 47px;
-		padding-left: 22px;
-		background-position: 0 -560px;
-		
-		&:hover {
-			background-position: 0 -590px;
-		}
-		&.disable, &.disable:hover {
-			background-position: 0 -620px;
-			color: #cacaca;
-			cursor: default;
-		}
-	}
-	.btn-next {
-		width: 57px;
-		padding-left: 12px;
-		margin-left: 3px;
-		background-position: -75px -560px;
-		
-		&:hover {
-			background-position: -75px -590px;
-		}
-		&.disable, &.disable:hover {
-			background-position: -75px -620px;
-			color: #cacaca;
-			cursor: default;
-		}
-	}
-	.dot {
-		line-height: 160%;
-		color: #999;
-	}
-	.page {
-		display: inline-block;
-		height: 22px;
-		line-height: 22px;
-		padding: 0 8px;
-		margin: 0 1px 0 2px;
-		border: 1px solid #cccccc;
-		text-align: center;
-		
-		&:hover {
-			border-color: #666;
-		}
-		&.active {
-			background: url(../img/icon-button2.png) no-repeat;
-			color: #fff;
-			border-color: #A2161B;
-			cursor: default;
-			background-position: 0 -650px;
-		}
-	}
-} */
 #paging {
 	margin: 20px 0;
 	text-align: center;

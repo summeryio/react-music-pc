@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Pagination } from 'antd'
 
-export default class Paging extends Component {
+export default class CommentPaging extends Component {
     constructor(props) {
         super(props)
     }

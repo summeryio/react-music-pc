@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {splitArray} from 'common/js/util'
+import {Link} from 'react-router-dom'
 
 
 export default class Rank extends Component {
@@ -8,9 +8,6 @@ export default class Rank extends Component {
     }
     
     render() {
-        // /toplist/detail  -> list   获取榜单信息
-        // /playlist/detail?id=19723756  获取榜单内歌曲，传入榜单id
-
         let {rankData} = this.props
         let rankTemp = rankData.length === 3 ? rankData.map(item => {
             return (
@@ -21,7 +18,7 @@ export default class Rank extends Component {
                             <a href="#" className="icon-coverall mask"></a>
                         </div>
                         <div className="info">
-                            <h3><a href="#" className="t-udl">{item.name}</a></h3>
+                            <h3><Link to={`/discover/topList/${item.id}`} className="t-udl">{item.name}</Link></h3>
                             <p>
                                 <a href="javascript: void(0);" className="icon-five icon-play"></a>
                                 <a href="javascript: void(0);" className="icon-five icon-collect"></a>
@@ -49,7 +46,7 @@ export default class Rank extends Component {
                             }
                             
                         </ol>
-                        <div className="more"><a href="#" className="t-udl">查看全部></a></div>
+                        <div className="more"><Link to={`/discover/topList/${item.id}`} className="t-udl">查看全部></Link></div>
                     </dd>
                 </dl>
             )
@@ -59,7 +56,7 @@ export default class Rank extends Component {
             <section className="rank">
                 <div className="header">
                     <h3 className="icon-five">榜单</h3>
-                    <div className="more icon-five"><a href="#" className="t-udl">更多</a></div>
+                    <div className="more icon-five"><Link to={`/discover/topList/${19723756}`} className="t-udl">更多</Link></div>
                 </div>
                 <div className="rank-list clearfix">
                     <div className="inner">{rankTemp}</div>

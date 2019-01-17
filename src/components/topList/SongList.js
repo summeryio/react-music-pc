@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Loading from 'common/component/Loading'
 
+import {formatDateHM} from 'common/js/util'
+
 export default class SongList extends Component {
     render() {
         let {playList, playListLoaded} = this.props
+        console.log(playList);
         
         return (
             <div className="song-list">
@@ -48,12 +51,14 @@ export default class SongList extends Component {
                                                                     {
                                                                         song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
                                                                     }
-                                                                    {/* <i className="icon-table mv"></i> */}
+                                                                    {
+                                                                        song.mv ? (<i className="icon-table mv"></i>) : null
+                                                                    }
                                                                 </span>
                                                             </div>
                                                     </td>
                                                     <td className="time">
-                                                        <span>03:36</span>
+                                                        <span>{formatDateHM(song.dt)}</span>
                                                         <div className="oper">
                                                             <a href="javascript: void(0);" className="icon-six add"></a>
                                                             <a href="javascript: void(0);" className="collect"></a>
@@ -71,7 +76,6 @@ export default class SongList extends Component {
                         )
                         : (<Loading />)
                     }
-                    
                 </div>
             </div>
         )
