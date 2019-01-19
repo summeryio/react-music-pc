@@ -2324,3 +2324,265 @@ button, input {
 	}
 }
 // =============排行榜=============
+
+
+// =============歌单=============
+#playList_page {
+	.g-bd .inner {
+		position: relative;
+		padding: 40px;
+	}
+	.category {
+		height: 40px;
+		border-bottom: 2px solid #c20c0c;
+		
+		h3 {
+			display: inline-block;
+			width: 60px;
+			font-size: 24px;
+			padding-top: 5px;
+		}
+		.u-btn2 {
+			margin-top: 2px;
+			background-position: right -100px;
+			&:hover {
+				background-position: right -182px;
+
+				i {
+					background-position: 0 -141px;
+				}
+			}
+			
+			i {
+				color: #0c73c2;
+				padding: 0 10px 0 15px;
+				background-position: 0 -59px;
+			}
+			em {
+				display: inline-block;
+				width: 8px;
+				height: 5px;
+				margin-left: 5px;
+				background-position: -70px -543px;
+				vertical-align: middle;
+			}
+		}
+		.fr {
+			width: 93px;
+			height: 29px;
+			
+			a {
+				float: left;
+				width: 46px;
+				height: 29px;
+				line-height: 29px;
+				text-align: center;
+			}
+		}
+		.order_hot .a1,
+		.order_new .a2 {
+			color: #fff;
+		}
+		.order_new {
+			background-position: 0 -32px;
+		}
+	}
+	.category-popup {
+		display: none;
+		position: absolute;
+		z-index: 9;
+		top: 75px;
+		left: 0;
+		
+		&.show {
+			display: block;
+		}
+		& > div {
+			background: url(../img/sltlyr.png) no-repeat;
+		}
+		.t {
+			height: 32px;
+
+			i {
+				position: absolute;
+				top: 2px;
+				left: 132px;
+				display: inline-block;
+				width: 24px;
+				height: 11px;
+				background-position: -48px 0;
+				vertical-align: middle;
+			}
+		}
+		.c {
+			width: 700px;
+			padding: 0 10px;
+			background-position: -720px 0;
+			background-repeat: repeat-y;
+
+			.all {
+				height: 37px;
+				padding-left: 26px;
+				border-bottom: 1px solid #e6e6e6;
+				a {
+					display: inline-block;
+					width: 75px;
+					height: 26px;
+					background-position: 0 -64px;
+					text-align: center;
+					line-height: 26px;
+				}
+			}
+			dl {
+				overflow: hidden;
+			}
+			dt {
+				float: left;
+				width: 70px;
+				padding-top: 15px;
+				margin-left: 26px;
+				font-weight: bold;
+				border-right: 1px solid #e6e6e6;
+				
+				.icon-six {
+					display: inline-block;
+					width: 24px;
+					height: 24px;
+					margin-right: 8px;
+					margin-bottom: 4px;
+					vertical-align: middle;
+				}
+				.icon-t0 {
+					width: 23px;
+					height: 23px;
+					background-position: -20px -735px;
+				}
+				.icon-t1 {
+					background-position: 0 -60px;
+				}
+				.icon-t2 {
+					background-position: 0 -88px;
+				}
+				.icon-t3 {
+					background-position: 0 -117px;
+				}
+				.icon-t4 {
+					background-position: 0 -141px;
+				}
+			}
+			dd {
+				margin-left: 96px;
+				padding: 16px 15px 0 15px;
+				line-height: 24px;
+				border-left: 1px solid #e6e6e6;
+
+				p {
+					display: inline-block;
+				}
+				a {
+					white-space: nowrap;
+				}
+				i {
+					padding: 0 8px 0 10px;
+					color: #d8d8d8;
+				}
+			}
+		}
+		.space {
+			height: 25px;
+		}
+		.b {
+			height: 20px;
+			background-position: -1440px -12px;
+		}
+	}
+	.play-list {
+		min-height: 1500px;
+		margin-top: 30px;
+		margin-left: -50px;
+		
+		li {
+			float: left;
+			width: 140px;
+			height: 188px;
+			margin: 0 0 30px 50px;
+		}
+		.pic {
+			position: relative;
+			width: 140px;
+			height: 140px;
+			
+			img, .mask {
+				width: 100%;
+				height: 100%;
+			}
+			.mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.info {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 27px;
+				line-height: 27px;
+				color: #ccc;
+				background-position: 0 -537px;
+				
+				span.icon-seven {
+					padding-left: 20px;
+					margin-left: 6px;
+					background-position: 4px -22px;
+				}
+				span.num {
+					margin-left: 2px;
+				}
+				.play {
+					position: absolute;
+					right: 10px;
+					bottom: 5px;
+					width: 16px;
+					height: 17px;
+					background-position: 0 0;
+
+					&:hover {
+						background-position: 0 -60px;
+					}
+				}
+			}
+		}
+		.desc {
+			padding: 8px 0 3px;
+			line-height: 1.4;
+
+			a {
+				display: block;
+				width: 100%;
+				font-size: 14px;
+			}
+			.icon-six {
+				position: relative;
+				top: 2px;
+				margin-right: 2px;
+				display: inline-block;
+				width: 35px;
+				height: 15px;
+				background-position: -31px -658px;
+			}
+		}
+		.author {
+			line-height: 1.4;
+			color: #999;
+
+			a {
+				display: inline-block;
+				padding-left: 5px;
+				max-width: 76%;
+				vertical-align: -3px;
+			}
+		}
+	}
+}
+// =============歌单=============

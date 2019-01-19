@@ -6,7 +6,6 @@ import * as actions from './PublicRedux'
 import {formatCommentDate} from '../js/util'
 
 import CommentPaging from 'common/component/CommentPaging'
-import Loading from 'common/component/Loading'
 
 class Comment extends Component {
     componentWillReceiveProps(nextProps) {

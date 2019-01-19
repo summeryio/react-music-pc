@@ -6,7 +6,6 @@ import {formatDateHM} from 'common/js/util'
 export default class SongList extends Component {
     render() {
         let {playList, playListLoaded} = this.props
-        console.log(playList);
         
         return (
             <div className="song-list">
