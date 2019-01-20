@@ -6,6 +6,7 @@ import My from 'components/my/My'
 import Friend from 'components/friend/Friend'
 import TopList from 'components/topList/TopList'
 import PlayList from 'components/playList/PlayList'
+import Album from 'components/album/Album'
 
 // user在这里获取在传递下去
 
@@ -21,6 +22,7 @@ export default class RouterIndex extends Component {
                 <Route path="/discover" exact component={Home} />
                 <Route path="/discover/topList/:id" component={TopList} />
                 <Route path="/discover/playList/:cat" component={PlayList} />
+                <Route path="/discover/album" component={Album} />
             </Switch>
         </Router>
     )

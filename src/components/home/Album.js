@@ -50,8 +50,8 @@ export default class AlBum extends Component {
                                         <a href="#" className="icon-seven play"></a>
                                     </div>
                                     <div className="info">
-                                        <p className="name"><a href="#" className="t-udl">{data.name}</a></p>
-                                        <p className="singer t-hide">{singer}</p>
+                                        <p className="t-hide name"><a href="#" className="t-udl">{data.name}</a></p>
+                                        <p className="t-hide singer">{singer}</p>
                                     </div>
                                 </li>
                             )
