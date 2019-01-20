@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class PlayList extends Component {
     render() {
@@ -13,14 +14,14 @@ export default class PlayList extends Component {
                             playListTag.length > 0 ? playListTag.map((tag, i) => {
                                 return (
                                     <li key={tag.id}>
-                                        <a href="#" className="t-udl">{tag.name}</a>
+                                        <Link to={`/discover/playList/${tag.name}`} className="t-udl">{tag.name}</Link>
                                         {i !== playListTag.length - 1 ? <span>|</span> : null}
                                     </li>
                                 )
                             }) : null
                         }
                     </ul>
-                    <div className="more icon-five"><a href="#" className="t-udl">更多</a></div>
+                    <div className="more icon-five"><Link to="/discover/playList/全部" className="t-udl">更多</Link></div>
                 </div>
                 <ul className="play-list clearfix">
                     {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './PlayListRedux'
@@ -11,14 +12,26 @@ class PlayList extends Component {
         super(props)
 
         this.state = {
-            showPopup: false
+            showPopup: false,
+            order: 'hot',
+            cat: props.match.params.cat
+        }
+    }
+
+    componentWillUpdate (nextProps, nextState) {
+        let {getPlayList} = this.props.playListAction
+        let {order, cat} = this.state
+        
+        if (order !== nextState.order || cat !== nextState.cat) {
+            getPlayList(nextState.order, nextState.cat, 35)
         }
     }
     
     componentDidMount() {
         let {getPlayList, getCatList} = this.props.playListAction
+        let {order, cat} = this.state
 
-        getPlayList()
+        getPlayList(order, cat, 35)
         getCatList()
 
         document.addEventListener('click', () => {
@@ -27,14 +40,15 @@ class PlayList extends Component {
     }
 
     componentWillUnmount() {
-        this.state = (state, callback) => {
-            return {}
+        this.setState = (state, callback)=>{
+            return
         }
     }
     
     render () {
+        let {getPlayList} = this.props.playListAction
         let {playListData, catListData} = this.props.playList
-        let {showPopup} = this.state
+        let {showPopup, order, cat} = this.state
 
         let playListTemp = Object.keys(playListData).length > 0 ? playListData.playlists.map(data => {
             let playCount = data.playCount > 100000 ? parseInt(data.playCount / 10000) + '万' : parseInt(data.playCount)
@@ -66,7 +80,18 @@ class PlayList extends Component {
             let subTemp = catListData.sub.map((item, i) => {
                 if (item.category === key) {
                     return (
-                        <p key={i}><a href="#" className="t-udl">{item.name}</a><i>|</i></p>
+                        <p key={i}>
+                            <Link 
+                                to={`/discover/playList/${item.name}`} 
+                                className={`t-udl ${cat === item.name ? 'cur' : ''}`}
+                                onClick={ev => {
+                                    this.setState({
+                                        cat: item.name
+                                    })
+                                }}
+                            >{item.name}</Link>
+                            <i>|</i>
+                        </p>
                     )
                 }
             })
@@ -91,7 +116,7 @@ class PlayList extends Component {
                     <div className="inner">
                         <div className="category clearfix">
                             <div className="fl">
-                                <h3>全部</h3>
+                                <h3>{playListData.cat}</h3>
                                 <a 
                                     href="javascript: void(0);"
                                     className="u-btn2"
@@ -103,14 +128,33 @@ class PlayList extends Component {
                                     <i>选择分类<em className="icon-three"></em></i>
                                 </a>
                             </div>
-                            <div className="fr icon-button2 order_hot">
-                                <a href="javascript: void(0);" className="t-udl a1">热门</a>
-                                <a href="javascript: void(0);" className="t-udl a2">最新</a>
+                            <div className={`fr icon-button2 ${order}`}>
+                                <a 
+                                    href="javascript: void(0);" 
+                                    className="t-udl a1"
+                                    onClick={ev => this.setState({order: 'hot'})}
+                                >热门</a>
+                                <a 
+                                    href="javascript: void(0);" 
+                                    className="t-udl a2"
+                                    onClick={ev => this.setState({order: 'new'})}
+                                >最新</a>
                             </div>
                             <div className={`category-popup ${showPopup ? 'show' : ''}`}>
                                 <div className="t"><i className="icon-seven"></i></div>
                                 <div className="c">
-                                    <div className="all"><a href="javascript: void(0);" className="t-udl icon-button2">全部风格</a></div>
+                                    <div className="all">
+                                        <Link 
+                                            to="/discover/playList/全部"
+                                            className="t-udl icon-button2"
+                                            onClick={ev => {
+                                                this.setState({
+                                                    cat: '全部'
+                                                })
+                                            }}
+                                        >全部风格</Link>
+                                    </div>
+                                    
                                     {catListTemp}
                                     <div className="space"></div>
                                 </div>
@@ -126,7 +170,7 @@ class PlayList extends Component {
                                 total={playListData.total}
                                 pageSize={35}
                                 onChange={(page, pageSize) => {
-                                    // commentPaging(id, page, urlType)
+                                    getPlayList(order, cat, page)
                                 }}
                             />
                         </div>

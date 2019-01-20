@@ -2338,9 +2338,8 @@ button, input {
 		
 		h3 {
 			display: inline-block;
-			width: 60px;
 			font-size: 24px;
-			padding-top: 5px;
+			padding: 5px 12px 0 0;
 		}
 		.u-btn2 {
 			margin-top: 2px;
@@ -2379,11 +2378,11 @@ button, input {
 				text-align: center;
 			}
 		}
-		.order_hot .a1,
-		.order_new .a2 {
+		.hot .a1,
+		.new .a2 {
 			color: #fff;
 		}
-		.order_new {
+		.new {
 			background-position: 0 -32px;
 		}
 	}
@@ -2481,6 +2480,12 @@ button, input {
 				}
 				a {
 					white-space: nowrap;
+
+					&.cur {
+						background: #a7a7a7;
+						color: #fff;
+						padding: 1px 6px;
+					}
 				}
 				i {
 					padding: 0 8px 0 10px;

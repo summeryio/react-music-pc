@@ -20,7 +20,7 @@ export default class RouterIndex extends Component {
                 <Route path="/friend" component={Friend} />
                 <Route path="/discover" exact component={Home} />
                 <Route path="/discover/topList/:id" component={TopList} />
-                <Route path="/discover/playList" component={PlayList} />
+                <Route path="/discover/playList/:cat" component={PlayList} />
             </Switch>
         </Router>
     )
