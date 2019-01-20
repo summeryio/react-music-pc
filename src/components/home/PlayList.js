@@ -31,7 +31,7 @@ export default class PlayList extends Component {
                             return (
                                 <li key={data.id}>
                                     <div className="pic">
-                                        <img src={data.picUrl} alt={data.name}/>
+                                        <img src={data.picUrl + '?param=140y140'} alt={data.name}/>
                                         <a href="#" title={data.name} className="mask icon-coverall"></a>
                                         <p className="info icon-coverall">
                                             <span className="icon-seven"></span>

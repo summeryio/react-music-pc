@@ -45,7 +45,7 @@ export default class AlBum extends Component {
                             return (
                                 <li key={data.id}>
                                     <div className="pic">
-                                        <img src={data.picUrl} alt={data.name}/>
+                                        <img src={data.picUrl + '?param=100y100'} alt={data.name}/>
                                         <a href="#" title={data.name} className="icon-coverall mask"></a>
                                         <a href="#" className="icon-seven play"></a>
                                     </div>

@@ -8,7 +8,7 @@ export default class SongSummary extends Component {
         return (
             <div className="song-summary">
                 <div className="pic">
-                    <img src={playList.coverImgUrl} />
+                    <img src={playList.coverImgUrl + '?param=150y150'} />
                     <span className="mask icon-coverall"></span>
                 </div>
                 <div className="info">

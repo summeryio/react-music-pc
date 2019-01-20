@@ -41,7 +41,7 @@ export default class SongList extends Component {
                                                     </td>
                                                     <td className="title">
                                                             {
-                                                                i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl} alt=""/></a>) : null
+                                                                i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl + '?param=50y50'} alt=""/></a>) : null
                                                             }
                                                             <div className="ttc">
                                                                 <i className="play"></i>

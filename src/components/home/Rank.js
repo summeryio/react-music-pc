@@ -14,7 +14,7 @@ export default class Rank extends Component {
                 <dl className="item" key={item.id}>
                     <dt className="top">
                         <div className="pic">
-                            <img src={item.coverImgUrl} alt={item.name}/>
+                            <img src={item.coverImgUrl + '?param=100y100'} alt={item.name}/>
                             <a href="#" className="icon-coverall mask"></a>
                         </div>
                         <div className="info">

@@ -210,8 +210,8 @@ class Header extends Component {
 								<li
 									className={barActive && barActive === '/discover/playList' ? 'bar-active' : ''}
 								><Link to="/discover/playList/全部">歌单</Link></li>
-								<li><Link to="/">主播电台</Link></li>
-								<li><Link to="/">歌手</Link></li>
+								{/* <li><Link to="/">主播电台</Link></li>
+								<li><Link to="/">歌手</Link></li> */}
 								<li
 									className={barActive && barActive === '/discover/album' ? 'bar-active' : ''}
 								><Link to="/discover/album">新碟上架</Link></li>

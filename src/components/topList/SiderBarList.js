@@ -27,7 +27,7 @@ export default class SiderBarList extends Component {
                                     }}
                                 >
                                     <Link to={`/discover/topList/${tag.id}`}>
-                                        <div className="pic"><img src={tag.coverImgUrl} /></div>
+                                        <div className="pic"><img src={tag.coverImgUrl + '?param=40y40'} /></div>
                                         <div className="info">
                                             <p className="name">{tag.name}</p>
                                             <p className="tip">{tag.updateFrequency}</p>

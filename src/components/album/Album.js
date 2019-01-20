@@ -21,7 +21,7 @@ class Album extends Component {
             return (
                 <li key={album.id}>
                     <div className="pic">
-                        <img src={album.picUrl} alt={album.name} />
+                        <img src={album.picUrl + '?param=130y130'} alt={album.name} />
                         <a href="#" title={album.name} className="icon-coverall mask"></a>
                         <a href="#" className="icon-seven play"></a>
                     </div>

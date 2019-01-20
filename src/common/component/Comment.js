@@ -35,7 +35,7 @@ class Comment extends Component {
             return (
                 <dd key={comment.commentId}>
                     <div className="fl">
-                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl + '?param=50y50'} /></Link>
                     </div>
                     <div className="right">
                         <p className="comment">
@@ -87,7 +87,7 @@ class Comment extends Component {
             return (
                 <dd key={comment.commentId}>
                     <div className="fl">
-                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl} /></Link>
+                        <Link to={`/user/${comment.user.userId}`}><img className="avatar" src={comment.user.avatarUrl + '?param=50y50'} /></Link>
                     </div>
                     <div className="right">
                         <p className="comment">
