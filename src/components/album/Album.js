@@ -6,6 +6,7 @@ import * as actions from './AlbumRedux'
 import { Pagination } from 'antd'
 
 import PublicModule from 'common/component/PublicModule'
+import Loading from 'common/component/Loading'
 
 class Album extends Component {
     componentDidMount() {
@@ -44,7 +45,7 @@ class Album extends Component {
                 <main id="main" className="g-bd">
                     <div className="inner">
                         <div className="album-title"><h3>新碟上架</h3></div>
-                        <ul className="album-list">{albumTemp}</ul>
+                        <ul className="album-list">{albumTemp ? albumTemp : <Loading />}</ul>
                         <div id="paging">
                             <Pagination 
                                 defaultCurrent={1} 

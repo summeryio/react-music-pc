@@ -21,6 +21,8 @@ export default class SiderBarList extends Component {
                                     key={tag.id}
                                     className={tagID === tag.id ? 'active' : ''}
                                     onClick={ev => {
+                                        if (tagID === tag.id) return
+                                        
                                         document.documentElement.scrollTop = 0
                                         document.body.scrollTop = 0
                                         changeTag(tag.id, tag.updateFrequency)
@@ -47,13 +49,15 @@ export default class SiderBarList extends Component {
                                     key={tag.id}
                                     className={tagID === tag.id ? 'active' : ''}
                                     onClick={ev => {
+                                        if (tagID === tag.id) return
+                                        
                                         document.documentElement.scrollTop = 0
                                         document.body.scrollTop = 0
                                         changeTag(tag.id, tag.updateFrequency)
                                     }}
                                 >
                                     <Link to={`/discover/topList/${tag.id}`}>
-                                        <div className="pic"><img src={tag.coverImgUrl} /></div>
+                                        <div className="pic"><img src={tag.coverImgUrl + '?param=40y40'} /></div>
                                         <div className="info">
                                             <p className="name">{tag.name}</p>
                                             <p className="tip">{tag.updateFrequency}</p>

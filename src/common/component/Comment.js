@@ -177,14 +177,19 @@ class Comment extends Component {
                         {comments}
                     </dl>
                 </div>
-                <CommentPaging
-                    {...{
-                        commentPaging,
-                        total: commentData.total,
-                        id,
-                        urlType
-                    }}
-                />
+                {
+                    commentData.more
+                    ? (
+                        <CommentPaging
+                            {...{
+                                commentPaging,
+                                total: commentData.total,
+                                id,
+                                urlType
+                            }}
+                        />
+                    ) : null
+                }
             </div>
         )
     }

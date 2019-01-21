@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import {splitArray} from 'common/js/util'
 
 import Swiper from 'swiper/dist/js/swiper.js'
@@ -65,7 +66,7 @@ export default class AlBum extends Component {
             <section className="album">
                 <div className="header">
                     <h3 className="icon-five">新碟上架</h3>
-                    <div className="more icon-five"><a href="#" className="t-udl">更多</a></div>
+                    <div className="more icon-five"><Link to="/discover/album" className="t-udl">更多</Link></div>
                 </div>
                 <div className="album-list" ref="albumList">
                     <div className="inner">

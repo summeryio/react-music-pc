@@ -135,7 +135,7 @@ export const getRankList = (i, rankId) => (dispatch, getState) => {
 
 export const getUserInfo = (userId) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/user/detail?uid=${userId}`, {withCredentials: true}).then((res) => {
-        console.log(res);
+        // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
             let {userId, avatarUrl, nickname, followeds, follows, eventCount} = res.data.profile

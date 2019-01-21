@@ -59,7 +59,7 @@ export default class Banner extends Component {
         this.initThemeColor(datas[count].imageUrl)
     }
     
-    componentWillReceiveProps() {
+    componentWillReceiveProps(nextProps) {
         let {datas} = this.props
         let {sliderIndex} = this.state
 
@@ -79,39 +79,36 @@ export default class Banner extends Component {
         let {themeColor, sliderIndex, nowImageUrl, sliderNum} = this.state
 
         return (
-            datas.length > 0
-            ? (
-                <div id="home_banner" ref="homeBanner" style={{backgroundColor: themeColor}}>
-                    <div className="inner">
-                        <div className="wrap">
-                            <a href="#" className="pic">
-                                <img src={nowImageUrl} />
-                            </a>
-                            <a 
-                                href="javascript: void(0);"
-                                className="icon-banner btn btn-prev"
-                                onClick={ev => this.prev()}
-                            ></a>
-                            <a 
-                                href="javascript: void(0);"
-                                className="icon-banner btn btn-next"
-                                onClick={ev => this.next()}
-                            ></a>
-                        </div>
-                        <ul className="nav">
-                            {
-                                datas.map((data, i) => {
-                                    let cls = i === sliderIndex ? 'active' : ''
-
-                                    return (
-                                        <li key={i} className={cls} onClick={ev => this.init(i)}></li>
-                                    )
-                                })
-                            }
-                        </ul>
+            <div id="home_banner" ref="homeBanner" style={{backgroundColor: themeColor}}>
+                <div className="inner">
+                    <div className="wrap">
+                        <a href="#" className="pic">
+                            {nowImageUrl ? <img src={nowImageUrl} /> : null}
+                        </a>
+                        <a 
+                            href="javascript: void(0);"
+                            className="icon-banner btn btn-prev"
+                            onClick={ev => this.prev()}
+                        ></a>
+                        <a 
+                            href="javascript: void(0);"
+                            className="icon-banner btn btn-next"
+                            onClick={ev => this.next()}
+                        ></a>
                     </div>
+                    <ul className="nav">
+                        {
+                            datas.length > 0 && datas.map((data, i) => {
+                                let cls = i === sliderIndex ? 'active' : ''
+
+                                return (
+                                    <li key={i} className={cls} onClick={ev => this.init(i)}></li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
-            ) : null
+            </div>
         )
     }
 }

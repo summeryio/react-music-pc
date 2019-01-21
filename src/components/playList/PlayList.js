@@ -6,6 +6,7 @@ import * as actions from './PlayListRedux'
 import { Pagination } from 'antd'
 
 import PublicModule from 'common/component/PublicModule'
+import Loading from 'common/component/Loading'
 
 class PlayList extends Component {
     constructor(props) {
@@ -162,18 +163,23 @@ class PlayList extends Component {
                             </div>
                         </div>
                         <div className="content">
-                            <ul className="play-list clearfix">{playListTemp}</ul>
+                            <ul className="play-list clearfix">{playListTemp ? playListTemp : <Loading />}</ul>
                         </div>
-                        <div id="paging">
-                            <Pagination 
-                                defaultCurrent={1} 
-                                total={playListData.total}
-                                pageSize={35}
-                                onChange={(page, pageSize) => {
-                                    getPlayList(order, cat, page)
-                                }}
-                            />
-                        </div>
+                        {
+                            playListData.more
+                            ? (
+                                <div id="paging">
+                                    <Pagination 
+                                        defaultCurrent={1} 
+                                        total={playListData.total}
+                                        pageSize={35}
+                                        onChange={(page, pageSize) => {
+                                            getPlayList(order, cat, page)
+                                        }}
+                                    />
+                                </div>
+                            ) : null
+                        }
                     </div>
                 </main>
             </PublicModule>

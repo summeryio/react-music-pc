@@ -1349,6 +1349,7 @@ button, input {
 // =============首页=============
 #home_banner {
 	height: 400px;
+	background-color: #fff;
 	
 	.inner {
 		position: relative;
@@ -2296,7 +2297,8 @@ button, input {
 			&:hover {
 				background-color: #f4f2f2;
 			}
-			&.active, &.active:hover {
+			&.active, &.active:hover, &.active a {
+				cursor: default;
 				background-color: #e6e6e6;
 			}
 
