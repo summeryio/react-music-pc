@@ -32,7 +32,7 @@ export default class PlayList extends Component {
                                 <li key={data.id}>
                                     <div className="pic">
                                         <img src={data.picUrl + '?param=140y140'} alt={data.name}/>
-                                        <a href="#" title={data.name} className="mask icon-coverall"></a>
+                                        <Link to={`/playDetail/${data.id}`} title={data.name} className="mask icon-coverall"></Link>
                                         <p className="info icon-coverall">
                                             <span className="icon-seven"></span>
                                             <span className="num">{playCount}</span>
@@ -40,7 +40,7 @@ export default class PlayList extends Component {
                                         </p>
                                     </div>
                                     <p className="desc">
-                                        <a href="#" className="t-udl">{/* <i className="icon-six"></i> */}{data.name}</a>
+                                        <Link to={`/playDetail/${data.id}`} className="t-udl">{/* <i className="icon-six"></i> */}{data.name}</Link>
                                     </p>
                                 </li>
                             )

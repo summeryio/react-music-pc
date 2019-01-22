@@ -8,6 +8,8 @@ import Friend from 'components/friend/Friend'
 import TopList from 'components/topList/TopList'
 import PlayList from 'components/playList/PlayList'
 import Album from 'components/album/Album'
+import PlayDetail from 'components/musicDetail/PlayDetail'
+import SongDetail from 'components/musicDetail/SongDetail'
 
 export default class RouterIndex extends Component {
   render() {
@@ -23,6 +25,8 @@ export default class RouterIndex extends Component {
                     <Route path="/discover/topList/:id" component={TopList} />
                     <Route path="/discover/playList/:cat" component={PlayList} />
                     <Route path="/discover/album" component={Album} />
+                    <Route path="/playDetail/:id" component={PlayDetail} />
+                    <Route path="/songDetail/:id" component={SongDetail} />
                 </Switch>
             </AutomaticToTop>
         </Router>

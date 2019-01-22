@@ -81,7 +81,7 @@ class Comment extends Component {
                 </dd>
             )
         }) : null
-        let comments = Object.keys(commentData).length > 0 ? commentData.comments.map(comment => {
+        let comments = (Object.keys(commentData).length > 0 && commentData.comments.length) ? commentData.comments.map(comment => {
             let time = formatCommentDate(comment.time)
             
             return (
@@ -141,7 +141,7 @@ class Comment extends Component {
         return (
             <div id="comment">
                 <div className="comment-oper">
-                    <div className="top"><h3>评论</h3><p className="sont-num">共308条评论</p></div>
+                    <div className="top"><h3>评论</h3><p className="sont-num">共{commentData.total}条评论</p></div>
                     <div className="cont">
                         <div className="fl">
                             <img className="user-avatar" src={require('../img/default_avatar.jpg')} />
@@ -172,10 +172,15 @@ class Comment extends Component {
                             </dl>
                         ) : null
                     }
-                    <dl>
-                        <dt>最新评论({commentData.total})</dt>
-                        {comments}
-                    </dl>
+                    {
+                        comments
+                        ? (
+                            <dl>
+                                <dt>最新评论({commentData.total})</dt>
+                                {comments}
+                            </dl>
+                        ) : null
+                    }
                 </div>
                 {
                     commentData.more

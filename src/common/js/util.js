@@ -13,6 +13,16 @@ export function splitArray(arr, len) {
     return result
 }
 
+// 格式化时间戳成 年-月-日
+export function formatDateYMD(timestamp) {
+    let ts = timestamp || new Date().getTime()
+    let year = new Date(ts).getFullYear()
+    let month = new Date(ts).getMonth() + 1 > 9 ? new Date(ts).getMonth() + 1 : '0' + (new Date(ts).getMonth() + 1)
+    let day = new Date(ts).getDate() > 9 ? new Date(ts).getDate() : '0' + new Date(ts).getDate()
+
+    return year + '-' + month + '-' + day + '-'
+}
+
 // 格式化时间戳成 月-日
 export function formatDate(timestamp) {
     let ts = timestamp || new Date().getTime()
@@ -98,4 +108,10 @@ export function formatCommentDate(ts) {
     
         return nowTamp - timestamp < 60000
     }
+}
+
+
+// 将字符串中的换行符替换
+export function formatStringLine(str) {
+    return str.replace(/\n/g, '<br />')
 }

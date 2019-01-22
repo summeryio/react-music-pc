@@ -562,6 +562,9 @@ button, input {
 		&.t3 {
 			width: 93px;
 		}
+		&.t4 {
+			width: 125px;
+		}
 		
 		.key {
 			padding: 8px 10px;
@@ -1341,12 +1344,128 @@ button, input {
 		vertical-align: top;
 	}
 }
+
+
+// 音乐详情页面按钮
+#topList_page,
+#playDetail_page,
+#songDetail_page {
+	.operation {
+		overflow: hidden;
+		margin-top: 19px;
+		
+		.u-btn2 {
+			float: left;
+		}
+		a {}
+		.add-play {
+			color: #fff;
+			background-position: right -428px;
+
+			&:hover {
+				background-position: right -510px;
+
+				i {
+					background-position: 0 -469px;
+				}
+				.play {
+					background-position: -14px -719px;
+				}
+			}
+			&:active {
+				background-position: right -592px;
+
+				i {
+					background-position: 0 -551px;
+				}
+				.play {
+					background-position: -14px -805px;
+				}
+			}
+			i {
+				padding: 0 7px 0 8px;
+				background-position: 0 -387px;
+			}
+			.play {
+				float: left;
+				width: 16px;
+				height: 30px;
+				background-position: -14px -633px;
+			}
+		}
+		.add {
+			width: 32px;
+			height: 30px;
+			margin-left: -3px;
+			margin-right: 5px;
+			padding-right: 0;
+			background-position: 0 -1588px;
+			
+			&:hover {
+				background-position: -40px -1588px;
+			}
+			&:active {
+				background-position: -80px -1588px;
+			}
+		}
+		.u-btni {
+			margin-right: 6px;
+			font-family: simsun;
+
+			&:hover {
+				background-position: right -1106px;
+			}
+		}
+		.u-btni {
+			min-width: 23px;
+			background-position: right -1020px;
+		}
+		.u-btni i {
+			min-width: 23px;
+			padding-left: 28px;
+			padding-right: 2px;
+		}
+		.collect {
+			i {
+				background-position: 0 -977px;
+			}
+			&:hover i {
+				background-position: 0 -1063px;
+			}
+		}
+		.share {
+			i {
+				background-position: 0 -1225px;
+			}
+			&:hover i {
+				background-position: 0 -1268px;
+			}
+		}
+		.download {
+			i {
+				background-position: 0 -2761px;
+			}
+			&:hover i {
+				background-position: 0 -2805px;
+			}
+		}
+		.comment {
+			i {
+				background-position: 0 -1465px;
+			}
+			&:hover i {
+				background-position: 0 -1508px;
+			}
+		}
+	}
+}
 // =============公共模块=============
 
 
 
 
-// =============首页=============
+// =============各个页面样式=============
+// 首页
 #home_banner {
 	height: 400px;
 	background-color: #fff;
@@ -1454,7 +1573,7 @@ button, input {
 	}
 	
 	.main-content {
-		margin-right: 251px;
+		margin-right: 254px;
 		
 		& > .inner {
 			padding: 20px 20px 40px;
@@ -1751,7 +1870,7 @@ button, input {
 				height: 472px;
 			}
 			.item:last-child {
-				width: 228px;
+				width: 226px;
 			}
 			.top {
 				position: relative;
@@ -2083,10 +2202,8 @@ button, input {
 		}
 	}
 }
-// =============首页=============
 
-
-// =============排行榜=============
+// 排行榜
 #topList_page {
 	.topList-bd {
 		background: url(../img/wrap_3.png) repeat-y 100% 100%;
@@ -2147,113 +2264,6 @@ button, input {
 				}
 				span {
 					color: #999;
-				}
-			}
-		}
-		.operation {
-			margin-top: 19px;
-			
-			.u-btn2 {
-				float: left;
-			}
-			a {}
-			.add-play {
-				color: #fff;
-				background-position: right -428px;
-
-				&:hover {
-					background-position: right -510px;
-
-					i {
-						background-position: 0 -469px;
-					}
-					.play {
-						background-position: -14px -719px;
-					}
-				}
-				&:active {
-					background-position: right -592px;
-
-					i {
-						background-position: 0 -551px;
-					}
-					.play {
-						background-position: -14px -805px;
-					}
-				}
-				i {
-					padding: 0 7px 0 8px;
-					background-position: 0 -387px;
-				}
-				.play {
-					float: left;
-					width: 16px;
-					height: 30px;
-					background-position: -14px -633px;
-				}
-			}
-			.add {
-				width: 32px;
-				height: 30px;
-				margin-left: -3px;
-				margin-right: 5px;
-				padding-right: 0;
-				background-position: 0 -1588px;
-				
-				&:hover {
-					background-position: -40px -1588px;
-				}
-				&:active {
-					background-position: -80px -1588px;
-				}
-			}
-			.u-btni {
-				margin-right: 6px;
-				font-family: simsun;
-
-				&:hover {
-					background-position: right -1106px;
-				}
-			}
-			.u-btni {
-				min-width: 23px;
-				background-position: right -1020px;
-			}
-			.u-btni i {
-				min-width: 23px;
-				padding-left: 28px;
-				padding-right: 2px;
-			}
-			.collect {
-				i {
-					background-position: 0 -977px;
-				}
-				&:hover i {
-					background-position: 0 -1063px;
-				}
-			}
-			.share {
-				i {
-					background-position: 0 -1225px;
-				}
-				&:hover i {
-					background-position: 0 -1268px;
-				}
-			}
-			.download {
-				i {
-					background-position: 0 -2761px;
-				}
-				&:hover i {
-					background-position: 0 -2805px;
-				}
-			}
-			.comment {
-				i {
-					background-position: 0 -1465px;
-				}
-				&:hover i {
-					background-position: 0 -1508px;
 				}
 			}
 		}
@@ -2329,10 +2339,8 @@ button, input {
 		}
 	}
 }
-// =============排行榜=============
 
-
-// =============歌单=============
+// 歌单
 #playList_page {
 	.g-bd .inner {
 		position: relative;
@@ -2596,10 +2604,8 @@ button, input {
 		}
 	}
 }
-// =============歌单=============
 
-
-// =============新碟上架=============
+// 新碟上架
 #album_page {
 	.g-bd .inner {
 		padding: 40px;
@@ -2673,4 +2679,201 @@ button, input {
 		}
 	}
 }
-// =============新碟上架=============
+
+// 歌单详情
+#playDetail_page {
+	.main-inner {
+		padding: 40px;
+	}
+	.summary {
+		.pic {
+			float: left;
+			margin: -4px 0 0 -4px;
+			border: 1px solid #d5d5d5;
+
+			img {
+				width: 200px;
+				height: 200px;
+				margin: 3px;
+			}
+		}
+		.info {
+			min-height: 200px;
+			margin-left: 230px;
+		}
+		.title {
+			i {
+				display: inline-block;
+				width: 54px;
+				height: 24px;
+				margin-right: 10px;
+				background-position: 0 -243px;
+				vertical-align: middle;
+			}
+			line-height: 24px;
+			font-size: 20px;
+		}
+		.creater {
+			margin-top: 12px;
+			line-height: 35px;
+			
+			.avatar {
+				img {
+					width: 35px;
+					height: 35px;
+				}
+			}
+			.name {
+				padding: 0 10px;
+				color: #0c73c2;
+			}
+			.time {
+				color: #999;
+			}
+		}
+		.tag {
+			margin: 25px 0 8px;
+			
+			dt {
+				display: inline-block;
+				color: #666;
+			}
+			dd {
+				display: inline-block;
+				height: 20px;
+				padding: 0 5px;
+				margin-right: 10px;
+				line-height: 20px;
+				color: #777;
+				border-radius: 20px;
+				border: 1px solid #d1d1d1;
+				text-align: center;
+				background-color: #f6f6f6;
+			}
+		}
+		.desc {
+			line-height: 20px;
+			color: #666;
+		}
+	}
+	.song-list {
+		margin-top: 28px;
+		
+		.top {
+			height: 31px;
+			line-height: 24px;
+			border-bottom: 2px solid #c20c0c;
+			
+			h3 {
+				float: left;
+				font-size: 20px;
+			}
+			.sont-num {
+				float: left;
+				padding-left: 20px;
+				line-height: 31px;
+				color: #666;
+			}
+			.play-num {
+				float: right;
+			}
+			span {
+				color: #c20c0c;
+			}
+		}
+	}
+	#m_table tbody .no {
+		width: auto;
+		margin-left: 5px;
+	}
+	#m_table .play {
+		float: right;
+		width: 17px;
+		height: 17px;
+		background-position: 0 -103px;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+	.main-siderBar {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 270px;
+	}
+}
+
+// 歌曲详情
+#songDetail_page {
+	.main-inner {
+		padding: 40px;
+	}
+	.summary {
+		.pic {
+			float: left;
+			position: relative;
+			width: 198px;
+			height: 198px;
+			
+			img {
+				width: 130px;
+				height: 130px;
+				margin: 34px;
+			}
+			.mask {
+				position: absolute;
+				left: -4px;
+				top: -4px;
+				width: 206px;
+				height: 206px;
+				background-position: -140px -580px;
+			}
+		}
+		.info {
+			min-height: 200px;
+			margin-left: 230px;
+		}
+		.title {
+			line-height: 24px;
+			font-size: 24px;
+
+			.tag {
+				display: inline-block;
+				width: 54px;
+				height: 24px;
+				margin-right: 10px;
+				background-position: 0 -463px;
+				vertical-align: middle;
+			}
+			.mv {
+				display: inline-block;
+				vertical-align: middle;
+				
+				i {
+					display: block;
+					width: 21px;
+					height: 18px;
+					margin-left: 8px;
+					background-position: 0 -18px;
+				}
+			}
+		}
+		.recource {
+			font-size: 14px;
+			margin-top: 5px;
+			margin-left: 64px;
+			color: #bababa;
+		}
+		.singer {
+			margin: 15px 0;
+			color: #999;
+			a {
+				color: #0c73c2;
+			}
+		}
+		.lyric {
+			margin-top: 20px;
+			line-height: 24px;
+		}
+	}
+}
+// =============各个页面样式=============

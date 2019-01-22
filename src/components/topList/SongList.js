@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import Loading from 'common/component/Loading'
 
 import {formatDateHM} from 'common/js/util'
@@ -40,21 +41,21 @@ export default class SongList extends Component {
                                                         {/* <i className="icon-six status-down">32</i> */}
                                                     </td>
                                                     <td className="title">
-                                                            {
-                                                                i < 3 ? (<a href="#" className="pic"><img src={song.al.picUrl + '?param=50y50'} alt=""/></a>) : null
-                                                            }
-                                                            <div className="ttc">
-                                                                <i className="play"></i>
-                                                                <span className="t-hide text">
-                                                                    <a href="#" className="t-udl name">{song.name}</a>
-                                                                    {
-                                                                        song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
-                                                                    }
-                                                                    {
-                                                                        song.mv ? (<i className="icon-table mv"></i>) : null
-                                                                    }
-                                                                </span>
-                                                            </div>
+                                                        {
+                                                            i < 3 ? (<Link to={`/songDetail/${song.id}`} className="pic"><img src={song.al.picUrl + '?param=50y50'} alt=""/></Link>) : null
+                                                        }
+                                                        <div className="ttc">
+                                                            <i className="play"></i>
+                                                            <span className="t-hide text">
+                                                                <Link to={`/songDetail/${song.id}`} className="t-udl name">{song.name}</Link>
+                                                                {
+                                                                    song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
+                                                                }
+                                                                {
+                                                                    song.mv ? (<i className="icon-table mv"></i>) : null
+                                                                }
+                                                            </span>
+                                                        </div>
                                                     </td>
                                                     <td className="time">
                                                         <span>{formatDateHM(song.dt)}</span>
