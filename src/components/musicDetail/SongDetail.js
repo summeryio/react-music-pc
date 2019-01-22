@@ -25,8 +25,6 @@ class SongDetail extends Component {
         let {id} = this.props.match.params
         let {ar, al} = songDetailData
 
-        console.log(this.props.publicState);
-        
         return (
             <PublicModule 
                 {...{

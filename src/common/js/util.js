@@ -20,7 +20,7 @@ export function formatDateYMD(timestamp) {
     let month = new Date(ts).getMonth() + 1 > 9 ? new Date(ts).getMonth() + 1 : '0' + (new Date(ts).getMonth() + 1)
     let day = new Date(ts).getDate() > 9 ? new Date(ts).getDate() : '0' + new Date(ts).getDate()
 
-    return year + '-' + month + '-' + day + '-'
+    return year + '-' + month + '-' + day
 }
 
 // 格式化时间戳成 月-日

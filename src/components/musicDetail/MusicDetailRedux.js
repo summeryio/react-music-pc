@@ -4,13 +4,15 @@ import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
 let initialState = {
     playDetailData: {},
     songDetailData: {},
-    lyric: ''
+    lyric: '',
+    albumDetailData: {}
 }
 
 
 const GET_PLAY_DETAIL = 'music/TopListRedux/GET_PLAY_DETAIL'
 const GET_SONG_DETAIL = 'music/TopListRedux/GET_SONG_DETAIL'
 const GET_LYRIC = 'music/TopListRedux/GET_LYRIC'
+const GET_ALBUM = 'music/TopListRedux/GET_ALBUM'
 
 
 export const getPlayListData = (id) => (dispatch, getState) => {
@@ -58,13 +60,29 @@ export const getLyric = (id) => (dispatch, getState) => {
     })
 }
 
+export const getAlbumDetail = (id) => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/album?id=${id}`).then((res) => {
+        // console.log(res);
+
+        if (res.status === HTTP_SUCCESS_CODE) {
+            dispatch({
+                type: GET_ALBUM,
+                albumDetailData: res.data
+            })
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
+
 
 export default function musicDetail(state = initialState, action) {
     let {
         type,
         playDetailData,
         songDetailData,
-        lyric
+        lyric,
+        albumDetailData
     } = action
 
     switch (type) {
@@ -76,6 +94,9 @@ export default function musicDetail(state = initialState, action) {
             break
         case GET_LYRIC:
             return {...state, lyric}
+            break
+        case GET_ALBUM:
+            return {...state, albumDetailData}
             break
 
         default:

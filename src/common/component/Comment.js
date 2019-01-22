@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './PublicRedux'
-import {formatCommentDate} from '../js/util'
+import {formatCommentDate, formatStringLine} from '../js/util'
 
 import CommentPaging from 'common/component/CommentPaging'
 
@@ -46,7 +46,7 @@ class Comment extends Component {
                                 : null
                             }
                             
-                            ：<span dangerouslySetInnerHTML={{__html: comment.content}}></span>
+                            ：<span dangerouslySetInnerHTML={{__html: formatStringLine(comment.content)}}></span>
                         </p>
                         {
                             comment.beReplied.length > 0
@@ -58,7 +58,7 @@ class Comment extends Component {
                                         ? (
                                             <p>
                                                 <Link to={`/user${comment.beReplied[0].user.nickname}`} className="t-udl">{comment.user.nickname}</Link>
-                                                ：<em dangerouslySetInnerHTML={{__html: comment.beReplied[0].content}}></em>
+                                                ：<em dangerouslySetInnerHTML={{__html: formatStringLine(comment.beReplied[0].content)}}></em>
                                             </p>
                                         ) : <em>该评论已删除</em>
                                     }
@@ -97,7 +97,7 @@ class Comment extends Component {
                                 ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
                                 : null
                             }
-                            ：<span dangerouslySetInnerHTML={{__html: comment.content}}></span>
+                            ：<span dangerouslySetInnerHTML={{__html: formatStringLine(comment.content)}}></span>
                         </p>
                         {
                             comment.beReplied.length > 0
@@ -114,7 +114,7 @@ class Comment extends Component {
                                                     ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)
                                                     : null
                                                 }
-                                                ：<em dangerouslySetInnerHTML={{__html: comment.beReplied[0].content}}></em>
+                                                ：<em dangerouslySetInnerHTML={{__html: formatStringLine(comment.beReplied[0].content)}}></em>
                                             </p>
                                         ) : <em>该评论已删除</em>
                                     }

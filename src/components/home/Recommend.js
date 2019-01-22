@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Recommend extends Component {
     constructor(props) {
@@ -43,7 +44,7 @@ export default class Recommend extends Component {
                                 <li key={data.id}>
                                     <div className="pic">
                                         <img src={data.picUrl + '?param=140y140'} alt={data.name}/>
-                                        <a href="#" title={data.name} className="mask icon-coverall"></a>
+                                        <Link to={`playDetail/${data.id}`} title={data.name} className="mask icon-coverall"></Link>
                                         <p className="info icon-coverall">
                                             <span className="icon-seven"></span>
                                             <span className="num">{playCount}</span>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 import RGBaster from 'common/js/rgbaster.js'
 
@@ -76,38 +77,69 @@ export default class Banner extends Component {
     
     render() {
         let {datas} = this.props
-        let {themeColor, sliderIndex, nowImageUrl, sliderNum} = this.state
+        let {themeColor, sliderIndex, nowImageUrl} = this.state
+        let nowSlider = datas[sliderIndex]
+        let targetType = {
+            1: 'songDetail',
+            10: 'albumDetail',
+            1000: 'playDetail'
+        }
+
+        let temp = null
+        if (datas.length) {
+            if (nowSlider.url && nowSlider.targetType === 3000) {
+                temp = (<a href={nowSlider.url} target="_blank" className="pic">
+                {nowImageUrl ? <img src={nowImageUrl} /> : null}</a>)
+            } else {
+                temp = (<Link to={`/${targetType[nowSlider.targetType]}/${nowSlider.targetId}`} className="pic">
+                {nowImageUrl ? <img src={nowImageUrl} /> : null}</Link>)
+            }
+        }
+
+        let targetLink = ''
+        if (datas.length) {
+            if (nowSlider.url && nowSlider.targetType === 3000) {
+                targetLink = nowSlider.url
+            } else {
+                targetLink = `/${targetType[nowSlider.targetType]}/${nowSlider.targetId}`
+            }
+        }
+
+        console.log(targetLink);
+
+        // 1 单曲  10专辑 1000 歌单
 
         return (
             <div id="home_banner" ref="homeBanner" style={{backgroundColor: themeColor}}>
-                <div className="inner">
-                    <div className="wrap">
-                        <a href="#" className="pic">
-                            {nowImageUrl ? <img src={nowImageUrl} /> : null}
-                        </a>
-                        <a 
-                            href="javascript: void(0);"
-                            className="icon-banner btn btn-prev"
-                            onClick={ev => this.prev()}
-                        ></a>
-                        <a 
-                            href="javascript: void(0);"
-                            className="icon-banner btn btn-next"
-                            onClick={ev => this.next()}
-                        ></a>
-                    </div>
-                    <ul className="nav">
-                        {
-                            datas.length > 0 && datas.map((data, i) => {
-                                let cls = i === sliderIndex ? 'active' : ''
+                {
+                    datas.length
+                    ? (<div className="inner">
+                        <div className="wrap">
+                            {temp}
+                            <a 
+                                href="javascript: void(0);"
+                                className="icon-banner btn btn-prev"
+                                onClick={ev => this.prev()}
+                            ></a>
+                            <a 
+                                href="javascript: void(0);"
+                                className="icon-banner btn btn-next"
+                                onClick={ev => this.next()}
+                            ></a>
+                        </div>
+                        <ul className="nav">
+                            {
+                                datas.length > 0 && datas.map((data, i) => {
+                                    let cls = i === sliderIndex ? 'active' : ''
 
-                                return (
-                                    <li key={i} className={cls} onClick={ev => this.init(i)}></li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+                                    return (
+                                        <li key={i} className={cls} onClick={ev => this.init(i)}></li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>) : null
+                }
             </div>
         )
     }

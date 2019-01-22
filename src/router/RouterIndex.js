@@ -10,6 +10,7 @@ import PlayList from 'components/playList/PlayList'
 import Album from 'components/album/Album'
 import PlayDetail from 'components/musicDetail/PlayDetail'
 import SongDetail from 'components/musicDetail/SongDetail'
+import AlbumDetail from 'components/musicDetail/AlbumDetail'
 
 export default class RouterIndex extends Component {
   render() {
@@ -27,6 +28,7 @@ export default class RouterIndex extends Component {
                     <Route path="/discover/album" component={Album} />
                     <Route path="/playDetail/:id" component={PlayDetail} />
                     <Route path="/songDetail/:id" component={SongDetail} />
+                    <Route path="/albumDetail/:id" component={AlbumDetail} />
                 </Switch>
             </AutomaticToTop>
         </Router>

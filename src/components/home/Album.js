@@ -47,11 +47,11 @@ export default class AlBum extends Component {
                                 <li key={data.id}>
                                     <div className="pic">
                                         <img src={data.picUrl + '?param=100y100'} alt={data.name}/>
-                                        <a href="#" title={data.name} className="icon-coverall mask"></a>
+                                        <Link to={`/albumDetail/${data.id}`} title={data.name} className="icon-coverall mask"></Link>
                                         <a href="#" className="icon-seven play"></a>
                                     </div>
                                     <div className="info">
-                                        <p className="t-hide name"><a href="#" className="t-udl">{data.name}</a></p>
+                                        <p className="t-hide name"><Link to={`/albumDetail/${data.id}`} className="t-udl">{data.name}</Link></p>
                                         <p className="t-hide singer">{singer}</p>
                                     </div>
                                 </li>

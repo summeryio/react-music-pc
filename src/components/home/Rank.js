@@ -34,7 +34,7 @@ export default class Rank extends Component {
                                     return (
                                         <li key={song.id}>
                                             <span className={`num ${numTop}`}>{i + 1}</span>
-                                            <a href="#" className="t-udl t-hide name">{song.name}</a>
+                                            <Link to={`songDetail/${song.id}`} className="t-udl t-hide name">{song.name}</Link>
                                             <div className="operation">
                                                 <a href="javascript: void(0);" className="icon-five icon-play"></a>
                                                 <a href="javascript: void(0);" className="icon-six icon-add"></a>

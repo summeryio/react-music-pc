@@ -23,11 +23,11 @@ class Album extends Component {
                 <li key={album.id}>
                     <div className="pic">
                         <img src={album.picUrl + '?param=130y130'} alt={album.name} />
-                        <a href="#" title={album.name} className="icon-coverall mask"></a>
+                        <Link to={`/albumDetail/${album.id}`} title={album.name} className="icon-coverall mask"></Link>
                         <a href="#" className="icon-seven play"></a>
                     </div>
                     <div className="info">
-                        <p className="t-hide name"><a href="#" className="t-udl">{album.name}</a></p>
+                        <p className="t-hide name"><Link to={`/albumDetail/${album.id}`} className="t-udl">{album.name}</Link></p>
                         <p className="t-hide singer"><span><a href="#" className="t-udl">{album.artist.name}</a></span></p>
                     </div>
                 </li>
