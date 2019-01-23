@@ -9,7 +9,7 @@ export default class Banner extends Component {
         super(props)
 
         this.state = {
-            sliderIndex: 3,
+            sliderIndex: 0,
             nowImageUrl: '',
             sliderNum: 0,
             themeColor: ''
@@ -105,7 +105,7 @@ export default class Banner extends Component {
             }
         }
 
-        console.log(targetLink);
+        
 
         // 1 单曲  10专辑 1000 歌单
 

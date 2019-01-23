@@ -23,10 +23,7 @@ class AlbumDetail extends Component {
         let {id} = this.props.match.params
         let loaded = albumDetailData.code === 200
         let {songs, album} = albumDetailData
-
-        if (loaded){
-        console.log(album.picUrl);
-    }
+        
         return (
             <PublicModule 
                 {...{
@@ -51,7 +48,12 @@ class AlbumDetail extends Component {
                                     <a href="javascript: void(0);" className="u-btn2 add-play"><i><em className="u-btn2 play"></em>播放</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 add"></a>
                                     <a href="javascript: void(0);" className="u-btn2 u-btni collect"><i>收藏</i></a>
-                                    <a href="javascript: void(0);" className="u-btn2 u-btni share"><i>({loaded && album.info.commentThread.shareCount})</i></a>
+                                    {
+                                        loaded && album.info.shareCount > 0
+                                        ? (<a href="javascript: void(0);" className="u-btn2 u-btni share"><i>({album.info.shareCount})</i></a>)
+                                        : (<a href="javascript: void(0);" className="u-btn2 u-btni share"><i>分享</i></a>)
+                                    }
+                                    
                                     <a href="javascript: void(0);" className="u-btn2 u-btni download"><i>下载</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 u-btni comment"><i>({loaded && album.info.commentThread.commentCount})</i></a>
                                 </div>

@@ -26,6 +26,14 @@ export const getBanner = () => (dispatch, getState) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
+            res.data.banners = res.data.banners.filter(banner => {
+                if (banner.targetType === 3000) {
+                    return false
+                }
+
+                return true
+            })
+
             dispatch({
                 type: GET_BANNER,
                 bannerData: res.data.banners
