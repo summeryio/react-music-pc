@@ -21,7 +21,7 @@ class PlayDetail extends Component {
     render () {
         let {playDetailData} = this.props.musicDetail
         let {id} = this.props.match.params
-        
+
         return (
             <PublicModule 
                 {...{

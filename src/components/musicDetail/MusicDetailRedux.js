@@ -52,7 +52,7 @@ export const getLyric = (id) => (dispatch, getState) => {
         if (res.status === HTTP_SUCCESS_CODE) {
             dispatch({
                 type: GET_LYRIC,
-                lyric: res.data.lrc.lyric
+                lyric: !res.data.nolyric ? res.data.lrc.lyric : ''
             })
         }
     }).catch(error => {
