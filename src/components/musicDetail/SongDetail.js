@@ -4,8 +4,6 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './MusicDetailRedux'
 
-import {formatStringLine} from 'common/js/util'
-
 import PublicModule from 'common/component/PublicModule'
 import Comment from 'common/component/Comment'
 
@@ -34,23 +32,6 @@ class SongDetail extends Component {
         let {commentData} = this.props.publicState
         let {id} = this.props.match.params
         let {ar, al} = songDetailData
-
-        let lyricArr = lyric.split('\n')
-        let lyricResult = []
-        let lyricStr = ''
-
-        lyricArr.forEach(function(val, index) {
-            let cur = val.match(/\[(.+)\](.+)?/)
-
-            if (cur && cur[2] && typeof cur[2] == 'string') {
-                lyricResult.push(cur[2])
-            } else {
-                lyricResult.push([])
-            }
-        })
-        lyricStr = lyricResult.join('<br />')
-
-        console.log(lyricResult);
 
         return (
             <PublicModule 
@@ -88,7 +69,7 @@ class SongDetail extends Component {
                                     <a href="javascript: void(0);" className="u-btn2 u-btni comment"><i>({commentData.total})</i></a>
                                 </div>
                                 {
-                                    lyric ? <p className="lyric" dangerouslySetInnerHTML={{__html: lyricStr}}></p> : null
+                                    lyric ? <p className="lyric" dangerouslySetInnerHTML={{__html: lyric}}></p> : null
                                 }
                             </div>
                         </div>

@@ -54,9 +54,22 @@ export const getLyric = (id) => (dispatch, getState) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
+            let lyricArr = !res.data.nolyric ? res.data.lrc.lyric.split('\n') : []
+            let lyricResult = []
+
+            lyricArr.forEach(function(val, index) {
+                let cur = val.match(/\[(.+)\](.+)?/)
+
+                if (cur && cur[2] && typeof cur[2] == 'string') {
+                    lyricResult.push(cur[2])
+                } else {
+                    lyricResult.push([])
+                }
+            })
+            
             dispatch({
                 type: GET_LYRIC,
-                lyric: !res.data.nolyric ? res.data.lrc.lyric : ''
+                lyric: !res.data.nolyric ? lyricResult.join('<br />') : ''
             })
         }
     }).catch(error => {
