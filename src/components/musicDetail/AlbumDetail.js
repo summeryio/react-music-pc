@@ -11,6 +11,16 @@ import Comment from 'common/component/Comment'
 import Loading from 'common/component/Loading'
 
 class AlbumDetail extends Component {
+    componentWillReceiveProps(nextProps) {
+        let {id} = this.props.match.params
+        let nextId = nextProps.match.params.id
+        let {getAlbumDetail} = this.props.musicDetailAction
+
+        if (id !== nextId) {
+            getAlbumDetail(nextId)
+        }
+    }
+    
     componentDidMount() {
         let {getAlbumDetail} = this.props.musicDetailAction
         let {id} = this.props.match.params

@@ -11,6 +11,16 @@ import Comment from 'common/component/Comment'
 import Loading from 'common/component/Loading'
 
 class PlayDetail extends Component {
+    componentWillReceiveProps(nextProps) {
+        let {id} = this.props.match.params
+        let nextId = nextProps.match.params.id
+        let {getPlayListData} = this.props.musicDetailAction
+
+        if (id !== nextId) {
+            getPlayListData(nextId)
+        }
+    }
+    
     componentDidMount() {
         let {getPlayListData} = this.props.musicDetailAction
         let {id} = this.props.match.params

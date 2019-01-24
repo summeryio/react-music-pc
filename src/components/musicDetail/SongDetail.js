@@ -10,6 +10,17 @@ import PublicModule from 'common/component/PublicModule'
 import Comment from 'common/component/Comment'
 
 class SongDetail extends Component {
+    componentWillReceiveProps(nextProps) {
+        let {id} = this.props.match.params
+        let nextId = nextProps.match.params.id
+        let {getSongDetail, getLyric} = this.props.musicDetailAction
+
+        if (id !== nextId) {
+            getSongDetail(nextId)
+            getLyric(nextId)
+        }
+    }
+    
     componentDidMount() {
         let {getSongDetail, getLyric} = this.props.musicDetailAction
         let {id} = this.props.match.params
@@ -23,6 +34,23 @@ class SongDetail extends Component {
         let {commentData} = this.props.publicState
         let {id} = this.props.match.params
         let {ar, al} = songDetailData
+
+        let lyricArr = lyric.split('\n')
+        let lyricResult = []
+        let lyricStr = ''
+
+        lyricArr.forEach(function(val, index) {
+            let cur = val.match(/\[(.+)\](.+)?/)
+
+            if (cur && cur[2] && typeof cur[2] == 'string') {
+                lyricResult.push(cur[2])
+            } else {
+                lyricResult.push([])
+            }
+        })
+        lyricStr = lyricResult.join('<br />')
+
+        console.log(lyricResult);
 
         return (
             <PublicModule 
@@ -60,7 +88,7 @@ class SongDetail extends Component {
                                     <a href="javascript: void(0);" className="u-btn2 u-btni comment"><i>({commentData.total})</i></a>
                                 </div>
                                 {
-                                    lyric ? <p className="lyric" dangerouslySetInnerHTML={{__html: formatStringLine(lyric)}}></p> : null
+                                    lyric ? <p className="lyric" dangerouslySetInnerHTML={{__html: lyricStr}}></p> : null
                                 }
                             </div>
                         </div>
