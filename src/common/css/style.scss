@@ -2986,4 +2986,44 @@ button, input {
 		}
 	}
 }
+
+// MV详情
+#mvDetail_page {
+	.main-inner {
+		padding: 40px;
+	}
+	.mv-title {
+		line-height: 32px;
+		font-size: 24px;
+		margin-bottom: 8px;
+		
+		i {
+			display: inline-block;
+			width: 29px;
+			height: 18px;
+			margin-right: 5px;
+			background-position: -230px -480px;
+		}
+		a {
+			padding-left: 5px;
+			color: #0c73c2;
+			font-size: 12px;
+		}
+	}
+	.mv-video {
+		display: block;
+		height: 360px;
+		margin-bottom: 20px;
+		outline: none;
+	}
+	.time, .count {
+		line-height: 20px;
+		color: #666;
+	}
+	.desc {
+		max-width: 640px;
+		line-height: 18px;
+		margin-top: 20px;
+	}
+}
 // =============各个页面样式=============

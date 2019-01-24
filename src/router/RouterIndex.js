@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import AutomaticToTop from 'common/component/AutomaticToTop'
 import Home from 'components/home/Home'
@@ -11,6 +11,7 @@ import Album from 'components/album/Album'
 import PlayDetail from 'components/musicDetail/PlayDetail'
 import SongDetail from 'components/musicDetail/SongDetail'
 import AlbumDetail from 'components/musicDetail/AlbumDetail'
+import MVDetail from 'components/musicDetail/MVDetail'
 
 export default class RouterIndex extends Component {
   render() {
@@ -29,6 +30,7 @@ export default class RouterIndex extends Component {
                     <Route path="/playDetail/:id" component={PlayDetail} />
                     <Route path="/songDetail/:id" component={SongDetail} />
                     <Route path="/albumDetail/:id" component={AlbumDetail} />
+                    <Route path="/mvDetail/:id" component={MVDetail} />
                 </Switch>
             </AutomaticToTop>
         </Router>

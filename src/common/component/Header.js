@@ -47,8 +47,9 @@ class Header extends Component {
 			barActive
         } = this.props
         let {changeSearchVal} = this
-        let {searchValue, hideSearchResult} = this.state
-
+		let {searchValue, hideSearchResult} = this.state
+		
+		
         // 搜索建议
         let suggestTitleObj = {
             'songs': '单曲',
@@ -62,41 +63,49 @@ class Header extends Component {
         let searchSuggestTemp = searchSuggestLen > 0
         ? searchSuggest.order.map((name, i) => {
             let first = i === 0 ? 'item-first' : ''
-            let odd = i % 2 !== 0 ? 'item-odd' : ''
-
+			let odd = i % 2 !== 0 ? 'item-odd' : ''
+			
             return (
                 <div className={`item ${first} ${odd} item-${name}`} key={i}>
                     <h6 className="key"><i className="icon-three"></i><em>{suggestTitleObj[name]}</em></h6>
                     <ul className="value">
                         {
-                            searchSuggest[name].map(data => {
+                            searchSuggest[name] ? searchSuggest[name].map(data => {
                                 let reg = new RegExp(searchValue, 'gi')
-                                let n = data.name.replace(reg, `<span>${searchValue}</span>`)
+								let n = data.name.replace(reg, `<span>${searchValue}</span>`)
                                 
                                 if (name === 'songs') {
                                     let m = data.artists[0].name.replace(/happy/gi, `<span>happy</span>`)
                                     let s = n + '-' + m
 
                                     return (
-                                        <li key={data.id}><a href="#" dangerouslySetInnerHTML={{__html: s}}></a></li>
+                                        <li key={data.id}><Link to={`/songDetail/${data.id}`} dangerouslySetInnerHTML={{__html: s}}></Link></li>
+                                    )
+                                } else if (name === 'artists') {
+                                    return (
+                                        <li key={data.id}><Link to={`/artistDetail/${data.id}`} dangerouslySetInnerHTML={{__html: n}}></Link></li>
                                     )
                                 } else if (name === 'albums') {
                                     let m = data.artist.name.replace(/happy/gi, `<span>happy</span>`)
                                     let s = n + '-' + m
                                     
                                     return (
-                                        <li key={data.id}><a href="#" dangerouslySetInnerHTML={{__html: s}}></a></li>
+                                        <li key={data.id}><Link to={`/albumDetail/${data.id}`} dangerouslySetInnerHTML={{__html: s}}></Link></li>
                                     )
                                 } else if (name === 'mvs') {
                                     return (
-                                        <li key={data.id}><a href="#" dangerouslySetInnerHTML={{__html: 'MV:' + n}}></a></li>
+                                        <li key={data.id}><Link to={`/mvDetail/${data.id}`} dangerouslySetInnerHTML={{__html: 'MV:' + n}}></Link></li>
+                                    )
+                                } else if (name === 'playlists') {
+                                    return (
+                                        <li key={data.id}><Link to={`/playDetail/${data.id}`} dangerouslySetInnerHTML={{__html: n}}></Link></li>
                                     )
                                 } else {
                                     return (
                                         <li key={data.id}><a href="#" dangerouslySetInnerHTML={{__html: n}}></a></li>
                                     )
                                 }
-                            })
+                            }) : null
                         }
                     </ul>
                 </div>

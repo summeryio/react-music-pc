@@ -5,7 +5,9 @@ let initialState = {
     playDetailData: {},
     songDetailData: {},
     lyric: '',
-    albumDetailData: {}
+    albumDetailData: {},
+    mvDetailData: {},
+    mvUrl: ''
 }
 
 
@@ -13,6 +15,8 @@ const GET_PLAY_DETAIL = 'music/TopListRedux/GET_PLAY_DETAIL'
 const GET_SONG_DETAIL = 'music/TopListRedux/GET_SONG_DETAIL'
 const GET_LYRIC = 'music/TopListRedux/GET_LYRIC'
 const GET_ALBUM = 'music/TopListRedux/GET_ALBUM'
+const GET_MV = 'music/TopListRedux/GET_MV'
+const GET_MV_URL = 'music/TopListRedux/GET_MV_URL'
 
 
 export const getPlayListData = (id) => (dispatch, getState) => {
@@ -75,6 +79,36 @@ export const getAlbumDetail = (id) => (dispatch, getState) => {
     })
 }
 
+export const getMVDetail = (id) => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/mv/detail?mvid=${id}`).then((res) => {
+        // console.log(res);
+
+        if (res.status === HTTP_SUCCESS_CODE) {
+            dispatch({
+                type: GET_MV,
+                mvDetailData: res.data
+            })
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
+
+export const getMVUrl = (id) => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/mv/url?id=${id}`).then((res) => {
+        // console.log(res);
+
+        if (res.status === HTTP_SUCCESS_CODE) {
+            dispatch({
+                type: GET_MV_URL,
+                mvUrl: res.data.data.url
+            })
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
+
 
 export default function musicDetail(state = initialState, action) {
     let {
@@ -82,7 +116,9 @@ export default function musicDetail(state = initialState, action) {
         playDetailData,
         songDetailData,
         lyric,
-        albumDetailData
+        albumDetailData,
+        mvDetailData,
+        mvUrl
     } = action
 
     switch (type) {
@@ -97,6 +133,12 @@ export default function musicDetail(state = initialState, action) {
             break
         case GET_ALBUM:
             return {...state, albumDetailData}
+            break
+        case GET_MV:
+            return {...state, mvDetailData}
+            break
+        case GET_MV_URL:
+            return {...state, mvUrl}
             break
 
         default:

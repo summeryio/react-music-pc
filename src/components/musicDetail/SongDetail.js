@@ -36,7 +36,7 @@ class SongDetail extends Component {
                     <div className="main-inner">
                         <div className="summary">
                             <div className="pic">
-                                {<img src={al && al.picUrl} />}
+                                {<img src={al && al.picUrl + '?param=130y130'} />}
                                 <span className="icon-coverall mask"></span>
                             </div>
                             <div className="info">

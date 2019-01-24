@@ -79,10 +79,11 @@ export default class Banner extends Component {
         let {datas} = this.props
         let {themeColor, sliderIndex, nowImageUrl} = this.state
         let nowSlider = datas[sliderIndex]
-        let targetType = {
+        let targetType = { // 1单曲  10专辑 1000歌单 1004采访
             1: 'songDetail',
             10: 'albumDetail',
-            1000: 'playDetail'
+            1000: 'playDetail',
+            1004: 'mvDetail'
         }
 
         let temp = null
@@ -95,19 +96,6 @@ export default class Banner extends Component {
                 {nowImageUrl ? <img src={nowImageUrl} /> : null}</Link>)
             }
         }
-
-        let targetLink = ''
-        if (datas.length) {
-            if (nowSlider.url && nowSlider.targetType === 3000) {
-                targetLink = nowSlider.url
-            } else {
-                targetLink = `/${targetType[nowSlider.targetType]}/${nowSlider.targetId}`
-            }
-        }
-
-        
-
-        // 1 单曲  10专辑 1000 歌单
 
         return (
             <div id="home_banner" ref="homeBanner" style={{backgroundColor: themeColor}}>
