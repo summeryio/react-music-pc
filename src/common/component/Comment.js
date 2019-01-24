@@ -13,7 +13,7 @@ class Comment extends Component {
         let {getComment} = this.props.commentAction
 
         if (id !== nextProps.id) {
-            getComment(nextProps.id)
+            getComment(nextProps.id, nextProps.urlType)
         }
     }
     

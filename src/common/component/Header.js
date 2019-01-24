@@ -48,8 +48,7 @@ class Header extends Component {
         } = this.props
         let {changeSearchVal} = this
 		let {searchValue, hideSearchResult} = this.state
-		
-		
+
         // 搜索建议
         let suggestTitleObj = {
             'songs': '单曲',

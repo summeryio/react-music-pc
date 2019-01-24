@@ -4,11 +4,10 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './MusicDetailRedux'
 
-import {formatDateYMD, formatDateHM, formatStringLine} from 'common/js/util'
+import {formatStringLine} from 'common/js/util'
 
 import PublicModule from 'common/component/PublicModule'
 import Comment from 'common/component/Comment'
-import Loading from 'common/component/Loading'
 
 class SongDetail extends Component {
     componentDidMount() {
@@ -45,7 +44,7 @@ class SongDetail extends Component {
                                     {songDetailData.name}
                                     {
                                         songDetailData.mv
-                                        ? (<a href="#" title="播放mv" className="mv"><i className="icon-six"></i></a>)
+                                        ? (<Link to={`/mvDetail/${songDetailData.mv}`} title="播放mv" className="mv"><i className="icon-six"></i></Link>)
                                         : null
                                     }
                                 </h3>

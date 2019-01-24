@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './MusicDetailRedux'
 
-import {formatDateYMD, formatDateHM, formatStringLine} from 'common/js/util'
-
 import PublicModule from 'common/component/PublicModule'
 import Comment from 'common/component/Comment'
-import Loading from 'common/component/Loading'
+
+import { Player } from 'video-react';
+import "video-react/dist/video-react.css";
 
 class MVDetail extends Component {
+    componentWillReceiveProps(nextProps) {
+        let {id} = this.props.match.params
+        let nextId = nextProps.match.params.id
+        let {getMVDetail, getMVUrl} = this.props.musicDetailAction
+
+        if (id !== nextId) {
+            getMVDetail(nextId)
+            getMVUrl(nextId)
+        }
+    }
+    
     componentDidMount() {
         let {getMVDetail, getMVUrl} = this.props.musicDetailAction
         let {id} = this.props.match.params
@@ -39,10 +49,15 @@ class MVDetail extends Component {
                             {datas.name}
                             <a href="#" className="t-udl">{datas.artistName}</a>
                         </h3>
-                        {
-                            mvUrl
-                            ? (<video controls={true} name="media" className="mv-video"><source src={mvUrl} type="video/mp4" /></video>) : null
-                        }
+                        <Player
+                            playsInline
+                            fluid={false}
+                            width="100%"
+                            height={460}
+                            autoPlay={true}
+                            poster={datas.cover}
+                            src={mvUrl}
+                        />
                         <p className="time">发布时间：{datas.publishTime}</p>
                         <p className="count">播放次数：{datas.playCount > 10000 ? parseInt(datas.playCount / 10000) : datas.playCount}万次</p>
                         <p className="desc">{datas.desc}</p>

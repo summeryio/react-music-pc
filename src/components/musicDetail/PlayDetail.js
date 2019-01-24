@@ -115,7 +115,7 @@ class PlayDetail extends Component {
                                                                             song.alia.length ? (<em className="tip"> - ({song.alia[0]})</em>) : null
                                                                         }
                                                                         {
-                                                                            song.mv ? (<i className="icon-table mv"></i>) : null
+                                                                            song.mv ? (<Link to={`/mvDetail/${song.mv}`}><i className="icon-table mv"></i></Link>) : null
                                                                         }
                                                                     </span>
                                                                 </div>
