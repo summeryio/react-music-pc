@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
+import RGBaster from 'common/js/rgbaster.js'
 
 let initialState = {
     bannerData: [],
@@ -21,13 +22,16 @@ const GET_RANK = 'app/HomeRedux/GET_RANK'
 const GET_USER_INFO = 'app/HomeRedux/GET_USER_INFO'
 const GET_SINGER = 'app/HomeRedux/GET_SINGER'
 
+
 export const getBanner = () => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/banner`).then((res) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
             res.data.banners = res.data.banners.filter(banner => {
-                if (banner.targetType === 3000) {
+                let type = parseInt(banner.targetType)
+                
+                if (type === 3000 || type === 1005) {
                     return false
                 }
 

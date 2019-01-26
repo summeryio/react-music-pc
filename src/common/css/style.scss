@@ -1469,18 +1469,19 @@ button, input {
 // =============各个页面样式=============
 // 首页
 #home_banner {
-	height: 400px;
+	height: 336px;
+	background-repeat: repeat-x;
 	
 	.inner {
 		position: relative;
-		width: 1080px;
-		height: 400px;
+		width: 982px;
+		height: 336px;
 		margin: 0 auto;
 	}
 	.wrap {
 		.pic img {
-			width: 1080px;
-			height: 400px;
+			width: 730px;
+			height: 336px;
 		}
 		.btn {
 			display: block;

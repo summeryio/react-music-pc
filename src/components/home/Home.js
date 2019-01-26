@@ -45,7 +45,8 @@ class Home extends Component {
             albumData,
             rankData,
             userInfo,
-            singerData
+            singerData,
+            colorArr
         } = this.props.home
         let {
             getRecommend,
@@ -62,7 +63,7 @@ class Home extends Component {
                     barActive: '/discover'
                 }}
             >
-                <Banner datas={bannerData} />
+                <Banner datas={bannerData}/>
                 <div id="main" className="g-bd home-bd">
                     <div className="main-content">
                         <div className="inner">
