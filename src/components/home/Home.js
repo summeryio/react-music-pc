@@ -63,7 +63,7 @@ class Home extends Component {
                 }}
             >
                 <Banner datas={bannerData} />
-                <main id="main" className="g-bd home-bd">
+                <div id="main" className="g-bd home-bd">
                     <div className="main-content">
                         <div className="inner">
                             <PlayList {...{playListTag, playListData}} />
@@ -76,7 +76,7 @@ class Home extends Component {
                         <User {...{getUserInfo, code, userId, userInfo}}/>
                         <Singer singerData={singerData}/>
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

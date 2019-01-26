@@ -39,7 +39,7 @@ class PlayDetail extends Component {
                     navActive: '/'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="main-inner">
                         <div className="summary">
                             <div className="pic"><img src={playDetailData.coverImgUrl && playDetailData.coverImgUrl + '?param=200y200'}/></div>
@@ -140,7 +140,7 @@ class PlayDetail extends Component {
                                                                 </div>
                                                             </td>
                                                             <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
-                                                            <td><div className="t-hide album"><a href="#" className="t-udl">{song.al.name}</a></div></td>
+                                                            <td><div className="t-hide album"><Link to={`/albumDetail/${song.al.id}`} className="t-udl">{song.al.name}</Link></div></td>
                                                         </tr>
                                                     )
                                                 }) : null
@@ -152,7 +152,7 @@ class PlayDetail extends Component {
                         </div>
                         {Object.keys(playDetailData).length ? <Comment id={id} urlType="playlist"/> : null}
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

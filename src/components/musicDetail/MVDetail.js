@@ -42,7 +42,7 @@ class MVDetail extends Component {
                     navActive: '/'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="main-inner">
                         <h3 className="mv-title">
                             <i className="icon-eight"></i>
@@ -63,7 +63,7 @@ class MVDetail extends Component {
                         <p className="desc">{datas.desc}</p>
                         {loaded ? <Comment id={id} urlType="mv"/> : null}
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

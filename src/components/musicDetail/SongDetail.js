@@ -40,7 +40,7 @@ class SongDetail extends Component {
                     navActive: '/'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="main-inner">
                         <div className="summary">
                             <div className="pic">
@@ -75,7 +75,7 @@ class SongDetail extends Component {
                         </div>
                         {Object.keys(songDetailData).length ? <Comment id={id} urlType="music"/> : null}
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

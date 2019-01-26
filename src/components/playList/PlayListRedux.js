@@ -10,7 +10,7 @@ const GET_PLSY_LIST = 'music/TopListRedux/GET_PLSY_LIST'
 const GET_CAT_LIST = 'music/TopListRedux/GET_CAT_LIST'
 
 export const getPlayList = (order, cat, nowPage) => (dispatch, getState) => {
-    axios.get(`${URL_HEADER}/top/playlist?limit=35&order=${order}&cat=${cat}&offset=${nowPage}`).then((res) => {
+    axios.get(`${URL_HEADER}/top/playlist?limit=35&order=${order}&cat=${encodeURI(cat)}&offset=${nowPage}`).then((res) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {

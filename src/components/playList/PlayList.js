@@ -15,7 +15,7 @@ class PlayList extends Component {
         this.state = {
             showPopup: false,
             order: 'hot',
-            cat: props.match.params.cat
+            cat: props.match.params.cat || '全部'
         }
     }
 
@@ -50,6 +50,7 @@ class PlayList extends Component {
         let {getPlayList} = this.props.playListAction
         let {playListData, catListData} = this.props.playList
         let {showPopup, order, cat} = this.state
+
 
         let playListTemp = Object.keys(playListData).length > 0 ? playListData.playlists.map(data => {
             let playCount = data.playCount > 100000 ? parseInt(data.playCount / 10000) + '万' : parseInt(data.playCount)
@@ -113,11 +114,11 @@ class PlayList extends Component {
                     barActive: '/discover/playList'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="inner">
                         <div className="category clearfix">
                             <div className="fl">
-                                <h3>{playListData.cat}</h3>
+                                <h3>{cat}</h3>
                                 <a 
                                     href="javascript: void(0);"
                                     className="u-btn2"
@@ -146,7 +147,7 @@ class PlayList extends Component {
                                 <div className="c">
                                     <div className="all">
                                         <Link 
-                                            to="/discover/playList/全部"
+                                            to="/discover/playList"
                                             className="t-udl icon-button2"
                                             onClick={ev => {
                                                 this.setState({
@@ -155,7 +156,6 @@ class PlayList extends Component {
                                             }}
                                         >全部风格</Link>
                                     </div>
-                                    
                                     {catListTemp}
                                     <div className="space"></div>
                                 </div>
@@ -181,7 +181,7 @@ class PlayList extends Component {
                             ) : null
                         }
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

@@ -41,7 +41,7 @@ class AlbumDetail extends Component {
                     navActive: '/'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="main-inner">
                         <div className="summary">
                             <div className="pic">
@@ -141,7 +141,7 @@ class AlbumDetail extends Component {
                         </div>
                         {loaded ? <Comment id={id} urlType="album"/> : null}
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

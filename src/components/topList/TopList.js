@@ -34,7 +34,7 @@ class TopList extends Component {
                     barActive: '/discover/topList'
                 }}
             >
-                <main id="main" className="g-bd topList-bd clearfix">
+                <div id="main" className="g-bd topList-bd clearfix">
                     <div className="main-siderBar">
                         <SiderBarList {...{changeTag, tagList, id, playList}}/>
                     </div>
@@ -45,7 +45,7 @@ class TopList extends Component {
                             {playListLoaded ? <Comment id={id} urlType="playlist"/> : null}
                         </div>
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

@@ -3,7 +3,6 @@ import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import AutomaticToTop from 'common/component/AutomaticToTop'
 import Home from 'components/home/Home'
-import My from 'components/my/My'
 import Friend from 'components/friend/Friend'
 import TopList from 'components/topList/TopList'
 import PlayList from 'components/playList/PlayList'
@@ -13,6 +12,9 @@ import SongDetail from 'components/musicDetail/SongDetail'
 import AlbumDetail from 'components/musicDetail/AlbumDetail'
 import MVDetail from 'components/musicDetail/MVDetail'
 
+import My from 'components/my/My'
+import MyPlaylist from 'components/my/MyPlaylist'
+
 export default class RouterIndex extends Component {
   render() {
     // exact: 加上这个属性，那么就只会匹配相应组件
@@ -21,16 +23,20 @@ export default class RouterIndex extends Component {
             <AutomaticToTop>
                 <Switch>
                     <Route path="/" exact component={Home} ammeter/>
-                    <Route path="/my" component={My}/>
                     <Route path="/friend" component={Friend} />
                     <Route path="/discover" exact component={Home} />
                     <Route path="/discover/topList/:id" component={TopList} />
+                    <Route path="/discover/playList" component={PlayList} />
                     <Route path="/discover/playList/:cat" component={PlayList} />
                     <Route path="/discover/album" component={Album} />
                     <Route path="/playDetail/:id" component={PlayDetail} />
                     <Route path="/songDetail/:id" component={SongDetail} />
                     <Route path="/albumDetail/:id" component={AlbumDetail} />
                     <Route path="/mvDetail/:id" component={MVDetail} />
+
+                    
+                    <Route path="/my" exact component={My}/>
+                    <Route path="/my/playlist/:id" component={MyPlaylist}/>
                 </Switch>
             </AutomaticToTop>
         </Router>

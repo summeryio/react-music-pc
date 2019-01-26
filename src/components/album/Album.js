@@ -42,7 +42,7 @@ class Album extends Component {
                     barActive: '/discover/album'
                 }}
             >
-                <main id="main" className="g-bd">
+                <div id="main" className="g-bd">
                     <div className="inner">
                         <div className="album-title"><h3>新碟上架</h3></div>
                         <ul className="album-list">{albumTemp ? albumTemp : <Loading />}</ul>
@@ -57,7 +57,7 @@ class Album extends Component {
                             />
                         </div>
                     </div>
-                </main>
+                </div>
             </PublicModule>
         )
     }

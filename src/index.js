@@ -1,5 +1,11 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import 'babel-polyfill'
+import 'react-app-polyfill/ie9';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+
+
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import {ConnectedRouter} from 'react-router-redux'
 import {Provider} from 'react-redux'
 import {Route} from 'react-router'
@@ -7,6 +13,7 @@ import configureStore, {history} from 'reduxes/configureStore'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
+
 
 import 'common/css/style.scss'
 import RouterIndex from 'router/RouterIndex'
@@ -41,6 +48,9 @@ export default class App extends Component {
                         data: res.data
                     }
                 })
+
+                sessionStorage.setItem('code', res.status)
+                sessionStorage.setItem('data', JSON.stringify(res.data.profile))
             }
         }).catch(error => {
             this.setState({

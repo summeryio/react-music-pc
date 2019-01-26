@@ -4,6 +4,7 @@ import topList from 'components/topList/TopListRedux'
 import playList from 'components/playList/PlayListRedux'
 import album from 'components/album/AlbumRedux'
 import musicDetail from 'components/musicDetail/MusicDetailRedux'
+import my from 'components/my/MyRedux'
 
 export default {
     publicState,
@@ -11,5 +12,6 @@ export default {
     topList,
     playList,
     album,
-    musicDetail
+    musicDetail,
+    my
 }

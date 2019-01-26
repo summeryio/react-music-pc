@@ -1350,7 +1350,8 @@ button, input {
 #topList_page,
 #playDetail_page,
 #songDetail_page,
-#albumDetail_page {
+#albumDetail_page,
+#my_page {
 	.operation {
 		overflow: hidden;
 		margin-top: 19px;
@@ -2681,7 +2682,8 @@ button, input {
 }
 
 // 歌单详情
-#playDetail_page {
+#playDetail_page,
+#my_page {
 	.main-inner {
 		padding: 40px;
 	}
@@ -2732,7 +2734,7 @@ button, input {
 			}
 		}
 		.tag {
-			margin: 25px 0 8px;
+			margin-top: 25px;
 			
 			dt {
 				display: inline-block;
@@ -2752,6 +2754,7 @@ button, input {
 			}
 		}
 		.desc {
+			margin-top: 10px;
 			line-height: 20px;
 			color: #666;
 		}
@@ -3022,6 +3025,117 @@ button, input {
 		max-width: 640px;
 		line-height: 18px;
 		margin-top: 20px;
+	}
+}
+
+// 我的音乐
+#my_page {
+	.my-bd {
+		background: url(../img/wrap_3.png) repeat-y 100% 100%;
+	}	
+	.main-content {
+		width: 740px;
+		margin-left: 240px;
+		padding-bottom: 40px;
+
+		.inner {
+			padding: 39px 30px 40px 39px;
+		}
+	}
+	.main-siderBar {
+		position: static;
+		float: left;
+		width: 240px;
+	}
+	.total-collect {
+		padding-top: 40px;
+		&.fixed {
+			position: fixed;
+			top: 0;
+			width: 240px;
+			padding-top: 0;
+		}
+		
+		.item {
+			height: 36px;
+			line-height: 36px;
+			
+			a {
+				display: block;
+				font-size: 14px;
+				font-weight: bold;
+				padding: 0 5px 2px 35px;
+			}
+			i {
+				display: inline-block;
+				margin: 0 5px 0 -18px;
+				border-width: 7px 6px 0;
+				border-color: #ccc transparent transparent;
+				border-style: solid dashed dashed;
+			}
+			i.icon-folded {
+				margin-right: 0;
+				border: 7px solid #ccc;
+				border-color: transparent transparent transparent #ccc;
+				border-style: dashed dashed dashed solid;
+			}
+		}
+		.item-singer:hover, .item-mv:hover {
+			background-color: #eee;
+		}
+		.list {
+			li {
+				position: relative;
+				height: 42px;
+				padding: 6px 0 6px 20px;
+				
+				&:hover {
+					background-color:#f4f2f2;
+				}
+				&.active {
+					background-color:#e6e6e6;
+				}
+			}
+			.pic {
+				float: left;
+				img {
+					width: 40px;
+					height: 40px;
+				}
+			}
+			.info {
+				margin-left: 50px;
+				p {}
+			}
+			.name {
+				width: 150px;
+				margin: 4px 0 10px 0;
+			}
+			.author {
+				width: 130px;
+				color: #999;
+			}
+			.link {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	.summary {
+		padding: 40px;
+	}
+	.song-list .top {
+		padding: 0 10px;
+	}
+	.comment-oper .top,
+	.comment-oper .cont {
+		padding: 0 20px;
+	}
+	.comment-list {
+		padding: 0 20px;
 	}
 }
 // =============各个页面样式=============
