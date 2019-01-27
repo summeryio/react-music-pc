@@ -270,7 +270,6 @@ class PlayList extends Component {
         let {playListData, catListData} = this.props.playList
         let {showPopup, order} = this.state
         let {cat} = this.props.match.params
-        console.log(playListData);
 
         let playListTemp = Object.keys(playListData).length > 0 ? playListData.playlists.map(data => {
             let playCount = data.playCount > 100000 ? parseInt(data.playCount / 10000) + '万' : parseInt(data.playCount)

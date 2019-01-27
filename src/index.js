@@ -39,6 +39,8 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+        console.log("%c 小扇引微凉，悠悠夏日长。", "color: rgb(95, 164, 205); font-family: 'Microsoft Yahei'")
+        
         axios.get(`${URL_HEADER}/login/status`, {withCredentials: true}).then((res) => {
             
             if (res.status === HTTP_SUCCESS_CODE) {
