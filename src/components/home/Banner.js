@@ -53,12 +53,7 @@ export default class Banner extends Component {
         let temp = null
         if (loaded) {
             let type = parseInt(nowSlider.targetType)
-            
-            /* if (nowSlider.url && type === 3000) {
-                temp = (<a href={nowSlider.url} target="_blank" className="pic"><img src={nowSlider.picUrl} /></a>)
-            } else {
-                temp = (<Link to={`/${targetType[type]}/${nowSlider.targetId}`} className="pic"><img src={nowSlider.picUrl} /></Link>)
-            } */
+
             temp = (<Link to={`/${targetType[type]}/${nowSlider.targetId}`} className="pic"><img src={nowSlider.picUrl} /></Link>)
         }
 
@@ -91,6 +86,12 @@ export default class Banner extends Component {
                                 })
                             }
                         </ul>
+                        <div className="download">
+                            <a href="javascript: void(0);"></a>
+                            <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
+                            <span className="shadow"></span>
+                            <span className="shadow-r"></span>
+                        </div>
                     </div>) : null
                 }
             </div>
