@@ -15,6 +15,8 @@ import MVDetail from 'components/musicDetail/MVDetail'
 import My from 'components/my/My'
 import MyPlaylist from 'components/my/MyPlaylist'
 
+import User from 'components/user/User'
+
 export default class RouterIndex extends Component {
   render() {
     // exact: 加上这个属性，那么就只会匹配相应组件
@@ -26,7 +28,7 @@ export default class RouterIndex extends Component {
                     <Route path="/friend" component={Friend} />
                     <Route path="/discover" exact component={Home} />
                     <Route path="/discover/topList/:id" component={TopList} />
-                    <Route path="/discover/playList" component={PlayList} />
+                    <Route path="/discover/playList" exact component={PlayList} />
                     <Route path="/discover/playList/:cat" component={PlayList} />
                     <Route path="/discover/album" component={Album} />
                     <Route path="/playDetail/:id" component={PlayDetail} />
@@ -37,6 +39,8 @@ export default class RouterIndex extends Component {
                     
                     <Route path="/my" exact component={My}/>
                     <Route path="/my/playlist/:id" component={MyPlaylist}/>
+
+                    <Route path="/user/:id" component={User}/>
                 </Switch>
             </AutomaticToTop>
         </Router>

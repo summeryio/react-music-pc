@@ -57,7 +57,7 @@ class Comment extends Component {
                                         comment.beReplied[0].status === 0
                                         ? (
                                             <p>
-                                                <Link to={`/user${comment.beReplied[0].user.nickname}`} className="t-udl">{comment.user.nickname}</Link>
+                                                <Link to={`/user/${comment.beReplied[0].user.userId}`} className="t-udl">{comment.user.nickname}</Link>
                                                 ：<em dangerouslySetInnerHTML={{__html: formatStringLine(comment.beReplied[0].content)}}></em>
                                             </p>
                                         ) : <em>该评论已删除</em>
@@ -108,7 +108,7 @@ class Comment extends Component {
                                         comment.beReplied[0].status === 0
                                         ? (
                                             <p>
-                                                <Link to={`/user${comment.beReplied[0].user.userId}`} className="t-udl">{comment.beReplied[0].user.nickname}</Link>
+                                                <Link to={`/user/${comment.beReplied[0].user.userId}`} className="t-udl">{comment.beReplied[0].user.nickname}</Link>
                                                 {
                                                     comment.beReplied[0].user.vipType > 0
                                                     ? (<img className="icon-vip" src="https://p1.music.126.net/iOnYL-pAvH2LuQfStGOjfQ==/109951163709553273.png" alt=""/>)

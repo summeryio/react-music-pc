@@ -49,8 +49,8 @@ class PlayDetail extends Component {
                                     Object.keys(playDetailData).length > 0
                                     ? (
                                         <p className="creater">
-                                            <a href="#" className="avatar"><img src={playDetailData.creator.avatarUrl + '?param=40y40'} alt={playDetailData.creator.nickname}/></a>
-                                            <a href="#" className="t-udl name">{playDetailData.creator.nickname}</a>
+                                            <Link to={`/user/${playDetailData.creator.userId}`} className="avatar"><img src={playDetailData.creator.avatarUrl + '?param=40y40'} alt={playDetailData.creator.nickname}/></Link>
+                                            <Link to={`/user/${playDetailData.creator.userId}`} className="t-udl name">{playDetailData.creator.nickname}</Link>
                                             <span className="time">{formatDateYMD(playDetailData.createTime)} 创建</span>
                                         </p>
                                     ) : null
