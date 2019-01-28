@@ -39,8 +39,8 @@ export default class PlayList extends Component {
                                             <a href="javascript:;" className="icon-seven play"></a>
                                         </p>
                                     </div>
-                                    <p className="desc">
-                                        <Link to={`/playDetail/${data.id}`} className="t-udl">{/* <i className="icon-six"></i> */}{data.name}</Link>
+                                    <p className="name">
+                                        <Link to={`/playDetail/${data.id}`} title={data.name} className="t-udl">{/* <i className="icon-six"></i> */}{data.name}</Link>
                                     </p>
                                 </li>
                             )

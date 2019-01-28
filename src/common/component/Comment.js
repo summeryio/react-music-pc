@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import * as actions from './PublicRedux'
 import {formatCommentDate, formatStringLine} from '../js/util'
 
-import CommentPaging from 'common/component/CommentPaging'
+import { Pagination } from 'antd'
 
 class Comment extends Component {
     componentWillReceiveProps(nextProps) {
@@ -28,8 +28,10 @@ class Comment extends Component {
         let {commentData} = this.props.publicState
         let {commentPaging} = this.props.commentAction
         let {id, urlType} = this.props
-        
-        let hotComment = (Object.keys(commentData).length > 0 && commentData.hotComments && commentData.hotComments.length > 0) ? commentData.hotComments.map(comment => {
+        let {total, comments, hotComments} = commentData
+        let loaded = Object.keys(commentData).length > 0
+
+        let hotComment = (loaded && hotComments && hotComments.length) ? hotComments.map(comment => {
             let time = formatCommentDate(comment.time)
             
             return (
@@ -81,7 +83,7 @@ class Comment extends Component {
                 </dd>
             )
         }) : null
-        let comments = (Object.keys(commentData).length > 0 && commentData.comments.length) ? commentData.comments.map(comment => {
+        let commentsTemp = (loaded && comments.length) ? comments.map(comment => {
             let time = formatCommentDate(comment.time)
             
             return (
@@ -164,35 +166,36 @@ class Comment extends Component {
                 </div>
                 <div className="comment-list">
                     {
-                        hotComment
-                        ? (
+                        hotComment && (
                             <dl className="hot-comment">
                                 <dt>精彩评论</dt>
                                 {hotComment}
                             </dl>
-                        ) : null
+                        )
                     }
                     {
-                        comments
-                        ? (
+                        commentsTemp && (
                             <dl>
                                 <dt>最新评论({commentData.total})</dt>
-                                {comments}
+                                {commentsTemp}
                             </dl>
-                        ) : null
+                        )
                     }
                 </div>
                 {
-                    commentData.more
+                    commentsTemp && total > 20
                     ? (
-                        <CommentPaging
-                            {...{
-                                commentPaging,
-                                total: commentData.total,
-                                id,
-                                urlType
-                            }}
-                        />
+                        <div id="paging">
+                            <Pagination 
+                                defaultCurrent={1} 
+                                total={commentData.total}
+                                pageSize={20}
+                                size="small"
+                                onChange={(page, pageSize) => {
+                                    commentPaging(id, page, urlType)
+                                }}
+                            />
+                        </div>
                     ) : null
                 }
             </div>

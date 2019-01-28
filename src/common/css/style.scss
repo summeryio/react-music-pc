@@ -1678,7 +1678,7 @@ button, input {
 					}
 				}
 			}
-			.desc {
+			.name {
 				padding-top: 8px;
 				line-height: 1.4;
 
@@ -2517,7 +2517,6 @@ button, input {
 		}
 	}
 	.play-list {
-		min-height: 1500px;
 		margin-top: 30px;
 		margin-left: -50px;
 		
@@ -2622,7 +2621,6 @@ button, input {
 	}
 	.album-list {
 		overflow: hidden;
-		min-height: 1500px;
 		margin: 20px 0 0 -33px;
 
 		li {
@@ -3111,7 +3109,7 @@ button, input {
 				width: 150px;
 				margin: 4px 0 10px 0;
 			}
-			.author {
+			.count {
 				width: 130px;
 				color: #999;
 			}

@@ -31,7 +31,7 @@ export default class Recommend extends Component {
                             <p className="day">{nowDate.getDate()}</p>
                             <a href="#" className="date-mask icon-date"></a>
                         </div>
-                        <p className="desc">
+                        <p className="name">
                             <a href="#" title="每日歌曲推荐" className="t-udl">每日歌曲推荐</a>
                             <span className="date-tip">根据你的口味生成，<br/>每天6:00更新</span>
                         </p>
@@ -51,8 +51,8 @@ export default class Recommend extends Component {
                                             <a href="javascript:void(0);" className="icon-seven play"></a>
                                         </p>
                                     </div>
-                                    <p className="desc">
-                                        <a href="#" className="t-udl">{data.name}</a>
+                                    <p className="name">
+                                        <Link to={`playDetail/${data.id}`} title={data.name} className="t-udl">{data.name}</Link>
                                     </p>
                                     <p className='copywriter'>
                                         <a href="javascript:void(0);" className="icon-five">不感兴趣</a>

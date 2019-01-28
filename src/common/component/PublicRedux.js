@@ -44,7 +44,7 @@ export const getComment = (id, urlType) => (dispatch, getState) => {
 
 // 评论分页
 export const commentPaging = (id, nowPage, urlType) => (dispatch, getState) => {
-    axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}&offset=${nowPage}`).then((res) => {
+    axios.get(`${URL_HEADER}/comment/${urlType}?id=${id}&offset=${(nowPage - 1) * 20}`).then((res) => {
         let {data} = res
 
         if (data.code === HTTP_SUCCESS_CODE) {

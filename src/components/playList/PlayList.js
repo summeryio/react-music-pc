@@ -37,6 +37,7 @@ class PlayList extends Component {
         let {cat} = this.props.match.params
         
         if (order !== nextState.order || page !== nextState.page) {
+            window.scrollTo(0, 0)
             getPlayList(nextState.order, cat, nextState.page)
         }
     }
@@ -169,7 +170,7 @@ class PlayList extends Component {
                             <ul className="play-list clearfix">{playListTemp ? playListTemp : <Loading />}</ul>
                         </div>
                         {
-                            playListData.more
+                            playListData.total > 35
                             ? (
                                 <div id="paging">
                                     <Pagination 
@@ -177,6 +178,7 @@ class PlayList extends Component {
                                         total={playListData.total}
                                         current={page}
                                         pageSize={35}
+                                        size="small"
                                         onChange={(page, pageSize) => {
                                             this.setState({page})
                                         }}

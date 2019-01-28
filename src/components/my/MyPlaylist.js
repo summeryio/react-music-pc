@@ -68,7 +68,7 @@ class MyPlaylist extends Component {
     }
 
     render() {
-        let {subcount, playlist} = this.props.my
+        let {playlist} = this.props.my
         let {playDetailData} = this.props.my
         let {id} = this.props.match.params
 
@@ -113,7 +113,7 @@ class MyPlaylist extends Component {
                                                             <div className="pic"><img src={play.coverImgUrl} /></div>
                                                             <div className="info">
                                                                 <p className="name t-hide" title={play.name}>{play.name}</p>
-                                                                <p className="author t-hide">{play.trackCount}首</p>
+                                                                <p className="count t-hide">{play.trackCount}首</p>
                                                             </div>
                                                             <Link to={`/my/playlist/${play.id}`} className="link"></Link>
                                                         </li>
@@ -133,8 +133,8 @@ class MyPlaylist extends Component {
                                             Object.keys(playDetailData).length > 0
                                             ? (
                                                 <p className="creater">
-                                                    <a href="#" className="avatar"><img src={playDetailData.creator.avatarUrl + '?param=40y40'} alt={playDetailData.creator.nickname}/></a>
-                                                    <a href="#" className="t-udl name">{playDetailData.creator.nickname}</a>
+                                                    <Link to={`/user/${playDetailData.creator.userId}`} className="avatar"><img src={playDetailData.creator.avatarUrl + '?param=40y40'} alt={playDetailData.creator.nickname}/></Link>
+                                                    <Link to={`/user/${playDetailData.creator.userId}`} className="t-udl name">{playDetailData.creator.nickname}</Link>
                                                     <span className="time">{formatDateYMD(playDetailData.createTime)} 创建</span>
                                                 </p>
                                             ) : null

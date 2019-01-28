@@ -15,7 +15,7 @@ const GET_PLAY_DETAIL = 'music/TopListRedux/GET_PLAY_DETAIL'
 
 export const getSubCount = () => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/user/subcount`).then((res) => {
-        // console.log(res);
+        console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {
             dispatch({

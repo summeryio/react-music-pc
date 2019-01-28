@@ -12,7 +12,7 @@ class Album extends Component {
     componentDidMount() {
         let {getAlbumData} = this.props.albumAction
 
-        getAlbumData(0)
+        getAlbumData(1)
     }
     
     render () {
@@ -51,6 +51,7 @@ class Album extends Component {
                                 defaultCurrent={1} 
                                 total={albumData.total}
                                 pageSize={35}
+                                size="small"
                                 onChange={(page, pageSize) => {
                                     getAlbumData(page)
                                 }}
