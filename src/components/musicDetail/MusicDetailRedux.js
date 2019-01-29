@@ -7,7 +7,8 @@ let initialState = {
     lyric: '',
     albumDetailData: {},
     mvDetailData: {},
-    mvUrl: ''
+    mvUrl: '',
+    recommendDetail: {}
 }
 
 
@@ -17,6 +18,7 @@ const GET_LYRIC = 'music/TopListRedux/GET_LYRIC'
 const GET_ALBUM = 'music/TopListRedux/GET_ALBUM'
 const GET_MV = 'music/TopListRedux/GET_MV'
 const GET_MV_URL = 'music/TopListRedux/GET_MV_URL'
+const GET_RECOMMEND_DETAIL = 'music/TopListRedux/GET_RECOMMEND_DETAIL'
 
 
 export const getPlayListData = (id) => (dispatch, getState) => {
@@ -122,6 +124,21 @@ export const getMVUrl = (id) => (dispatch, getState) => {
     })
 }
 
+export const getRecommend = () => (dispatch, getState) => {
+    axios.get(`${URL_HEADER}/recommend/songs`).then((res) => {
+        // console.log(res);
+
+        if (res.status === HTTP_SUCCESS_CODE) {
+            dispatch({
+                type: GET_RECOMMEND_DETAIL,
+                recommendDetail: res.data
+            })
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+}
+
 
 export default function musicDetail(state = initialState, action) {
     let {
@@ -131,7 +148,8 @@ export default function musicDetail(state = initialState, action) {
         lyric,
         albumDetailData,
         mvDetailData,
-        mvUrl
+        mvUrl,
+        recommendDetail
     } = action
 
     switch (type) {
@@ -152,6 +170,9 @@ export default function musicDetail(state = initialState, action) {
             break
         case GET_MV_URL:
             return {...state, mvUrl}
+            break
+        case GET_RECOMMEND_DETAIL:
+            return {...state, recommendDetail}
             break
 
         default:

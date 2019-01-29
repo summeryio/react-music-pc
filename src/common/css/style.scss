@@ -3026,6 +3026,73 @@ button, input {
 	}
 }
 
+// 每日推荐详情
+#recommendDetail_page {
+	.main-inner {
+		padding: 40px;
+	}
+	.summary {
+		position: relative;
+		height: 180px;
+		background: url(../img/recommend_detail.jpg) no-repeat;
+
+		.date {
+			position: absolute;
+			top: 34px;
+			left: 54px;
+			width: 114px;
+			height: 114px;
+			background-position: 0 -270px;
+		}
+		.week {
+			height: 26px;
+			line-height: 26px;
+			color: #fed9d9;
+			font-size: 12px;
+			text-align: center;
+		}
+		.day {
+			font-size: 74px;
+			line-height: 80px;
+			text-align: center;
+		}
+		.mask {
+			position: absolute;
+			top: 26px;
+			left: 0;
+			width: 142px;
+			height: 107px;
+			background-position: 0 -400px;
+		}
+	}
+	.song-list {
+		margin-top: 28px;
+		
+		.top {
+			height: 31px;
+			line-height: 24px;
+			border-bottom: 2px solid #c20c0c;
+			
+			h3 {
+				float: left;
+				font-size: 20px;
+			}
+			.sont-num {
+				float: left;
+				padding-left: 20px;
+				line-height: 31px;
+				color: #666;
+			}
+			.play-num {
+				float: right;
+			}
+			span {
+				color: #c20c0c;
+			}
+		}
+	}
+}
+
 // 我的音乐
 #my_page {
 	.my-bd {

@@ -29,10 +29,10 @@ export default class Recommend extends Component {
                         <div className="pic icon-date">
                             <p className="week">{week[nowDate.getDay()]}</p>
                             <p className="day">{nowDate.getDate()}</p>
-                            <a href="#" className="date-mask icon-date"></a>
+                            <Link to="/recommendDetail" className="date-mask icon-date"></Link>
                         </div>
                         <p className="name">
-                            <a href="#" title="每日歌曲推荐" className="t-udl">每日歌曲推荐</a>
+                            <Link to="/recommendDetail" title="每日歌曲推荐" className="t-udl">每日歌曲推荐</Link>
                             <span className="date-tip">根据你的口味生成，<br/>每天6:00更新</span>
                         </p>
                     </li>

@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import AutomaticToTop from 'common/component/AutomaticToTop'
+
 import Home from 'components/home/Home'
 import Friend from 'components/friend/Friend'
 import TopList from 'components/topList/TopList'
 import PlayList from 'components/playList/PlayList'
 import Album from 'components/album/Album'
+
 import PlayDetail from 'components/musicDetail/PlayDetail'
 import SongDetail from 'components/musicDetail/SongDetail'
 import AlbumDetail from 'components/musicDetail/AlbumDetail'
 import MVDetail from 'components/musicDetail/MVDetail'
+import RecommendDetail from 'components/musicDetail/RecommendDetail'
 
 import My from 'components/my/My'
 import MyPlaylist from 'components/my/MyPlaylist'
@@ -31,10 +34,12 @@ export default class RouterIndex extends Component {
                     <Route path="/discover/playList" exact component={PlayList} />
                     <Route path="/discover/playList/:cat" component={PlayList} />
                     <Route path="/discover/album" component={Album} />
+
                     <Route path="/playDetail/:id" component={PlayDetail} />
                     <Route path="/songDetail/:id" component={SongDetail} />
                     <Route path="/albumDetail/:id" component={AlbumDetail} />
                     <Route path="/mvDetail/:id" component={MVDetail} />
+                    <Route path="/recommendDetail" component={RecommendDetail} />
 
                     
                     <Route path="/my" exact component={My}/>
