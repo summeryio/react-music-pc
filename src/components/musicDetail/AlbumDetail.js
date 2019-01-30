@@ -33,7 +33,7 @@ class AlbumDetail extends Component {
         let {id} = this.props.match.params
         let loaded = albumDetailData.code === 200
         let {songs, album} = albumDetailData
-        
+
         return (
             <PublicModule 
                 {...{
@@ -71,7 +71,7 @@ class AlbumDetail extends Component {
                             </div>
                         </div>
                         {
-                            loaded
+                            loaded && album.description
                             ? (
                                 <p className="desc">
                                     <b>专辑介绍：</b>

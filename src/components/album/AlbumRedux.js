@@ -8,7 +8,6 @@ let initialState = {
 const GET_ALBUM_DATA = 'music/TopListRedux/GET_ALBUM_DATA'
 
 export const getAlbumData = (page) => (dispatch, getState) => {
-    console.log(page);
     axios.get(`${URL_HEADER}/top/album?offset=${(page - 1) * 35}&limit=35`).then((res) => {
         // console.log(res);
 

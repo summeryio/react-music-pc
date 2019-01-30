@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default class PlayList extends Component {
     render() {
-        let {playListTag,playListData} = this.props
+        let {playListTag, playListData} = this.props
 
         return (
             <section className="play">

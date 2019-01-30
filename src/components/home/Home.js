@@ -45,15 +45,16 @@ class Home extends Component {
             albumData,
             rankData,
             userInfo,
-            singerData,
-            colorArr
+            singerData
         } = this.props.home
         let {
             getRecommend,
             getUserInfo
         } = this.props.homeAction
-        let {code} = this.context.user
-        let {userId} = code === 200 ? this.context.user.data.profile : 0
+        let {user} = this.context
+        let {code} = user
+        let userId = code === 200 ? user.profile.userId : null
+
 
         return (
             <PublicModule 

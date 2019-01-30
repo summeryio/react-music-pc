@@ -28,7 +28,7 @@ export const getPlayListData = (id) => (dispatch, getState) => {
         if (res.status === HTTP_SUCCESS_CODE) {
             dispatch({
                 type: GET_PLAY_DETAIL,
-                playDetailData: res.data.playlist
+                playDetailData: res.data
             })
         }
     }).catch(error => {
@@ -125,7 +125,7 @@ export const getMVUrl = (id) => (dispatch, getState) => {
 }
 
 export const getRecommend = () => (dispatch, getState) => {
-    axios.get(`${URL_HEADER}/recommend/songs`).then((res) => {
+    axios.get(`${URL_HEADER}/recommend/songs`, {withCredentials: true}).then((res) => {
         // console.log(res);
 
         if (res.status === HTTP_SUCCESS_CODE) {

@@ -31,6 +31,9 @@ class PlayDetail extends Component {
     render () {
         let {playDetailData} = this.props.musicDetail
         let {id} = this.props.match.params
+        let loaded = playDetailData.code === 200
+        let playDetail = loaded ? playDetailData.playlist : {}
+        let creator = loaded ? playDetail.creator : {}
 
         return (
             <PublicModule 
@@ -42,34 +45,31 @@ class PlayDetail extends Component {
                 <div id="main" className="g-bd">
                     <div className="main-inner">
                         <div className="summary">
-                            <div className="pic"><img src={playDetailData.coverImgUrl && playDetailData.coverImgUrl + '?param=200y200'}/></div>
+                            <div className="pic"><img src={playDetail.coverImgUrl && playDetail.coverImgUrl + '?param=200y200'}/></div>
                             <div className="info">
-                                <h3 className="title"><i className="icon-six"></i>{playDetailData.name}</h3>
-                                {
-                                    Object.keys(playDetailData).length > 0
-                                    ? (
-                                        <p className="creater">
-                                            <Link to={`/user/${playDetailData.creator.userId}`} className="avatar"><img src={playDetailData.creator.avatarUrl + '?param=40y40'} alt={playDetailData.creator.nickname}/></Link>
-                                            <Link to={`/user/${playDetailData.creator.userId}`} className="t-udl name">{playDetailData.creator.nickname}</Link>
-                                            <span className="time">{formatDateYMD(playDetailData.createTime)} 创建</span>
-                                        </p>
-                                    ) : null
-                                }
+                                <h3 className="title"><i className="icon-six"></i>{playDetail.name}</h3>
+                                <p className="creater">
+                                    <Link to={`/user/${creator.userId}`} className="avatar">
+                                        <img src={creator.avatarUrl && creator.avatarUrl + '?param=40y40'} alt={creator.nickname}/>
+                                    </Link>
+                                    <Link to={`/user/${creator.userId}`} className="t-udl name">{creator.nickname}</Link>
+                                    <span className="time">{formatDateYMD(playDetail.createTime)} 创建</span>
+                                </p>
                                 <div className="operation">
                                     <a href="javascript: void(0);" className="u-btn2 add-play"><i><em className="u-btn2 play"></em>播放</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 add"></a>
-                                    <a href="javascript: void(0);" className="u-btn2 u-btni collect"><i>({playDetailData.subscribedCount})</i></a>
-                                    <a href="javascript: void(0);" className="u-btn2 u-btni share"><i>({playDetailData.shareCount})</i></a>
+                                    <a href="javascript: void(0);" className="u-btn2 u-btni collect"><i>({playDetail.subscribedCount})</i></a>
+                                    <a href="javascript: void(0);" className="u-btn2 u-btni share"><i>({playDetail.shareCount})</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 u-btni download"><i>下载</i></a>
-                                    <a href="javascript: void(0);" className="u-btn2 u-btni comment"><i>({playDetailData.commentCount})</i></a>
+                                    <a href="javascript: void(0);" className="u-btn2 u-btni comment"><i>({playDetail.commentCount})</i></a>
                                 </div>
                                 {
-                                    (Object.keys(playDetailData).length > 0 && playDetailData.tags.length > 0)
+                                    loaded && playDetail.tags.length
                                     ? (
                                         <dl className="tag">
                                             <dt>标签：</dt>
                                             {
-                                                playDetailData.tags.map((tag, t) => {
+                                                playDetail.tags.map((tag, t) => {
                                                     return (<dd key={t}><Link to={`/discover/playList/${tag}`}>{tag}</Link></dd>)
                                                 })
                                             }
@@ -77,11 +77,11 @@ class PlayDetail extends Component {
                                     ) : null
                                 }
                                 {
-                                    (Object.keys(playDetailData).length > 0 && playDetailData.description)
+                                    playDetail.description
                                     ? (
                                         <p className="desc">
                                             <b>介绍：</b>
-                                            {<span dangerouslySetInnerHTML={{__html: formatStringLine(playDetailData.description || '')}}></span>}
+                                            {<span dangerouslySetInnerHTML={{__html: formatStringLine(playDetail.description || '')}}></span>}
                                         </p>
                                     ) : null
                                 }
@@ -90,11 +90,11 @@ class PlayDetail extends Component {
                         <div className="song-list">
                             <div className="top">
                                 <h3>歌曲列表</h3>
-                                <p className="sont-num">{playDetailData.trackCount}首歌</p>
-                                <p className="play-num">播放：<span>{playDetailData.playCount}</span>次</p>
+                                <p className="sont-num">{playDetail.trackCount}首歌</p>
+                                <p className="play-num">播放：<span>{playDetail.playCount}</span>次</p>
                             </div>
                             {
-                                Object.keys(playDetailData).length
+                                loaded
                                 ? (
                                     <table id="m_table">
                                         <thead>
@@ -108,7 +108,7 @@ class PlayDetail extends Component {
                                         </thead>
                                         <tbody>
                                             {
-                                                Object.keys(playDetailData).length > 0 ? playDetailData.tracks.map((song, i) => {
+                                                playDetail.tracks.map((song, i) => {
                                                     let even = i % 2 === 0 ? 'even' : ''
                                                     
                                                     return (
@@ -143,14 +143,14 @@ class PlayDetail extends Component {
                                                             <td><div className="t-hide album"><Link to={`/albumDetail/${song.al.id}`} className="t-udl">{song.al.name}</Link></div></td>
                                                         </tr>
                                                     )
-                                                }) : null
+                                                })
                                             }
                                         </tbody>
                                     </table>
                                 ) : (<Loading />)
                             }
                         </div>
-                        {Object.keys(playDetailData).length ? <Comment id={id} urlType="playlist"/> : null}
+                        {loaded ? <Comment id={id} urlType="playlist"/> : null}
                     </div>
                 </div>
             </PublicModule>

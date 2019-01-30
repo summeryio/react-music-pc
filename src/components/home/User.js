@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import {showLogin} from 'common/component/PublicRedux'
 
-export default class User extends Component {
+class User extends Component {
     componentWillReceiveProps(nextProps) {
         let {getUserInfo, code} = this.props
 
@@ -10,7 +13,7 @@ export default class User extends Component {
     }
     
     render() {
-        let {code, userInfo} = this.props
+        let {code, userInfo, showLogin} = this.props
         
         return (
             <div className="user">
@@ -36,7 +39,7 @@ export default class User extends Component {
                     : (
                         <div className="not-login icon-five">
                             <p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
-                            <a href="javascript: void(0);" className="icon-five">用户登录</a>
+                            <a href="javascript: void(0);" className="icon-five" onClick={ev => showLogin(true)}>用户登录</a>
                         </div>
                     )
                 }
@@ -44,3 +47,10 @@ export default class User extends Component {
         )
     }
 }
+
+export default connect(
+    state => {
+        return {}
+    },
+    dispatch => bindActionCreators({showLogin}, dispatch)
+)(User)

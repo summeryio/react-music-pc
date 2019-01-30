@@ -1461,6 +1461,117 @@ button, input {
 		}
 	}
 }
+
+// 登录框
+#login {
+	.login-mask {
+		position: fixed;
+		z-index: 9998;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.login-c {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -265px;
+		margin-top: -150px;
+		z-index: 9999;
+		width: 530px;
+		height: 300px;
+		border-radius: 4px;
+		background-color: #fff;
+		box-shadow: 0 5px 16px rgba(0,0,0,0.8);
+	}
+	.bar {
+		position: relative;
+		padding-right: 45px;
+		margin: 0;
+		height: 38px;
+		line-height: 38px;
+		padding-left: 18px;
+		border-radius: 3px 3px 0 0;
+		font-weight: bold;
+		font-size: 14px;
+		color: #fff;
+		background-color: #2d2d2d;
+		cursor: move;
+		
+		span {}
+		i {
+			position: absolute;
+			z-index: 20;
+			top: 16px;
+			right: 20px;
+			width: 10px;
+			height: 10px;
+			overflow: hidden;
+			text-indent: -9999px;
+			cursor: pointer;
+			background: url(../img/login.png) no-repeat;
+			background-position: 0 -95px;
+		}
+	}
+	.form {
+		width: 220px;
+		padding: 30px 0 40px;
+		margin: 0 auto;
+		
+		input {
+			display: block;
+			width: 206px;
+			height: 20px;
+			margin: 0;
+			padding: 5px 6px 6px;
+			border: 1px solid #cdcdcd;
+			border-radius: 2px;
+			line-height: 22px;
+		}
+		.tip {
+			margin-top: 8px;
+			line-height: 18px;
+			color: #e33232;
+
+			i {
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				background-position: -50px -270px;
+				vertical-align: -2px;
+				margin-right: 5px;
+			}
+		}
+		.account {}
+		.password {
+			margin-top: 20px;
+		}
+	}
+	.login-btn {
+		margin-top: 20px;
+		
+		a {
+			width: 215px;
+			background-position: right -428px;
+			text-align: left;
+			color: #fff;
+			&:hover {
+				background-position: right -510px;
+
+				i {
+					background-position: 0 -469px;
+				}
+			}
+		}
+
+		i {
+			width: 180px;
+			padding: 0 15px 0 20px;
+			background-position: 0 -387px;
+		}
+	}
+}
 // =============公共模块=============
 
 

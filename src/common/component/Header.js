@@ -41,14 +41,16 @@ class Header extends Component {
     
     render() {
         let {
-            user,
-			searchSuggest,
+			user,
 			navActive,
-			barActive
-        } = this.props
+			barActive,
+			showLogin
+		} = this.props
+		let {searchSuggest} = this.props.publicState
         let {changeSearchVal} = this
 		let {searchValue, hideSearchResult} = this.state
-
+		let {logout} = this.props
+		
         // 搜索建议
         let suggestTitleObj = {
             'songs': '单曲',
@@ -172,8 +174,8 @@ class Header extends Component {
 								<div className="btn">
 									{
 										user.code === 200
-										? <img src={user.data.profile.avatarUrl} alt={user.data.profile.nickname} />
-										: <a href="javascript:;" className="t-udl">登录</a>
+										? <img src={user.profile.avatarUrl} alt={user.profile.nickname} />
+										: <a href="javascript: void(0);" className="t-udl" onClick={ev => showLogin(true)}>登录</a>
 									}
 									<i className="icon-header icon-arrow"></i>
 								</div>
@@ -187,10 +189,10 @@ class Header extends Component {
 											<li className="line"><a href="#"><i className="icon-user icon-vip"></i>VIP会员</a></li>
 											<li><a href="#"><i className="icon-user icon-setting"></i>个人设置</a></li>
 											<li className="line"><a href="#"><i className="icon-user icon-prove"></i>实名认证</a></li>
-											<li><a href="#"><i className="icon-user icon-quit"></i>退出</a></li>
+											<li onClick={ev => logout()}><a href="javascript: void(0);"><i className="icon-user icon-quit"></i>退出</a></li>
 										</ul>
 									)
-									: (
+									: null/* (
 										<ul className="list not-login">
 											<li><a href="#"><i className="icon-user icon-phone"></i>手机号登录</a></li>
 											<li><a href="#"><i className="icon-user icon-wx"></i>微信登录</a></li>
@@ -198,7 +200,7 @@ class Header extends Component {
 											<li><a href="#"><i className="icon-user icon-sina"></i>新浪微博登录</a></li>
 											<li><a href="#"><i className="icon-user icon-163"></i>网易邮箱帐号登录</a></li>
 										</ul>
-									)
+									) */
 								}
 							</div>
 						</div>
@@ -235,11 +237,11 @@ class Header extends Component {
 export default connect(
     state => {
         let {
-            publicState: {searchSuggest}
+            publicState
         } = state
 
         return {
-            searchSuggest
+            publicState
         }
     },
     dispatch => bindActionCreators({...actions}, dispatch)

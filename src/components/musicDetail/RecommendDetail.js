@@ -21,9 +21,9 @@ class RecommendDetail extends Component {
         let {recommendDetail} = this.props.musicDetail
         let loaded = Object.keys(recommendDetail).length > 0
         let recommends = loaded ? recommendDetail.recommend : []
+        let week = ['Sunday', 'Monday', 'Tuesday', 'Wendsday', 'Thursday', 'Friday', 'Saturday']
+        let nowDate = new Date()
 
-        console.log(recommends);
-        
         return (
             <PublicModule 
                 {...{
@@ -35,8 +35,8 @@ class RecommendDetail extends Component {
                     <div className="main-inner">
                         <div className="summary">
                             <div className="date icon-date">
-                                <p className="week">Tuesday</p>
-                                <p className="day">29</p>
+                                <p className="week">{week[nowDate.getDay()]}</p>
+                                <p className="day">{nowDate.getDate()}</p>
                                 <span className="mask icon-date"></span>
                             </div>
                         </div>

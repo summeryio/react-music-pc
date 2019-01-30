@@ -54,7 +54,7 @@ class User extends Component {
                 <div id="main" className="g-bd">
                     <div className="main-inner">
                         <div className="user-info">
-                            <div className="pic fl"><img src={userProfile.avatarUrl + '?param=180y180'}/></div>
+                            <div className="pic fl"><img src={userProfile.avatarUrl && userProfile.avatarUrl + '?param=180y180'}/></div>
                             <div className="info">
                                 <h2 className="name">
                                     {userProfile.nickname}
