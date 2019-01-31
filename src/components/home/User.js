@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {showLogin} from 'common/component/PublicRedux'
@@ -9,6 +10,14 @@ class User extends Component {
 
         if (code !== nextProps.code && nextProps.code === 200) {
             getUserInfo(nextProps.userId)
+        }
+    }
+
+    componentDidMount() {
+        let {getUserInfo, code} = this.props
+
+        if (code === 200) {
+            getUserInfo(this.props.userId)
         }
     }
     
@@ -22,9 +31,9 @@ class User extends Component {
                     ? (
                         <div className="logined icon-five">
                             <div className="t">
-                                <a href="#" className="avatar"><img src={userInfo.avatarUrl} /></a>
+                                <Link to={`user/${userInfo.userId}`} className="avatar"><img src={userInfo.avatarUrl && userInfo.avatarUrl + '?param=140y140'} /></Link>
                                 <div className="info">
-                                    <p className="name"><a href="#" className="t-udl t-hide">{userInfo.nickname}</a></p>
+                                    <p className="name"><Link to={`user/${userInfo.userId}`} className="t-udl t-hide">{userInfo.nickname}</Link></p>
                                     <a href="#" className="level icon-eight">{userInfo.level}<i className="icon-eight"></i></a>
                                     <a href="#" className="u-btn2 sign"><i>签到</i></a>
                                 </div>

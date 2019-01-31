@@ -44,11 +44,24 @@ class MVDetail extends Component {
             >
                 <div id="main" className="g-bd">
                     <div className="main-inner">
-                        <h3 className="mv-title">
-                            <i className="icon-eight"></i>
-                            {datas.name}
-                            <a href="#" className="t-udl">{datas.artistName}</a>
-                        </h3>
+                        <div className="mv-title clearfix">
+                            <h3>
+                                <i className="icon-eight"></i>
+                                {datas.name}
+                            </h3>
+                            <p className="artists">
+                                {
+                                    loaded && datas.artists.map((artist, s) => {
+                                        return (
+                                            <span key={artist.id}>
+                                                <a href="#" className="t-udl">{artist.name}</a>
+                                                {s === datas.artists.length - 1 ? '' : ' / '}
+                                            </span>
+                                        )
+                                    })
+                                }
+                            </p>
+                        </div>
                         <Player
                             playsInline
                             fluid={false}

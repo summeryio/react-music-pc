@@ -183,7 +183,7 @@ class Header extends Component {
 									user.code === 200
 									? (
 										<ul className="list logined">
-											<li><a href="#"><i className="icon-user icon-mypage"></i>我的主页</a></li>
+											<li><Link to={`user/${user.profile.userId}`}><i className="icon-user icon-mypage"></i>我的主页</Link></li>
 											<li><a href="#"><i className="icon-user icon-msg"></i>我的消息</a></li>
 											<li><a href="#"><i className="icon-user icon-level"></i>我的等级</a></li>
 											<li className="line"><a href="#"><i className="icon-user icon-vip"></i>VIP会员</a></li>

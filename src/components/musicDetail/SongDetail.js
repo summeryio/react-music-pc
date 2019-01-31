@@ -32,7 +32,7 @@ class SongDetail extends Component {
         let {commentData} = this.props.publicState
         let {id} = this.props.match.params
         let {ar, al} = songDetailData
-
+        
         return (
             <PublicModule 
                 {...{
@@ -58,8 +58,21 @@ class SongDetail extends Component {
                                     }
                                 </h3>
                                 <p className="recource">{songDetailData.alia}</p>
-                                <p className="singer">歌手：<a href="#">{ar && ar[0].name}</a></p>
-                                <p className="singer">所属专辑：{al && <Link to={`/albumDetail/${al.id}`}>{al.name}</Link>}</p>
+                                <p className="singer">
+                                    歌手：
+                                    {
+                                        ar && ar.map((singer, s) => {
+                                            return (
+                                                <span key={singer.id}>
+                                                    <a href="#" className="t-udl">{singer.name}</a>
+                                                    {s === ar.length - 1 ? '' : ' / '}
+                                                </span>
+                                            )
+                                        })
+                                    }
+                                    
+                                </p>
+                                <p className="singer">所属专辑：{al && <Link to={`/albumDetail/${al.id}`} className="t-udl">{al.name}</Link>}</p>
                                 <div className="operation">
                                     <a href="javascript: void(0);" className="u-btn2 add-play"><i><em className="u-btn2 play"></em>播放</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 add"></a>

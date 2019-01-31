@@ -55,7 +55,6 @@ class Home extends Component {
         let {code} = user
         let userId = code === 200 ? user.profile.userId : null
 
-
         return (
             <PublicModule 
                 {...{

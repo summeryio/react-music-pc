@@ -2976,7 +2976,9 @@ button, input {
 			color: #bababa;
 		}
 		.singer {
+			max-width: 600px;
 			margin: 15px 0;
+			line-height: 18px;
 			color: #999;
 			a {
 				color: #0c73c2;
@@ -3045,11 +3047,11 @@ button, input {
 		}
 		.recource {
 			font-size: 14px;
-			margin-top: 5px;
-			margin-left: 64px;
+			margin: 5px 0 15px 64px;
 			color: #bababa;
 		}
 		.intro {
+			max-width: 600px;
 			margin-top: 4px;
 			line-height: 18px;
 			color: #666;
@@ -3105,10 +3107,17 @@ button, input {
 		padding: 40px;
 	}
 	.mv-title {
-		line-height: 32px;
-		font-size: 24px;
+		// overflow: hidden;
+		padding-top: 10px;
 		margin-bottom: 8px;
 		
+		h3 {
+			float: left;
+			line-height: 32px;
+			margin-right: 5px;
+			margin-top: -10px;
+			font-size: 24px;
+		}
 		i {
 			display: inline-block;
 			width: 29px;
@@ -3116,8 +3125,12 @@ button, input {
 			margin-right: 5px;
 			background-position: -230px -480px;
 		}
+	}
+	.artists {
+		float: left;
+		margin-top: 4px;
+		
 		a {
-			padding-left: 5px;
 			color: #0c73c2;
 			font-size: 12px;
 		}

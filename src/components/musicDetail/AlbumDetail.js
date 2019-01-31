@@ -32,7 +32,8 @@ class AlbumDetail extends Component {
         let {albumDetailData} = this.props.musicDetail
         let {id} = this.props.match.params
         let loaded = albumDetailData.code === 200
-        let {songs, album} = albumDetailData
+        let songs = loaded ? albumDetailData.songs : {}
+        let album = loaded ? albumDetailData.album : {}
 
         return (
             <PublicModule 
@@ -45,15 +46,27 @@ class AlbumDetail extends Component {
                     <div className="main-inner">
                         <div className="summary">
                             <div className="pic">
-                                <img src={loaded ? album.picUrl + '?param=178y178' : null}/>
+                                <img src={album.picUrl && album.picUrl + '?param=178y178'}/>
                                 <i className="icon-coverall mask"></i>
                             </div>
                             <div className="info">
-                                <h3 className="title"><i className="tag icon-six"></i>{loaded && album.name}</h3>
-                                {loaded && album.alias.length ? <p className="recource">{album.alias}</p> : null}
-                                <p className="intro">歌手：<a href="#">{loaded && album.artist.name}</a></p>
+                                <h3 className="title"><i className="tag icon-six"></i>{album.name}</h3>
+                                <p className="recource">{album.alias}</p>
+                                <p className="intro">
+                                    歌手：
+                                    {
+                                        loaded && album.artists.map((artist, s) => {
+                                            return (
+                                                <span key={artist.id}>
+                                                    <a href="#" className="t-udl">{artist.name}</a>
+                                                    {s === album.artists.length - 1 ? '' : ' / '}
+                                                </span>
+                                            )
+                                        })
+                                    }
+                                </p>
                                 <p className="intro">发行时间：{loaded && formatDateYMD(album.publishTime)}</p>
-                                <p className="intro">发行公司： {loaded && album.company}</p>
+                                {album.company ? <p className="intro">发行公司： {album.company}</p> : null}
                                 <div className="operation">
                                     <a href="javascript: void(0);" className="u-btn2 add-play"><i><em className="u-btn2 play"></em>播放</i></a>
                                     <a href="javascript: void(0);" className="u-btn2 add"></a>
