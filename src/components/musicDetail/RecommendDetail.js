@@ -91,7 +91,21 @@ class RecommendDetail extends Component {
                                                                     <a href="javascript: void(0);" className="download"></a>
                                                                 </div>
                                                             </td>
-                                                            <td><div className="t-hide singer"><a href="#" className="t-udl">{song.artists[0].name}</a></div></td>
+                                                            <td>
+                                                                <div className="t-hide singer">
+                                                                    
+                                                                    {
+                                                                        song.artists.map((artist, a) => {
+                                                                            return (
+                                                                                <span key={artist.id}>
+                                                                                    <Link to={`/artist/${artist.id}`} className="t-udl">{artist.name}</Link>
+                                                                                    {a === song.artists.length - 1 ? '' : '/'}
+                                                                                </span>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </div>
+                                                            </td>
                                                             <td><div className="t-hide album"><Link to={`/albumDetail/${song.album.id}`} className="t-udl">{song.album.name}</Link></div></td>
                                                         </tr>
                                                     )
