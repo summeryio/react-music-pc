@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Singer extends Component {
     render() {
@@ -6,11 +7,11 @@ export default class Singer extends Component {
         let singerTemp = singerData.length > 0 ? singerData.map(singer => {
             return (
                 <li key={singer.accountId}>
-                    <a href="#">
+                    <Link to={`/user/${singer.accountId}`}>
                         <img src={singer.img1v1Url}/>
                         <h3>{singer.name}</h3>
                         <p>网易音乐人</p>
-                    </a>
+                    </Link>
                 </li>
             )
         }) : null

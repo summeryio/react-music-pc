@@ -139,7 +139,20 @@ class PlayDetail extends Component {
                                                                     <a href="javascript: void(0);" className="download"></a>
                                                                 </div>
                                                             </td>
-                                                            <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
+                                                            <td>
+                                                                <div className="t-hide singer">
+                                                                    {
+                                                                        song.ar.map((artist, i) => {
+                                                                            return (
+                                                                                <span key={artist.id}>
+                                                                                    <Link to={`/artist/${artist.id}`} className="t-udl">{artist.name}</Link>
+                                                                                    {i === song.ar.length - 1 ? '' : '/'}
+                                                                                </span>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </div>
+                                                            </td>
                                                             <td><div className="t-hide album"><Link to={`/albumDetail/${song.al.id}`} className="t-udl">{song.al.name}</Link></div></td>
                                                         </tr>
                                                     )

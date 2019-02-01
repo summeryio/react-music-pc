@@ -1572,6 +1572,21 @@ button, input {
 		}
 	}
 }
+
+// 无数据时模块
+#empty_data {
+	padding: 106px 0 106px 0;
+	text-align: center;
+	font-size: 18px;
+
+	i {
+		display: inline-block;
+		width: 64px;
+		height: 50px;
+		margin-right: 18px;
+		background-position: 0 -347px;
+	}
+}
 // =============公共模块=============
 
 
@@ -3099,6 +3114,9 @@ button, input {
 			}
 		}
 	}
+	#m_table th.t3 {
+		width: 150px;
+	}
 }
 
 // MV详情
@@ -3513,6 +3531,272 @@ button, input {
 				vertical-align: -3px;
 			}
 		}
+	}
+}
+
+// 歌手页面
+#artist_page {
+	.artist-bd {
+		background: url(../img/wrap_4.png) repeat-y center 100%;
+	}
+	.main-content {
+		margin-right: 271px;
+		
+		& > .inner {
+			padding: 20px 30px 40px 39px;
+		}
+	}
+	.artist-detail {
+		margin-bottom: 30px;
+		.name {
+			line-height: 40px;
+			font-size: 24px;
+		}
+		.pic {
+			position: relative;
+			img {
+				width: 640px;
+				height: 300px;
+			}
+		}
+		.tab {
+			position: relative;
+			top: -2px;
+			height: 40px;
+			border: 1px solid #d3d3d3;
+			border-top: none;
+			box-sizing: border-box;
+			background-color: rgb(247, 247, 247);
+
+			li {
+				float: left;
+				width: 25%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-top: 2px solid transparent;
+				box-sizing: border-box;
+
+				&:hover,
+				&.active {
+					border-top-color: rgb(209, 48, 48)
+				}
+				&:hover {}
+				&.active {
+					background-color: #fff;
+				}
+			}
+			a {
+				display: block;
+				font-size: 14px;
+			}
+		}
+		.mask {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url(../img/artist_mask.png) no-repeat;
+		}
+		.home {
+			position: absolute;
+			bottom: 18px;
+			right: 26px;
+			width: 96px;
+			height: 32px;
+			background-position: 0 -1156px;
+
+			&:hover {
+				background-position: 0 -1196px;
+			}
+		}
+	}
+	.main-siderBar {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 270px;
+	}
+	.simi-singer {
+		padding: 20px 40px 40px 30px;
+
+		h4 {
+			margin-bottom: 20px;
+			height: 30px;
+			line-height: 30px;
+			border-bottom: 1px solid #cccccc;
+		}
+		ul {
+			margin-left: -25px;
+		}
+		li {
+			float: left;
+			width: 50px;
+			height: 92px;
+			padding-left: 25px;
+		}
+		.pic {
+			img {
+				width: 50px;
+				height: 50px;
+			}
+		}
+		.name {
+			display: block;
+			width: 50px;
+			margin-top: 6px;
+			text-align: center;
+		}
+	}
+	#m_table {
+		border: none;
+		.w1 {
+			width: 74px;
+		}
+		.w2 {
+			width: 69px;
+		}
+		.w4 {
+			width: 20%;
+		}
+		.no {
+			width: 25px;
+			margin-left: 6px;
+			text-align: left;
+		}
+		.title {
+			width: auto;
+		}
+		.play {
+			float: right;
+			width: 17px;
+			height: 17px;
+			background-position: 0 -103px;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+	}
+	.album-list {
+		overflow: hidden;
+		margin: 20px 0 0 -18px;
+
+		li {
+			float: left;
+			width: 145px;
+			height: 175px;
+			margin-left: 18px;
+			margin-bottom: 30px;
+			background-image: url(../img/icon-five.png);
+			background-repeat: no-repeat;
+			background-position: -260px 100px;
+		}
+		.pic {
+			width: 120px;
+			height: 120px;
+			position: relative;
+			margin-bottom: 6px;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		.mask {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 145px;
+			height: 120px;
+			background-position: -170px -850px;
+		}
+		.play {
+			position: absolute;
+			z-index: 10;
+			width: 22px;
+			height: 22px;
+			right: 10px;
+			bottom: 5px;
+			background-position: 0 -85px;
+
+			&:hover {
+				background-position: 0 -110px;
+			}
+		}
+		.name {
+			display: block;
+			width: 90%;
+			line-height: 18px;
+			font-size: 14px;
+		}
+		.time {
+			color: #666;
+		}
+	}
+	.mv-list {
+		margin-left: -29px;
+		li {
+			float: left;
+			width: 138px;
+			height: 140px;
+			padding: 0 0 30px 29px;
+		}
+		.pic {
+			position: relative;
+			width: 138px;
+			height: 104px;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			.mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.play {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -22px 0 0 -22px;
+				width: 44px;
+				height: 44px;
+				background-position: -30px -135px;
+
+				&:hover {
+					background-position: -30px -85px;
+				}
+			}
+		}
+		.desc {
+			margin-top: 8px;
+			font-size: 14px;
+		}
+	}
+	.description {
+		h5 {
+			margin: 28px 0 8px 0;
+			font-size: 14px;
+		}
+		i {
+			height: 14px;
+			width: 3px;
+			margin-right: 7px;
+			background: #c10d0c;
+		}
+		p {
+			line-height: 24px;
+			color: #666;
+			text-indent: 2em;
+		}
+	}
+	.empty {
+		height: 200px;
+		line-height: 200px;
+		text-align: center;
+		font-size: 14px;
+		color: #666;
 	}
 }
 // =============各个页面样式=============

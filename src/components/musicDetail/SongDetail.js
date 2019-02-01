@@ -64,13 +64,12 @@ class SongDetail extends Component {
                                         ar && ar.map((singer, s) => {
                                             return (
                                                 <span key={singer.id}>
-                                                    <a href="#" className="t-udl">{singer.name}</a>
+                                                    <Link to={`/artist/${singer.id}`} className="t-udl">{singer.name}</Link>
                                                     {s === ar.length - 1 ? '' : ' / '}
                                                 </span>
                                             )
                                         })
                                     }
-                                    
                                 </p>
                                 <p className="singer">所属专辑：{al && <Link to={`/albumDetail/${al.id}`} className="t-udl">{al.name}</Link>}</p>
                                 <div className="operation">

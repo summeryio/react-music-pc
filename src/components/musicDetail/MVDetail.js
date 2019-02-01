@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from './MusicDetailRedux'
@@ -54,7 +55,7 @@ class MVDetail extends Component {
                                     loaded && datas.artists.map((artist, s) => {
                                         return (
                                             <span key={artist.id}>
-                                                <a href="#" className="t-udl">{artist.name}</a>
+                                                <Link to={`/artist/${artist.id}`} className="t-udl">{artist.name}</Link>
                                                 {s === datas.artists.length - 1 ? '' : ' / '}
                                             </span>
                                         )

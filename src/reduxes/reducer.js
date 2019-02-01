@@ -6,6 +6,7 @@ import album from 'components/album/AlbumRedux'
 import musicDetail from 'components/musicDetail/MusicDetailRedux'
 import my from 'components/my/MyRedux'
 import user from 'components/user/UserRedux'
+import artist from 'components/artist/ArtistRedux'
 
 export default {
     publicState,
@@ -15,5 +16,6 @@ export default {
     album,
     musicDetail,
     my,
-    user
+    user,
+    artist
 }
