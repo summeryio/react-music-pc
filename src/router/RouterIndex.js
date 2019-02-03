@@ -4,7 +4,6 @@ import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import AutomaticToTop from 'common/component/AutomaticToTop'
 
 import Home from 'components/home/Home'
-import Friend from 'components/friend/Friend'
 import TopList from 'components/topList/TopList'
 import PlayList from 'components/playList/PlayList'
 import Album from 'components/album/Album'
@@ -33,7 +32,6 @@ export default class RouterIndex extends Component {
             <AutomaticToTop>
                 <Switch>
                     <Route path="/" exact component={Home} ammeter/>
-                    <Route path="/friend" component={Friend} />
                     <Route path="/discover" exact component={Home} />
                     <Route path="/discover/topList/:id" component={TopList} />
                     <Route path="/discover/playList" exact component={PlayList} />

@@ -11,6 +11,17 @@ class User extends Component {
     constructor(props) {
         super(props)
     }
+
+    componentWillReceiveProps(nextProps) {
+        let {getUserInfo, getPlayList} = this.props.userAction
+        let {id} = this.props.match.params
+        let nextId = nextProps.match.params.id
+
+        if (id !== nextId) {
+            getUserInfo(nextId)
+            getPlayList(nextId)
+        }
+    }
     
     componentDidMount() {
         let {getUserInfo, getPlayList} = this.props.userAction

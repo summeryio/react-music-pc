@@ -94,15 +94,19 @@ class PlayList extends Component {
             let val = catListData.categories[key]
             key = parseInt(key)
             let subTemp = catListData.sub.map((item, i) => {
-                if (item.category === key) {
+                let str = /\//g
+                
+                if (item.category === key && !str.test(item.name)) {
+                    // let name = item.name.replace(/\//g, '%2F') // 转义/
+                    
                     return (
-                        <p key={i}>
+                        <span key={i}>
                             <Link 
                                 to={`/discover/playList/${item.name}`} 
                                 className={`t-udl ${cat === item.name ? 'cur' : ''}`}
                             >{item.name}</Link>
                             <i>|</i>
-                        </p>
+                        </span>
                     )
                 }
             })
@@ -114,6 +118,7 @@ class PlayList extends Component {
                 </dl>
             )
         }) : null
+
 
         return (
             <PublicModule 

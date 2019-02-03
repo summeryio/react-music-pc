@@ -129,7 +129,12 @@ class Header extends Component {
 									>发现音乐</Link>
 									{navActive && navActive === '/' ? <i className="icon-header icon-arrow"></i> : null}
 								</li>
-								<li>
+								<li><Link to="/">我的音乐</Link></li>
+								<li><Link to="/">朋友</Link></li>
+								<li><Link to="/">商城</Link></li>
+								<li><Link to="/">音乐人</Link></li>
+								<li><Link to="/">下载客户端</Link><i className="icon-header icon-hot"></i></li>
+								{/* <li>
 									<Link 
 										to="/my" 
 										className={navActive && navActive === '/my' ? 'nav-active' : ''}
@@ -145,7 +150,7 @@ class Header extends Component {
 								</li>
 								<li><Link to="/mall">商城</Link></li>
 								<li><Link to="/">音乐人</Link></li>
-								<li><Link to="/">下载客户端</Link><i className="icon-header icon-hot"></i></li>
+								<li><Link to="/">下载客户端</Link><i className="icon-header icon-hot"></i></li> */}
 							</ul>
 						</div>
 						<div className="fr">
@@ -183,7 +188,7 @@ class Header extends Component {
 									user.code === 200
 									? (
 										<ul className="list logined">
-											<li><Link to={`user/${user.profile.userId}`}><i className="icon-user icon-mypage"></i>我的主页</Link></li>
+											<li><Link to={`/user/${user.profile.userId}`}><i className="icon-user icon-mypage"></i>我的主页</Link></li>
 											<li><a href="#"><i className="icon-user icon-msg"></i>我的消息</a></li>
 											<li><a href="#"><i className="icon-user icon-level"></i>我的等级</a></li>
 											<li className="line"><a href="#"><i className="icon-user icon-vip"></i>VIP会员</a></li>
