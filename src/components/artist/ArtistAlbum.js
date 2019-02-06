@@ -48,7 +48,7 @@ class ArtistAlbum extends Component {
                                     </li>
                                 )
                             })
-                        ) : <div className="empty">暂无专辑</div>
+                        ) : null
                     }
                 </ul>
                 {

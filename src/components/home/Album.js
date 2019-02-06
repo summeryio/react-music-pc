@@ -39,7 +39,7 @@ export default class AlBum extends Component {
                                 let dot = (data.artists.length === 1 || j === data.artists.length - 1) ? '' : ' / '
                                 
                                 return (
-                                    <span key={singer.id}><a href="#" className="t-udl">{singer.name}</a>{dot}</span>
+                                    <span key={singer.id}><Link to={`/artist/${singer.id}`} className="t-udl">{singer.name}</Link>{dot}</span>
                                 )
                             })
                             

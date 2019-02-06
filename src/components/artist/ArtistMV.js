@@ -39,7 +39,7 @@ class ArtistMV extends Component {
                                     <p className="t-hide desc"><Link to={`/mvDetail/${mv.id}`} className="t-udl">{mv.name}</Link></p>
                                 </li>
                             )
-                        }) : <div className="empty">暂无MV</div>
+                        }) : null
                     }
                 </ul>
             </Artist>
