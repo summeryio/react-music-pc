@@ -110,7 +110,7 @@ class PlayDetail extends Component {
                                             {
                                                 playDetail.tracks.map((song, i) => {
                                                     let even = i % 2 === 0 ? 'even' : ''
-                                                    
+
                                                     return (
                                                         <tr className={even} key={song.id}>
                                                             <td>
@@ -142,11 +142,11 @@ class PlayDetail extends Component {
                                                             <td>
                                                                 <div className="t-hide singer">
                                                                     {
-                                                                        song.ar.map((artist, i) => {
+                                                                        song.ar.map((artist, j) => {
                                                                             return (
-                                                                                <span key={artist.id}>
+                                                                                <span key={artist.id + j}>
                                                                                     <Link to={`/artist/${artist.id}`} className="t-udl">{artist.name}</Link>
-                                                                                    {i === song.ar.length - 1 ? '' : '/'}
+                                                                                    {j === song.ar.length - 1 ? '' : '/'}
                                                                                 </span>
                                                                             )
                                                                         })

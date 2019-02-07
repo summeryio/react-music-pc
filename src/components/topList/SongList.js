@@ -66,7 +66,17 @@ export default class SongList extends Component {
                                                             <a href="javascript: void(0);" className="download"></a>
                                                         </div>
                                                     </td>
-                                                    <td><div className="t-hide singer"><a href="#" className="t-udl">{song.ar[0].name}</a></div></td>
+                                                    <td>
+                                                        <div className="t-hide singer">
+                                                            {
+                                                                song.ar.map((artist, j) => {
+                                                                    return (
+                                                                        <span key={artist.id + j}><Link to={`/artist/${artist.id}`} className="t-udl">{artist.name}</Link>{j === song.ar.length - 1 ? '' : '/'}</span>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             )
                                         }) : null
