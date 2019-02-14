@@ -76,7 +76,7 @@ class Header extends Component {
 								let n = data.name.replace(reg, `<span>${searchValue}</span>`)
                                 
                                 if (name === 'songs') {
-                                    let m = data.artists[0].name.replace(/happy/gi, `<span>happy</span>`)
+                                    let m = data.artists[0].name.replace(reg, `<span>${searchValue}</span>`)
                                     let s = n + '-' + m
 
                                     return (
@@ -84,10 +84,10 @@ class Header extends Component {
                                     )
                                 } else if (name === 'artists') {
                                     return (
-                                        <li key={data.id}><Link to={`/artistDetail/${data.id}`} dangerouslySetInnerHTML={{__html: n}}></Link></li>
+                                        <li key={data.id}><Link to={`/artist/${data.id}`} dangerouslySetInnerHTML={{__html: n}}></Link></li>
                                     )
                                 } else if (name === 'albums') {
-                                    let m = data.artist.name.replace(/happy/gi, `<span>happy</span>`)
+                                    let m = data.artist.name.replace(reg, `<span>${searchValue}</span>`)
                                     let s = n + '-' + m
                                     
                                     return (
