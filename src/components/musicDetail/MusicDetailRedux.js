@@ -12,13 +12,13 @@ let initialState = {
 }
 
 
-const GET_PLAY_DETAIL = 'music/TopListRedux/GET_PLAY_DETAIL'
-const GET_SONG_DETAIL = 'music/TopListRedux/GET_SONG_DETAIL'
-const GET_LYRIC = 'music/TopListRedux/GET_LYRIC'
-const GET_ALBUM = 'music/TopListRedux/GET_ALBUM'
-const GET_MV = 'music/TopListRedux/GET_MV'
-const GET_MV_URL = 'music/TopListRedux/GET_MV_URL'
-const GET_RECOMMEND_DETAIL = 'music/TopListRedux/GET_RECOMMEND_DETAIL'
+const GET_PLAY_DETAIL = 'music/MusicDetailRedux/GET_PLAY_DETAIL'
+const GET_SONG_DETAIL = 'music/MusicDetailRedux/GET_SONG_DETAIL'
+const GET_LYRIC = 'music/MusicDetailRedux/GET_LYRIC'
+const GET_ALBUM = 'music/MusicDetailRedux/GET_ALBUM'
+const GET_MV = 'music/MusicDetailRedux/GET_MV'
+const GET_MV_URL = 'music/MusicDetailRedux/GET_MV_URL'
+const GET_RECOMMEND_DETAIL = 'music/MusicDetailRedux/GET_RECOMMEND_DETAIL'
 
 
 export const getPlayListData = (id) => (dispatch, getState) => {

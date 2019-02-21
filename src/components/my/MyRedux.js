@@ -8,9 +8,9 @@ let initialState = {
 }
 
 
-const GET_SUB_COUNT = 'music/TopListRedux/GET_SUB_COUNT'
-const GET_PLATLIST = 'music/TopListRedux/GET_PLATLIST'
-const GET_PLAY_DETAIL = 'music/TopListRedux/GET_PLAY_DETAIL'
+const GET_SUB_COUNT = 'music/MyRedux/GET_SUB_COUNT'
+const GET_PLATLIST = 'music/MyRedux/GET_PLATLIST'
+const GET_PLAY_DETAIL = 'music/MyRedux/GET_PLAY_DETAIL'
 
 
 export const getSubCount = () => (dispatch, getState) => {

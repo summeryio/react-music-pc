@@ -9,11 +9,11 @@ let initialState = {
     simiArtist: {}
 }
 
-const GET_ARTIST_DATA = 'music/TopListRedux/GET_ARTIST_DATA'
-const GET_ALBUM_DATA = 'music/TopListRedux/GET_ALBUM_DATA'
-const GET_MV_DATA = 'music/TopListRedux/GET_MV_DATA'
-const GET_DESC_DATA = 'music/TopListRedux/GET_DESC_DATA'
-const GET_SIMI_ARTIST = 'music/TopListRedux/GET_SIMI_ARTIST'
+const GET_ARTIST_DATA = 'music/ArtistRedux/GET_ARTIST_DATA'
+const GET_ALBUM_DATA = 'music/ArtistRedux/GET_ALBUM_DATA'
+const GET_MV_DATA = 'music/ArtistRedux/GET_MV_DATA'
+const GET_DESC_DATA = 'music/ArtistRedux/GET_DESC_DATA'
+const GET_SIMI_ARTIST = 'music/ArtistRedux/GET_SIMI_ARTIST'
 
 export const getArtistData = (id) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/artists?id=${id}`).then((res) => {

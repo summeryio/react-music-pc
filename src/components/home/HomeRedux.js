@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {URL_HEADER, HTTP_SUCCESS_CODE} from 'common/js/constant'
-import RGBaster from 'common/js/rgbaster.js'
 
 let initialState = {
     bannerData: [],
@@ -13,14 +12,14 @@ let initialState = {
     singerData: []
 }
 
-const GET_BANNER = 'app/HomeRedux/GET_BANNER'
-const GET_PLAY_LIST_TAG = 'app/HomeRedux/GET_PLAY_LIST_TAG'
-const GET_PLAY_LIST = 'app/HomeRedux/GET_PLAY_LIST'
-const GET_RECOMMEND = 'app/HomeRedux/GET_RECOMMEND'
-const GET_ALBUM = 'app/HomeRedux/GET_ALBUM'
-const GET_RANK = 'app/HomeRedux/GET_RANK'
-const GET_USER_INFO = 'app/HomeRedux/GET_USER_INFO'
-const GET_SINGER = 'app/HomeRedux/GET_SINGER'
+const GET_BANNER = 'music/HomeRedux/GET_BANNER'
+const GET_PLAY_LIST_TAG = 'music/HomeRedux/GET_PLAY_LIST_TAG'
+const GET_PLAY_LIST = 'music/HomeRedux/GET_PLAY_LIST'
+const GET_RECOMMEND = 'music/HomeRedux/GET_RECOMMEND'
+const GET_ALBUM = 'music/HomeRedux/GET_ALBUM'
+const GET_RANK = 'music/HomeRedux/GET_RANK'
+const GET_USER_INFO = 'music/HomeRedux/GET_USER_INFO'
+const GET_SINGER = 'music/HomeRedux/GET_SINGER'
 
 
 export const getBanner = () => (dispatch, getState) => {

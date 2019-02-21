@@ -6,8 +6,8 @@ let initialState = {
     catListData: {}
 }
 
-const GET_PLSY_LIST = 'music/TopListRedux/GET_PLSY_LIST'
-const GET_CAT_LIST = 'music/TopListRedux/GET_CAT_LIST'
+const GET_PLSY_LIST = 'music/PlayListRedux/GET_PLSY_LIST'
+const GET_CAT_LIST = 'music/PlayListRedux/GET_CAT_LIST'
 
 export const getPlayList = (order, cat, nowPage) => (dispatch, getState) => {
     axios.get(`${URL_HEADER}/top/playlist?limit=35&order=${order}&cat=${encodeURI(cat)}&offset=${(nowPage - 1) * 35}`).then((res) => {
