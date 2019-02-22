@@ -23,7 +23,6 @@
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
-    "es6-map": "^0.1.5",
     "eslint": "5.6.0",
     "eslint-config-react-app": "^3.0.5",
     "eslint-loader": "2.1.1",
@@ -61,10 +60,8 @@
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
-    "swiper": "^4.4.5",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
-    "velocity-animate": "^1.5.2",
     "video-react": "^0.13.2",
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.9",
@@ -88,7 +85,8 @@
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "babel-plugin-import": "^1.11.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -136,7 +134,14 @@
       "react-app"
     ],
     "plugins": [
-      "transform-object-rest-spread"
+      "transform-object-rest-spread",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es"
+        }
+      ]
     ]
   }
 }

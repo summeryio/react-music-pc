@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {splitArray} from 'common/js/util'
 
-import Swiper from 'swiper/dist/js/swiper.js'
-import 'swiper/dist/css/swiper.min.css'
-
-
 export default class AlBum extends Component {
     constructor(props) {
         super(props)
